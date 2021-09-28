@@ -1,5 +1,8 @@
 import {BrowserRouter as Link} from "react-router-dom"
 import './App.css';
+import Registration from "./components/auth/Registration";
+import Login from "./components/auth/Login";
+
 function App() {
 
   const Sidebar = () => {
@@ -24,6 +27,8 @@ function App() {
     return (
       <div id="main">
         <button className="openbtn" onClick={OpenNav}>☰</button>
+        <Registration />
+        <Login />
       </div>
     )
   }
