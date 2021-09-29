@@ -3,6 +3,7 @@ import {BrowserRouter as Router,Switch,Route,Link}
 from "react-router-dom";
 import './App.css';
 import CreateChannel from "./components/channel/CreateChannel";
+import UserChannels from "./components/channel/UserChannels";
 import Home from "./components/Home";
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
           <li>
             <Link to="/create-channel">Create Channel</Link>
           </li>
+          <li>
+            <Link to="/user-channels">User Channels</Link>
+          </li>
         </ul>
       </div>
     )
@@ -28,6 +32,9 @@ function App() {
         <Switch>
           <Route path="/create-channel">
             <CreateChannel />
+          </Route>
+          <Route path="/user-channels">
+            <UserChannels />
           </Route>
           <Route path="/">
             <Home />
