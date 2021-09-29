@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { setUserSession, getToken } from '../../Utils/common';
 
 const Login = () => {
 
@@ -14,20 +15,23 @@ const Login = () => {
         setPassword(e.target.value)
     }
 
-    const userInput = {
-        'email': email,
-        'password': password
+    const authenticateLogin = (e) => {
+        e.preventDefault();
+        axios.post("http://206.189.91.54//api/v1/auth/sign_in", {
+           email: email,
+           password: password
+          }).then((res) => {
+            setUserSession(res['headers'], res['data']);
+          });
     }
 
-    const authenticateLogin = (e) => {
-        e.preventDefault()
-        axios({
-            method: "post",
-            url: "http://206.189.91.54//api/v1/auth/sign_in",
-            data: userInput,
-          }).then((res) => {
-            console.log(res);
-          });
+    const showUserList = (e) => {
+        e.preventDefault();
+        axios.get("http://206.189.91.54//api/v1/users", {
+            headers: getToken()
+        }).then((res) => {
+            console.log(res.data)
+        });
     }
 
     return ( 
@@ -39,6 +43,7 @@ const Login = () => {
                 <input type="text" onChange={passwordAuthenticate}/>
                 <button onClick={authenticateLogin}>Login</button>
             </form>
+            <button onClick={showUserList}>Show users</button>
         </div>
      );
 }
