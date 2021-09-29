@@ -1,7 +1,9 @@
-import {BrowserRouter as Link} from "react-router-dom"
+import React from "react";
+import {BrowserRouter as Router,Switch,Route,Link}
+from "react-router-dom";
 import './App.css';
-import Registration from "./components/auth/Registration";
-import Login from "./components/auth/Login";
+import CreateChannel from "./components/channel/CreateChannel";
+import Home from "./components/Home";
 
 function App() {
 
@@ -9,14 +11,11 @@ function App() {
     return (
       <div id="mySidebar" className="sidebar">
         <ul>
-          <li className="closebtn" onClick={CloseNav}>
-            <Link to="/">x</Link>
+          <li>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/login">Channels</Link>
-          </li>
-          <li>
-            <Link to="/registration">Direct Message</Link>
+            <Link to="/create-channel">Create Channel</Link>
           </li>
         </ul>
       </div>
@@ -26,29 +25,25 @@ function App() {
   const Main = () => {
     return (
       <div id="main">
-        <button className="openbtn" onClick={OpenNav}>☰</button>
-        <Registration />
-        <Login />
+        <Switch>
+          <Route path="/create-channel">
+            <CreateChannel />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </div>
     )
   }
-  
-  const OpenNav = () => {
-    document.getElementById("mySidebar").style.width = "300px";
-    document.getElementById("main").style.marginLeft = "300px";
-  }
-  
-  const CloseNav = () => {
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-  }
 
   return (
-    <div className="App">
-      <Sidebar />
-      <Main />
-      
-    </div>
+    <Router>
+      <div className="App">
+        <Sidebar />
+        <Main />
+      </div>
+    </Router>
   );
 }
 
