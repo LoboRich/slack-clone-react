@@ -5,7 +5,7 @@ import './App.css';
 import CreateChannel from "./components/channel/CreateChannel";
 import UserChannels from "./components/channel/UserChannels";
 import Home from "./components/Home";
-
+import OwnedUserChannels from "./components/channel/OwnedChannels";
 function App() {
 
   const Sidebar = () => {
@@ -20,6 +20,9 @@ function App() {
           </li>
           <li>
             <Link to="/user-channels">User Channels</Link>
+          </li>
+          <li>
+            <Link to="/owned-channels">Owned Channels</Link>
           </li>
         </ul>
       </div>
@@ -38,6 +41,9 @@ function App() {
           </Route>
           <Route path="/">
             <Home />
+          </Route>
+          <Route path ="/owned-channels">
+            <OwnedUserChannels />
           </Route>
         </Switch>
       </div>
