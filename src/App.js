@@ -5,6 +5,7 @@ import './App.css';
 import CreateChannel from "./components/channel/CreateChannel";
 import UserChannels from "./components/channel/UserChannels";
 import Home from "./components/Home";
+import RetrieveMessage from "./components/messages/RetrieveMessage";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           </li>
           <li>
             <Link to="/create-channel">Create Channel</Link>
+            <RetrieveMessage />
           </li>
           <li>
             <Link to="/user-channels">User Channels</Link>
