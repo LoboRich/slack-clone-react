@@ -6,6 +6,7 @@ import CreateChannel from "./components/channel/CreateChannel";
 import UserChannels from "./components/channel/UserChannels";
 import Home from "./components/Home";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
+import RetrieveMessage from "./components/messages/RetrieveMessage";
 import OwnedUserChannels from "./components/channel/OwnedChannels";
 
 function App() {
@@ -20,6 +21,10 @@ function App() {
           <li>
             <Link to="/channel">Channels</Link>
             <UserChannels />
+          </li
+          <li>
+            <Link to="/create-channel">Create Channel</Link>
+            <RetrieveMessage />
           </li>
           <li>
             <Link to="/user-channels">User Channels</Link>
