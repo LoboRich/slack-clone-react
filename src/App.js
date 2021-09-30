@@ -19,6 +19,10 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/channel">Channels</Link>
+            <UserChannels />
+          </li>
+          <li>
             <Link to="/create-channel">Create Channel</Link>
             <RetrieveMessage />
           </li>
