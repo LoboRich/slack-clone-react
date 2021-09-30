@@ -7,6 +7,10 @@ import UserChannels from "./components/channel/UserChannels";
 import Home from "./components/Home";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
 import OwnedUserChannels from "./components/channel/OwnedChannels";
+import { Avatar } from '@material-ui/core';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import SearchIcon from '@material-ui/icons/Search';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 
 function App() {
@@ -57,26 +61,21 @@ function App() {
   }
   
   const Header = () => {
-    // const history = useHistory()
-    // const [user, setUser] = useState(null)
 
     return (
         <div className="header">
           <div className="header__left">
-            {/* <AccessTimeIcon /> */}
+            <AccessTimeIcon />
           </div>
           <div className="header__middle">
-            {/* <SearchIcon /> */}
+            <SearchIcon />
             <input placeholder="Search tutorial-daltonic" />
           </div>
           <div className="header__right">
-            {/* <HelpOutlineIcon />
+            <HelpOutlineIcon />
             <Avatar
               className="header__avatar"
-              src={user?.photoURL}
-              alt={user?.displayName}
-              onClick={moveToAcc}
-            /> */}
+            />
           </div> 
         </div>
       )
