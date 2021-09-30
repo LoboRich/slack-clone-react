@@ -7,13 +7,13 @@ const SendMessage = () => {
         e.preventDefault()
         axios.post('http://206.189.91.54//api/v1/messages', {
             headers: getToken(),
-            data: {
-                'receiver_id': 56,
+            body: {
+                'receiver_id': 54,
                 'receiver_class': 'User',
                 'body': 'Whats up!' 
             }
             }).then((res) => {
-                console.log(res.data)
+                console.log(res['data'])
             });
         }
 
