@@ -16,7 +16,8 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/create-channel">Create Channel</Link>
+            <Link to="/channel">Channels</Link>
+            <UserChannels />
           </li>
           <li>
             <Link to="/user-channels">User Channels</Link>
@@ -30,7 +31,7 @@ function App() {
     return (
       <div id="main">
         <Switch>
-          <Route path="/create-channel">
+          <Route path="/channel">
             <CreateChannel />
           </Route>
           <Route path="/user-channels">

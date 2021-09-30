@@ -2,6 +2,10 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { getToken } from '../../Utils/common';
 
+const channelDetails = (e) => {
+    const channelId = e.target.id
+    alert(channelId)
+}
 
 const ChannelList = () => {
     const [channels, setChannels] = useState(null);
@@ -25,15 +29,13 @@ const ChannelList = () => {
         fetchUserChannels();
     });
   
-    return <div>
-        <h1>User Channels</h1>
-        {hasError ? <p>{hasError.message}</p> : null}
+    return <div className='channels'>
         {!isLoading ? (
             channels.map(channel => {
                 const {id, name} = channel;
                 return (
                     <div key={id}>
-                        <p>Name: {name}</p>
+                        <p id={id} onClick={channelDetails}>{name}</p>
                     </div>
                 );
             })
@@ -45,9 +47,7 @@ const ChannelList = () => {
 }
 function UserChannels(){
     return (
-        <div>
-            <ChannelList />
-        </div>
+        <ChannelList />
     )
 }
 export default UserChannels;
