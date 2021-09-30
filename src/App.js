@@ -5,6 +5,7 @@ import './App.css';
 import CreateChannel from "./components/channel/CreateChannel";
 import UserChannels from "./components/channel/UserChannels";
 import Home from "./components/Home";
+import MessengerContainer from "./components/Messenger/MessengerContainer";
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <MessengerContainer />
       </div>
     )
   }

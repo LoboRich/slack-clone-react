@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.message-wrapper {
+    height: 50vh;
+    width: 25vw;
+    border: 1px solid black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-box {
+    border-bottom: 1px solid black;
+    height: 90%;
+    width: 100%;
+}
+
+.message-input {
+    display: flex;
+    height: 10%;
+    width: 100%;
+}
+
+.message-input > button {
+    height: 100%;
+    width:20%;
+}
+
+.message-input > input {
+    height:100%;
+    width: 80%;
+}
