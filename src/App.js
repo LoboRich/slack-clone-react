@@ -5,8 +5,8 @@ import './App.css';
 import CreateChannel from "./components/channel/CreateChannel";
 import UserChannels from "./components/channel/UserChannels";
 import Home from "./components/Home";
-import RetrieveMessage from "./components/messages/RetrieveMessage";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
+import RetrieveMessage from "./components/messages/RetrieveMessage";
 import OwnedUserChannels from "./components/channel/OwnedChannels";
 
 function App() {
