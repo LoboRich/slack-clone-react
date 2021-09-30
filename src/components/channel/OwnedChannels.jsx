@@ -45,7 +45,7 @@ const OwnedList = () => {
 function OwnedUserChannels(){
     return (
         <div>
-            <OwnedUserChannels />
+            <OwnedList />
         </div>
     )
 }

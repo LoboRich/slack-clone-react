@@ -36,14 +36,16 @@ function App() {
           <Route path="/create-channel">
             <CreateChannel />
           </Route>
+          <Route path ="/owned-channels">
+            <OwnedUserChannels />
+          </Route>
+          
           <Route path="/user-channels">
             <UserChannels />
           </Route>
+          
           <Route path="/">
             <Home />
-          </Route>
-          <Route path ="/owned-channels">
-            <OwnedUserChannels />
           </Route>
         </Switch>
       </div>
