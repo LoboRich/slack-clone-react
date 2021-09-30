@@ -6,6 +6,7 @@ import CreateChannel from "./components/channel/CreateChannel";
 import UserChannels from "./components/channel/UserChannels";
 import Home from "./components/Home";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
+import OwnedUserChannels from "./components/channel/OwnedChannels";
 
 function App() {
 
@@ -22,6 +23,9 @@ function App() {
           <li>
             <Link to="/user-channels">User Channels</Link>
           </li>
+          <li>
+            <Link to="/owned-channels">Owned Channels</Link>
+          </li>
         </ul>
       </div>
     )
@@ -34,9 +38,14 @@ function App() {
           <Route path="/create-channel">
             <CreateChannel />
           </Route>
+          <Route path ="/owned-channels">
+            <OwnedUserChannels />
+          </Route>
+          
           <Route path="/user-channels">
             <UserChannels />
           </Route>
+          
           <Route path="/">
             <Home />
           </Route>
