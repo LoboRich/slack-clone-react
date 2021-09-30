@@ -5,7 +5,9 @@ import './App.css';
 import CreateChannel from "./components/channel/CreateChannel";
 import UserChannels from "./components/channel/UserChannels";
 import Home from "./components/Home";
+import MessengerContainer from "./components/Messenger/MessengerContainer";
 import OwnedUserChannels from "./components/channel/OwnedChannels";
+
 function App() {
 
   const Sidebar = () => {
@@ -49,6 +51,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <MessengerContainer />
       </div>
     )
   }
