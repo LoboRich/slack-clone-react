@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
 import OwnedUserChannels from "./components/channel/OwnedChannels";
 
+
 function App() {
 
   const Sidebar = () => {
@@ -54,15 +55,45 @@ function App() {
       </div>
     )
   }
+  
+  const Header = () => {
+    // const history = useHistory()
+    // const [user, setUser] = useState(null)
+
+    return (
+        <div className="header">
+          <div className="header__left">
+            {/* <AccessTimeIcon /> */}
+          </div>
+          <div className="header__middle">
+            {/* <SearchIcon /> */}
+            <input placeholder="Search tutorial-daltonic" />
+          </div>
+          <div className="header__right">
+            {/* <HelpOutlineIcon />
+            <Avatar
+              className="header__avatar"
+              src={user?.photoURL}
+              alt={user?.displayName}
+              onClick={moveToAcc}
+            /> */}
+          </div> 
+        </div>
+      )
+    }
 
   return (
     <Router>
       <div className="App">
-        <Sidebar />
-        <Main />
+      <Header />
+      <Sidebar />
+      <Main />
+        
       </div>
     </Router>
   );
+
 }
+
 
 export default App;
