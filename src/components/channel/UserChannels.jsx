@@ -3,11 +3,6 @@ import { useState, useEffect } from 'react';
 import { getToken } from '../../Utils/common';
 import './Channel.css'
 
-const channelDetails = (e) => {
-    const channelId = e.target.id
-    alert(channelId)
-}
-
 const ChannelList = () => {
     const [channels, setChannels] = useState([]);
     const [isLoading, setLoading] = useState(true);
@@ -42,7 +37,10 @@ const ChannelList = () => {
 }
 function UserChannels(){
     return (
-        <ChannelList />
+        <div>
+            <ChannelList />
+            <CreateChannel />
+        </div>
     )
 }
 export default UserChannels;

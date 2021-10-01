@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 import React from "react";
 import {BrowserRouter as Router,Switch,Route,Link}
 from "react-router-dom";
@@ -6,9 +8,14 @@ import CreateChannel from "./components/channel/CreateChannel";
 import UserChannels from "./components/channel/UserChannels";
 import Home from "./components/Home";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
-import RetrieveMessage from "./components/messages/RetrieveMessage";
 import OwnedUserChannels from "./components/channel/OwnedChannels";
+import { Avatar } from '@material-ui/core';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import SearchIcon from '@material-ui/icons/Search';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import RetrieveMessage from "./components/messages/RetrieveMessage";
 import ChannelDetails from "./components/channel/ChannelDetails";
+
 function App() {
 
   const Sidebar = () => {
@@ -37,6 +44,7 @@ function App() {
     )
   }
 
+
   const Main = () => {
     return (
       <div id="main">
@@ -64,11 +72,34 @@ function App() {
     )
   }
 
+  const Header = () => {
+
+    return (
+        <div className="header">
+          <div className="header__left">
+            <AccessTimeIcon />
+          </div>
+          <div className="header__middle">
+            <SearchIcon />
+            <input placeholder="Search tutorial-daltonic" />
+          </div>
+          <div className="header__right">
+            <HelpOutlineIcon />
+            <Avatar
+              className="header__avatar"
+            />
+          </div> 
+        </div>
+      )
+    }
+
   return (
     <Router>
       <div className="App">
-        <Sidebar />
-        <Main />
+      <Header />
+      <Sidebar />
+      <Main />
+        
       </div>
     </Router>
   );
