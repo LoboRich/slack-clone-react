@@ -28,13 +28,6 @@ function App() {
             <UserChannels />
           </li>
           <li>
-            <Link to="/create-channel">Create Channel</Link>
-            <RetrieveMessage />
-          </li>
-          <li>
-            <Link to="/user-channels">User Channels</Link>
-          </li>
-          <li>
             <Link to="/owned-channels">Owned Channels</Link>
           </li>
         </ul>
@@ -47,12 +40,16 @@ function App() {
     return (
       <div id="main">
         <Switch>
-          <Route path="/channel">
+          <Route path="/create-channel">
             <CreateChannel />
           </Route>
 
           <Route path ="/owned-channels">
             <OwnedUserChannels />
+          </Route>
+
+          <Route path="/user-channels">
+            <UserChannels />
           </Route>
 
           <Route path ="/channel-details/:id" component={ChannelDetails}></Route>
@@ -65,7 +62,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
-        <MessengerContainer />
+        {/*<MessengerContainer />*/}
       </div>
     )
   }
