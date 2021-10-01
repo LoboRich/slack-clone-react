@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { getToken } from '../../Utils/common';
+import './Channel.css'
 
 const channelDetails = (e) => {
     const channelId = e.target.id
@@ -8,12 +9,11 @@ const channelDetails = (e) => {
 }
 
 const ChannelList = () => {
-    const [channels, setChannels] = useState(null);
+    const [channels, setChannels] = useState([]);
     const [isLoading, setLoading] = useState(true);
     const [hasError, setErrors] = useState(false);
 
-
-    const fetchUserChannels = () => {
+    useEffect(() => {
         axios.get("http://206.189.91.54//api/v1/channels", {
             headers: getToken()
         }).then((res) => {
@@ -23,20 +23,15 @@ const ChannelList = () => {
             setErrors(error)
             setLoading(true)
         })
-    }
-
-    useEffect(() => {
-        fetchUserChannels();
-    });
+    },[channels.length]);
   
     return <div className='channels'>
+        {hasError ? <p>{hasError.message}</p> : null}
         {!isLoading ? (
             channels.map(channel => {
                 const {id, name} = channel;
                 return (
-                    <div key={id}>
-                        <p id={id} onClick={channelDetails}>{name}</p>
-                    </div>
+                    <a href={'/channel-details/'+id} key={id}></a>
                 );
             })
         ): (

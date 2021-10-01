@@ -8,7 +8,7 @@ import Home from "./components/Home";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
 import RetrieveMessage from "./components/messages/RetrieveMessage";
 import OwnedUserChannels from "./components/channel/OwnedChannels";
-
+import ChannelDetails from "./components/channel/ChannelDetails";
 function App() {
 
   const Sidebar = () => {
@@ -19,9 +19,9 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/channel">Channels</Link>
+            <Link to="/">Channels</Link>
             <UserChannels />
-          </li
+          </li>
           <li>
             <Link to="/create-channel">Create Channel</Link>
             <RetrieveMessage />
@@ -44,10 +44,13 @@ function App() {
           <Route path="/channel">
             <CreateChannel />
           </Route>
+
           <Route path ="/owned-channels">
             <OwnedUserChannels />
           </Route>
-          
+
+          <Route path ="/channel-details/:id" component={ChannelDetails}></Route>
+
           <Route path="/user-channels">
             <UserChannels />
           </Route>
