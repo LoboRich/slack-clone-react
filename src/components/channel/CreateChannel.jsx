@@ -41,13 +41,13 @@ const CreateChannel = () => {
         <div>
             <h1> Add New Channel </h1>
             <form onSubmit={create} id='add-channel-form'>
-                <input type='text' class='form-control' onChange={nameChange}/>
-                <select onChange={userListChange} class='form-control'>
+                <input type='text' className='form-control' onChange={nameChange}/>
+                <select onChange={userListChange} className='form-control'>
                     <option value="A">Apple</option>
                     <option value="B">Banana</option>
                     <option value="C">Cranberry</option>
                 </select>
-                <Button onClick={create} class='form-btn'>Add Channel</Button>
+                <Button onClick={create} className='form-btn'>Add Channel</Button>
             </form>
         </div>
      );
