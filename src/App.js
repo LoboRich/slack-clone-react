@@ -11,6 +11,7 @@ import { Avatar } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import SearchIcon from '@material-ui/icons/Search';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import RetrieveMessage from "./components/messages/RetrieveMessage";
 
 
 function App() {
@@ -23,7 +24,12 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/channel">Channels</Link>
+            <UserChannels />
+          </li>
+          <li>
             <Link to="/create-channel">Create Channel</Link>
+            <RetrieveMessage />
           </li>
           <li>
             <Link to="/user-channels">User Channels</Link>
@@ -96,3 +102,4 @@ function App() {
 
 
 export default App;
+
