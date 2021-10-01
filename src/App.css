@@ -1,3 +1,6 @@
+body {
+  color: white;
+}
 .sidebar {
   height: 100%;
   width: 300px;
@@ -103,6 +106,19 @@ form {
   display: flex;
   align-items: center;
   margin-left: 20px;
+}
+
+
+/*Channels*/
+.channels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 10%;
+}
+
+.channels > div {
+  padding: 10px;
 }
 
 .header__left > .MuiSvgIcon-root {

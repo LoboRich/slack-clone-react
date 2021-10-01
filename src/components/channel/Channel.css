@@ -1,0 +1,42 @@
+* {
+	color: black;
+}
+.details p {
+	color: black;
+}
+
+.channels a {
+	color: white;
+}
+
+#add-channel-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-channel-form > .form-control {
+  margin-bottom: 10px;
+  padding: 10px;
+  color: gray;
+  border-radius: 9px;
+  border: 1px solid gray;
+}
+
+#add-channel-form > .form-btn {
+  border: none;
+  padding: 10px;
+  color: gray;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+#add-channel-form > .form-btn:hover {
+  color: white;
+  background-color: var(--slack-color);
+  transition: all 0.3s ease-in-out;
+}
+
+#add-channel-form > .form-control,
+#add-channel-form > .form-btn:focus {
+  outline: none;
+}

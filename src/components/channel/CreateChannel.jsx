@@ -1,12 +1,31 @@
 import axios from "axios";
 import { getToken } from "../../Utils/common";
+import {useState} from 'react'
+import { Button } from '@material-ui/core'
+import './Channel.css'
 
 const CreateChannel = () => {
+    const [name, setName] = useState();
+    const [userList, setUserList] = useState([]);
+
+    const nameChange = (e) => {
+        setName(e.target.value)
+    }
+
+    const userListChange = (e) => {
+        console.log(e.target.value)
+    }
+
+    // const data = {
+    //     "name": name,
+    //     "user_ids": [53,54,142]
+    // }
 
     const data = {
-        "name": "Riche's Wasap",
-        "user_ids": [53,54,142]
+        "name": name,
+        "user_ids": userList
     }
+
 
     const create = (e) => {
         e.preventDefault()
@@ -18,8 +37,19 @@ const CreateChannel = () => {
         });
     }
 
-    return ( 
-        <button onClick={create}>Add Channel</button>
+    return (
+        <div>
+            <h1> Add New Channel </h1>
+            <form onSubmit={create} id='add-channel-form'>
+                <input type='text' class='form-control' onChange={nameChange}/>
+                <select onChange={userListChange} class='form-control'>
+                    <option value="A">Apple</option>
+                    <option value="B">Banana</option>
+                    <option value="C">Cranberry</option>
+                </select>
+                <Button onClick={create} class='form-btn'>Add Channel</Button>
+            </form>
+        </div>
      );
 }
  
