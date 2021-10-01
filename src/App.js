@@ -12,6 +12,7 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import SearchIcon from '@material-ui/icons/Search';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import RetrieveMessage from "./components/messages/RetrieveMessage";
+import UserList from "./components/Users/UserList";
 
 
 function App() {
@@ -25,17 +26,20 @@ function App() {
           </li>
           <li>
             <Link to="/channel">Channels</Link>
-            <UserChannels />
+            
           </li>
           <li>
             <Link to="/create-channel">Create Channel</Link>
-            <RetrieveMessage />
+            
           </li>
           <li>
             <Link to="/user-channels">User Channels</Link>
           </li>
           <li>
             <Link to="/owned-channels">Owned Channels</Link>
+          </li>
+          <li>
+            <Link to="/user-list">User List</Link>
           </li>
         </ul>
       </div>
@@ -57,6 +61,9 @@ function App() {
             <UserChannels />
           </Route>
           
+          <Route path ="/user-list">
+            <UserList />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
