@@ -1,7 +1,12 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { getToken } from '../../Utils/common';
+import CreateChannel from './CreateChannel';
 
+ const channelDetails = (e) => {
+     const channelId = e.target.id
+     alert(channelId)
+ }
 
 const ChannelList = () => {
     const [channels, setChannels] = useState(null);
@@ -32,9 +37,7 @@ const ChannelList = () => {
             channels.map(channel => {
                 const {id, name} = channel;
                 return (
-                    <div key={id}>
-                        <p>Name: {name}</p>
-                    </div>
+                    <p key={id} id={id} onClick={channelDetails}>{name}</p>
                 );
             })
         ): (
@@ -47,6 +50,7 @@ function UserChannels(){
     return (
         <div>
             <ChannelList />
+            <CreateChannel />
         </div>
     )
 }
