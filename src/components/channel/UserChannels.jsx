@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { getToken } from '../../Utils/common';
 import './Channel.css'
+import CreateChannel from './CreateChannel';
 
 const ChannelList = () => {
     const [channels, setChannels] = useState([]);
@@ -35,6 +36,7 @@ const ChannelList = () => {
     </div>
 
 }
+
 function UserChannels(){
     return (
         <div>
