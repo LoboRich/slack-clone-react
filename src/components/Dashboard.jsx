@@ -81,6 +81,9 @@ function Dashboard(){
           <UserChannels />
         </Route>
         
+        <Route path ="/user-list">
+          <GetUserList />
+        </Route>
 
         {/*<Route path="/">
           <Home />
@@ -94,7 +97,7 @@ function Dashboard(){
       <div className="App">
         <Header /> 
         <Sidebar />
-        <Main /> 
+        
       </div>
     </Router>
   );
