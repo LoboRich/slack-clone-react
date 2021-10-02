@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import './Registration.css'
 
 
 const Registration = () => {
@@ -39,12 +40,10 @@ const Registration = () => {
 
     return ( 
         <div className='registration-wrapper'>
-            <form action="">
-                <label htmlFor="">E-Mail</label>
+            <div className="background-opacity"></div>
+            <form className='registration-form' action="">
                 <input type="email" onChange={emailInput}/>
-                <label htmlFor="">Password</label>
                 <input type="text" onChange={passwordInput}/>
-                <label htmlFor="">Confirm-Password</label>
                 <input type="text" onChange={confirmpassInput}/>
                 <button onClick={registrationHandle}>Register</button>
             </form>

@@ -1,11 +1,18 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { setUserSession, getToken } from '../../Utils/common';
+import './Login.css';
+import Registration from './Registration';
+import { Redirect } from 'react-router';
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [postModal, setModal] = useState(false)
+
+    const history = useHistory();
 
     const emailAuthenticate = (e) => {
         setEmail(e.target.value)
@@ -22,6 +29,7 @@ const Login = () => {
            password: password
           }).then((res) => {
             setUserSession(res['headers'], res['data']);
+            history.push("/Dashboard");
           });
     }
 
@@ -34,18 +42,25 @@ const Login = () => {
         });
     }
 
+
+
     return ( 
         <div className="login-wrapper">
-            <form action="">
-                <label htmlFor="">E:Mail</label>
-                <input type="email" onChange={emailAuthenticate}/>
-                <label htmlFor="">Password</label>
-                <input type="text" onChange={passwordAuthenticate}/>
-                <button onClick={authenticateLogin}>Login</button>
+            <form className='login-form' action="">
+                <div className="input-wrapper">
+                    <h1>Sign in to your account</h1>
+                    <input type="email" onChange={emailAuthenticate}/>
+                    <input type="text" onChange={passwordAuthenticate}/>
+                    <button onClick={authenticateLogin}>Login</button>
+                </div>
             </form>
-            <button onClick={showUserList}>Show users</button>
+            {/* <button onClick={showUserList}>Show users</button> */}
+            {postModal && <Registration />}
         </div>
      );
 }
  
 export default Login;
+
+
+

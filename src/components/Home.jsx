@@ -1,6 +1,6 @@
 import React from "react";
-import Login from "./auth/Login";
-import Registration from "./auth/Registration";
+import Login from "./Authenticate/Login";
+import Registration from "./Authenticate/Registration";
 
 const Home = () => {
   return (
