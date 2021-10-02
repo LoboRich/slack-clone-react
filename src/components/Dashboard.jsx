@@ -81,9 +81,6 @@ function Dashboard(){
           <UserChannels />
         </Route>
         
-        <Route path ="/user-list">
-          <GetUserList />
-        </Route>
 
         {/*<Route path="/">
           <Home />
