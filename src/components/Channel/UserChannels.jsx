@@ -12,14 +12,19 @@ const ChannelList = () => {
         axios.get("http://206.189.91.54//api/v1/channels", {
             headers: getToken()
         }).then((res) => {
-            setChannels(res['data']['data']);
+            if(res['data']['data'] === undefined){
+                return
+            }else{
+                setChannels(res['data']['data'])
+            }
             setLoading(false);
+            
         }).catch(error => {
             setErrors(error)
             setLoading(true)
         })
     },[channels.length]);
-  
+
     return <div className='channels'>
         {hasError ? <p>{hasError.message}</p> : null}
         {!isLoading ? (
@@ -40,7 +45,6 @@ function UserChannels(){
     return (
         <div>
             <ChannelList />
-            <a href="/create-channel">New channel</a>
         </div>
     )
 }
