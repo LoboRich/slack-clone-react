@@ -58,40 +58,11 @@ function Dashboard(){
       )
   }
 
-  const Main = () => {
-    return (
-      <Switch>
-        <Route path="/create-channel">
-          <CreateChannel />
-        </Route>
-
-        <Route path ="/owned-channels">
-          <OwnedUserChannels />
-        </Route>
-
-        <Route path="/user-channels">
-          <UserChannels />
-        </Route>
-
-        <Route path ="/channel-details/:id" component={ChannelDetails}></Route>
-
-        <Route path="/user-channels">
-          <UserChannels />
-        </Route>
-        
-        {/*<Route path="/">
-          <Home />
-        </Route>*/}
-      </Switch>
-    )
-  }
-
   return (
     <Router>
       <div className="App">
         <Header /> 
         <Sidebar />
-        <Main /> 
       </div>
     </Router>
   );
