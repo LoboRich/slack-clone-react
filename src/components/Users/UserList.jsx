@@ -44,7 +44,7 @@ const UserList = () => {
 }
 function GetUserList(){
     return (
-        <div>
+        <div className="userList">
             <UserList />
         </div>
     )
