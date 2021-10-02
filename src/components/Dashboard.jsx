@@ -2,13 +2,14 @@ import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import CreateChannel from "./Channel/CreateChannel";
 import UserChannels from "./Channel/UserChannels";
 import ChannelDetails from "./Channel/ChannelDetails";
-import Home from "./Home";
-import MessengerContainer from "./Messenger/MessengerContainer";
+// import Home from "./Home";
+// import MessengerContainer from "./Messenger/MessengerContainer";
 import OwnedUserChannels from "./Channel/OwnedChannels";
 import { Avatar } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import SearchIcon from '@material-ui/icons/Search';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import GetUserList from "./Users/UserList";
 
 function Dashboard(){
 
@@ -32,6 +33,7 @@ function Dashboard(){
           <li>
             <Link to="/owned-channels">Owned Channels</Link>
           </li>
+            <Link to="/user-list">User List</Link> 
         </ul>
       </div>
     )
@@ -79,6 +81,10 @@ function Dashboard(){
           <UserChannels />
         </Route>
         
+        <Route path ="/user-list">
+          <GetUserList />
+        </Route>
+
         {/*<Route path="/">
           <Home />
         </Route>*/}

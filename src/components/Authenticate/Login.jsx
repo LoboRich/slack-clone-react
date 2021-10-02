@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { setUserSession, getToken } from '../../Utils/common';
 import './Login.css';
 import Registration from './Registration';
-import { Redirect } from 'react-router';
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
@@ -33,17 +32,7 @@ const Login = () => {
           });
     }
 
-    const showUserList = (e) => {
-        e.preventDefault();
-        axios.get("http://206.189.91.54//api/v1/users", {
-            headers: getToken()
-        }).then((res) => {
-            console.log(res.data)
-        });
-    }
-
-
-
+ 
     return ( 
         <div className="login-wrapper">
             <form className='login-form' action="">

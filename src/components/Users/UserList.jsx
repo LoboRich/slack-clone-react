@@ -24,7 +24,7 @@ const UserList = () => {
         fetchUserList();
     }, [userList.length]);
   
-    return <div>
+    return <div className="userList">
         <h1>User List</h1>
         {hasError ? <p>{hasError.message}</p> : null}
         {!isLoading ? (
@@ -42,11 +42,11 @@ const UserList = () => {
     </div>
 
 }
-function getUserList(){
+function GetUserList(){
     return (
         <div>
             <UserList />
         </div>
     )
 }
-export default getUserList;
+export default GetUserList;
