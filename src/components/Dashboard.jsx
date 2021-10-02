@@ -10,6 +10,7 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import SearchIcon from '@material-ui/icons/Search';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import GetUserList from "./Users/UserList";
+import Welcome from "./Welcome/Welcome";
 
 function Dashboard(){
 
@@ -97,7 +98,7 @@ function Dashboard(){
       <div className="App">
         <Header /> 
         <Sidebar />
-        
+        <Welcome />
       </div>
     </Router>
   );
