@@ -6,14 +6,15 @@ import './Channel.css'
 
 const CreateChannel = () => {
     const [name, setName] = useState();
-    const [userList, setUserList] = useState([]);
+    const [userList, setUserList] = useState();
+
 
     const nameChange = (e) => {
         setName(e.target.value)
     }
 
     const userListChange = (e) => {
-        console.log(e.target.value)
+        userList(e.target.value)
     }
 
     // const data = {
