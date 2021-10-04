@@ -3,6 +3,7 @@ import { getToken } from "../../Utils/common";
 import {useState} from 'react'
 import { Button } from '@material-ui/core'
 import './Channel.css'
+import logo from '../resources/slack-logo.png'
 
 const CreateChannel = () => {
     const [name, setName] = useState();
@@ -38,7 +39,8 @@ const CreateChannel = () => {
     }
 
     return (
-        <div>
+        <div className='create-channel'>
+            <img src={logo} className="App-logo" alt="logo" />
             <h1> Add New Channel </h1>
             <form onSubmit={create} id='add-channel-form'>
                 <input type='text' className='form-control' onChange={nameChange}/>
@@ -47,7 +49,7 @@ const CreateChannel = () => {
                     <option value="B">Banana</option>
                     <option value="C">Cranberry</option>
                 </select>
-                <Button onClick={create} className='form-btn'>Add Channel</Button>
+                <button onClick={create} className='form-btn'>Create Channel</button>
             </form>
         </div>
      );
