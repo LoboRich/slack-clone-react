@@ -9,6 +9,7 @@ import ChannelDetails from "./components/Channel/ChannelDetails";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
 import OwnedUserChannels from "./components/Channel/OwnedChannels";
 import Welcome from "./components/Welcome/Welcome";
+import Registration from "./components/Authenticate/Registration";
 
 const App = () => {
   return ( 
@@ -22,6 +23,8 @@ const App = () => {
           <Route path ="/channel-details/:id" component={ChannelDetails}></Route>
           <Route path="/user-channels" component={UserChannels}></Route>
           <Route path="/Welcome" component={Welcome}></Route>
+          <Route path="/registration" component={Registration}></Route>
+          <Route path="/message-container" component={MessengerContainer}></Route>
         </Switch>
       </Router>
     </div>

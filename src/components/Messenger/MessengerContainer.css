@@ -5,32 +5,29 @@
 }
 
 .message-wrapper {
-    height: 50vh;
-    width: 25vw;
+    height: 80vh;
+    width: 80vw;
     border: 1px solid black;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    margin: 5vh;
 }
 
 .message-box {
-    border-bottom: 1px solid black;
-    height: 90%;
+  height: 93%;
+  width: 100%;
+}
+
+.message-boxer {
+    height: 7%;
     width: 100%;
 }
 
-.message-input {
-    display: flex;
-    height: 10%;
-    width: 100%;
+.message-datas {
+    border-radius: 0.5vh;
+    border-width: 1px;
+    margin: 1vh;
+    height: 40%;
+    width: 98.5%;
 }
 
-.message-input > button {
-    height: 100%;
-    width:20%;
-}
 
-.message-input > input {
-    height:100%;
-    width: 80%;
-}
+

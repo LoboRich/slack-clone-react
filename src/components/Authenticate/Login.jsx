@@ -4,6 +4,7 @@ import { setUserSession, getToken } from '../../Utils/common';
 import './Login.css';
 import Registration from './Registration';
 import { useHistory } from "react-router-dom";
+import fina from '../resources/fina.gif'
 
 const Login = () => {
 
@@ -31,16 +32,16 @@ const Login = () => {
             history.push("/Dashboard");
           });
     }
-
  
     return ( 
         <div className="login-wrapper">
+            <img className='slack-gif' src={fina} alt="" srcset="" />
             <form className='login-form' action="">
                 <div className="input-wrapper">
                     <h1>Sign in to your account</h1>
-                    <input type="email" onChange={emailAuthenticate}/>
-                    <input type="text" onChange={passwordAuthenticate}/>
-                    <button onClick={authenticateLogin}>Login</button>
+                    <input type="email" className='login-email' onChange={emailAuthenticate}/>
+                    <input type="text" className='login-text' onChange={passwordAuthenticate}/>
+                    <button className='login-button' onClick={authenticateLogin}>Login</button>
                 </div>
             </form>
             {/* <button onClick={showUserList}>Show users</button> */}

@@ -1,6 +1,6 @@
 @font-face {
     font-family: Slack-Font;
-    src: url('/src/resources/Larsseit\ Regular.ttf');
+    src: url('/src/components/resources/Larsseit\ Regular.ttf');
 }
 * {
     padding: 0;
@@ -13,8 +13,9 @@
     width: 100vw;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
-    background: #F7F6F2;
+    background: #FEFEFD;
 }
 
 .login-form {
@@ -41,7 +42,7 @@ h1 {
     font-family: Slack-Font
 }
 
-input {
+.login-email {
     width: 100%;
     height: 10%;
     margin-top: 3vh;
@@ -49,17 +50,36 @@ input {
     border-width: 1px;
 }
 
-input:focus {
+.login-text {
+    width: 100%;
+    height: 10%;
+    margin-top: 3vh;
+    border-radius: 0.6vh;
+    border-width: 1px;
+}
+
+.login-email:focus {
     outline: none !important;
     border:1px solid rgb(0, 204, 255);
     box-shadow: 0 0 5px #719ECE;
 }
 
-button {
+.login-text:focus {
+    outline: none !important;
+    border:1px solid rgb(0, 204, 255);
+    box-shadow: 0 0 5px #719ECE;
+}
+
+
+.login-button {
     margin-top: 1vw;
     width: 100%;
     height: 10%;
     background: #5C2C5D;
     color: #FFFFFF;
     font-size: 1vw;
+}
+
+.slack-gif {
+    max-width: 30vw;
 }
