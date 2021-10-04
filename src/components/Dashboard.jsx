@@ -96,9 +96,11 @@ function Dashboard(){
   return (
     <Router>
       <div className="App">
-        <Header /> 
-        <Sidebar />
-        <Welcome />
+      <Header />
+        <main className="app__body">
+          <Sidebar />
+          <Welcome />
+        </main>
       </div>
     </Router>
   );
