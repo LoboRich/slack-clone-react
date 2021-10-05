@@ -5,9 +5,7 @@ import fina from '../resources/fina.gif'
 function Welcome() {
   const history = useHistory()
 
-//   const addChannel = () => {
-//     history.push('/add/channel')
-//   }
+
 
   return (
     <div className="Welcome">

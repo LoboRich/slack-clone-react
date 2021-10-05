@@ -36,7 +36,10 @@ function Dashboard(){
           <li>
             <Link to="/owned-channels">Owned Channels</Link>
           </li>
+          <li>
             <Link to="/user-list">User List</Link> 
+          </li>
+         
         </ul>
       </div>
     )
@@ -88,6 +91,7 @@ function Dashboard(){
           <GetUserList />
         </Route>
 
+ 
         {/*<Route path="/">
           <Home />
         </Route>*/}
