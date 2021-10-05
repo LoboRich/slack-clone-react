@@ -88,6 +88,13 @@ function Sidebar() {
       })
   }
 
+  const logout = () => {
+    removeUserSession();
+    const data = sessionStorage.getItem('user')
+    if (!data) {
+      history.push('/Login')
+    }
+  }
 
   useEffect(() => {
     const data = sessionStorage.getItem('user')
@@ -114,6 +121,7 @@ function Sidebar() {
         <SidebarOption Icon={InsertCommentIcon} title="Thread" />
         <SidebarOption Icon={AlternateEmailIcon} title="Mentions & Reactions" />
         <SidebarOption Icon={MoreVertIcon} title="More" />
+       
         <hr />
         <SidebarOption Icon={ArrowDropDownIcon} title="Channels" />
         <hr />
@@ -149,9 +157,21 @@ function Sidebar() {
             online={dm.status === 'online' ? 'isOnline' : ''}
           />
         ))} */}
+        <li>
+          <Link to="/user-channels">User Channels</Link>
+        </li>
+        <li>
+          <Link to="/owned-channels">Owned Channels</Link>
+        </li>
+        <li>
+          <Link to="/user-list">User List</Link> 
+        </li>
       </div>
+       
 
-      <button className="sidebar__logout" onClick={removeUserSession}>
+        
+
+      <button className="sidebar__logout" onClick={logout}>
         Logout
       </button>
     </div>
