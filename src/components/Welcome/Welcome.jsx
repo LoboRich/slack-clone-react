@@ -12,7 +12,7 @@ function Welcome() {
   return (
     <div className="Welcome">
       <div className="Welcome__container">
-      <img className='slack-gif' src={fina} alt="" srcset="" />
+      <img className='slack-gif' src={fina} alt="" />
         <h1>Welcome to Slack!</h1>
         <p>
           Slack brings all your team communication into one place, makes it all
