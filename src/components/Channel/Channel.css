@@ -10,6 +10,10 @@
   flex-direction: column;
 }
 
+.channels a {
+  font-size: medium !important;
+}
+
 .App-logo {
   width: 225px;
   height: 125px;
