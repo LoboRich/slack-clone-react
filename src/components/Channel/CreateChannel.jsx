@@ -38,18 +38,20 @@ const CreateChannel = () => {
     }
 
     return (
-        <div className='create-channel'>
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1> Add New Channel </h1>
-            <form onSubmit={create} id='add-channel-form'>
-                <input type='text' className='form-control' onChange={nameChange}/>
-                <select onChange={userListChange} className='form-control'>
-                    <option value="A">Apple</option>
-                    <option value="B">Banana</option>
-                    <option value="C">Cranberry</option>
-                </select>
-                <button onClick={create} className='form-btn'>Create Channel</button>
-            </form>
+        <div className="create-channel-container">
+            <div className='create-channel'>
+                <img src={logo} className="App-logo" alt="logo" />
+                <h1> Add New Channel </h1>
+                <form onSubmit={create} id='add-channel-form'>
+                    <input type='text' className='form-control' onChange={nameChange}/>
+                    <select onChange={userListChange} className='form-control'>
+                        <option value="A">Apple</option>
+                        <option value="B">Banana</option>
+                        <option value="C">Cranberry</option>
+                    </select>
+                    <button onClick={create} className='form-btn'>Create Channel</button>
+                </form>
+            </div>
         </div>
      );
 }
