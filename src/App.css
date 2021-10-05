@@ -5,6 +5,7 @@
 }
 body {
   overflow: hidden;
+  --slack-color: #3f0e40;
 }
 
 .app__body {
@@ -23,13 +24,13 @@ body {
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  color: rgb(63,29,64);
+  color: var(--slack-color);
   padding: 10px 15px;
   border: none;
 }
 
 .openbtn:hover {
-  background-color: rgb(63,29,64);
+  background-color: var(--slack-color);
   color: white;
 }
 

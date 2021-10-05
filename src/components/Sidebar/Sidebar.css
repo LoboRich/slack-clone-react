@@ -1,6 +1,6 @@
 .sidebar {
     color: white;
-    background-color: #340e36;
+    background-color: var(--slack-color);
     border-top: 1px solid #49274b;
     width: 20%;
     overflow: auto;
