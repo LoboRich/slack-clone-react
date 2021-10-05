@@ -15,6 +15,8 @@ import Welcome from "./Welcome/Welcome";
 function Dashboard(){
 
   const Sidebar = () => {
+    
+   
     return (
       <div id="mySidebar" className="sidebar">
         <ul>
@@ -100,6 +102,7 @@ function Dashboard(){
         <main className="app__body">
           <Sidebar />
           <Welcome />
+          <Main />
         </main>
       </div>
     </Router>
