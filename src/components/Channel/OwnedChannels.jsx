@@ -3,7 +3,7 @@ import { getToken } from '../../Utils/common';
 import {useState, useEffect} from 'react';
 
 const OwnedList = () => {
-    const [ownedChannels, setOwnedChannels] = useState(null);
+    const [ownedChannels, setOwnedChannels] = useState([]);
     const [isLoading, setLoading] = useState(true);
     const [hasError, setErrors] = useState(false);
 
