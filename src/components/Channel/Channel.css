@@ -5,8 +5,9 @@
 	color: black;
 }
 
-.channels a {
-	color: white;
+.channels {
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {

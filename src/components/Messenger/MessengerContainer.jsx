@@ -1,6 +1,4 @@
-import SendMessage from "./SendMessage";
 import './MessengerContainer.css'
-import RetrieveMessage from "./RetrieveMessage";
 
 const MessageContainer = () => {
     return ( 

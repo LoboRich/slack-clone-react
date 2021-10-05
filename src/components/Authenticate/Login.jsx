@@ -29,7 +29,7 @@ const Login = () => {
            password: password
           }).then((res) => {
             setUserSession(res['headers'], res['data']);
-            history.push("/Dashboard");
+            history.push("/");
           });
     }
  

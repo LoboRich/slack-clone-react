@@ -1,7 +1,6 @@
 import axios from "axios";
 import { getToken } from "../../Utils/common";
 import {useState} from 'react'
-import { Button } from '@material-ui/core'
 import './Channel.css'
 import logo from '../resources/slack-logo.png'
 

@@ -1,35 +1,92 @@
-import React from "react";
-import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
-import './App.css';
-import Login from "./components/Authenticate/Login";
-import Dashboard from "./components/Dashboard";
-import CreateChannel from "./components/Channel/CreateChannel";
-import UserChannels from "./components/Channel/UserChannels";
-import ChannelDetails from "./components/Channel/ChannelDetails";
-import MessengerContainer from "./components/Messenger/MessengerContainer";
-import OwnedUserChannels from "./components/Channel/OwnedChannels";
-import Welcome from "./components/Welcome/Welcome";
-import Registration from "./components/Authenticate/Registration";
 
-const App = () => {
-  return ( 
-    <div className='page-wrapper'>
+import { useState, useEffect } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
+import './App.css'
+import Header from './components/Header/Header'
+import Sidebar from './components/Sidebar/Sidebar'
+import Login from './components/Authenticate/Login'
+import OwnedUserChannels from "./components/Channel/OwnedChannels";
+import UserChannels from "./components/Channel/UserChannels";
+import Registration from "./components/Authenticate/Registration";
+import MessengerContainer from "./components/Messenger/MessengerContainer";
+import CreateChannel from './components/Channel/CreateChannel'
+import ChannelDetails from './components/Channel/ChannelDetails'
+import Welcome from './components/Welcome/Welcome'
+import GetUserList from './components/Users/UserList'
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  const addStructure = (Component, props) => {
+    return (
+      <>
+        <Header />
+        <main className="app__body">
+          <Sidebar />
+          <div className="body">
+            <Component {...props} />
+          </div>
+          
+        </main>
+      </>
+    )
+  }
+
+  const GuardedRoute = ({ component: Component, auth, ...rest }) => (
+    <Route
+      {...rest}
+      render={(props) =>
+        isLoggedIn ? (
+          addStructure(Component, props)
+        ) : (
+          <Redirect
+            to={{ pathname: '/Login', state: { from: props.location } }}
+          />
+        )
+      }
+    />
+  )
+
+  useEffect(() => {
+    const data = sessionStorage.getItem('token')
+    if (data) {
+      setIsLoggedIn(true)
+    }
+    setIsLoaded(true)
+  }, [])
+
+  if (!isLoaded) return null
+
+  return (
+    <div className="app">
       <Router>
         <Switch>
-          <Route path='/Dashboard' component={Dashboard} />
-          <Route path='/Login' component={Login} />
-          <Route path="/create-channel" component={CreateChannel}></Route>
-          <Route path ="/owned-channels" component={OwnedUserChannels}></Route>
-          <Route path ="/channel-details/:id" component={ChannelDetails}></Route>
-          <Route path="/user-channels" component={UserChannels}></Route>
-          <Route path="/Welcome" component={Welcome}></Route>
-          <Route path="/registration" component={Registration}></Route>
-          <Route path="/message-container" component={MessengerContainer}></Route>
+          <GuardedRoute
+            path="/channels/:id"
+            component={ChannelDetails}
+          />
+          <GuardedRoute path ="/channel-details/:id" component={ChannelDetails}></GuardedRoute>
+          <GuardedRoute path="/create-channel" component={CreateChannel}></GuardedRoute>
+          <GuardedRoute path ="/owned-channels" component={OwnedUserChannels}></GuardedRoute>
+          <GuardedRoute path="/user-channels" component={UserChannels}></GuardedRoute>
+          <GuardedRoute path="/registration" component={Registration}></GuardedRoute>
+          <GuardedRoute path="/message-container" component={MessengerContainer}></GuardedRoute>
+          <GuardedRoute path="/user-list" component={GetUserList}></GuardedRoute>
+          <Route path="/Login">
+            <Login />
+          </Route>
+          <GuardedRoute path="/" exact component={Welcome} />
         </Switch>
       </Router>
     </div>
-   );
+  )
 }
- 
-export default App;
+
+export default App
 
