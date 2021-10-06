@@ -22,6 +22,7 @@ function ChannelDetails(props) {
     },[details.length]);
 
     return <div className='details'>
+        <button>Add Member</button>
         {!isLoading ? (
             details['channel_members'].map(detail => {
                 const {channel_id, id, user_id} = detail;
