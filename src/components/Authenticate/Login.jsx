@@ -28,14 +28,14 @@ const Login = () => {
            email: email,
            password: password
           }).then((res) => {
-            setUserSession(res['headers'], res['data']);
-            history.push("/Dashboard");
+            setUserSession(res['headers'], res['data']['data']);
+            history.push("/");
           });
     }
  
     return ( 
         <div className="login-wrapper">
-            <img className='slack-gif' src={fina} alt="" srcset="" />
+            <img className='slack-gif' src={fina} alt=""/>
             <form className='login-form' action="">
                 <div className="input-wrapper">
                     <h1>Sign in to your account</h1>

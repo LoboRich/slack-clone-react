@@ -1,30 +1,28 @@
 import axios from "axios";
 import { getToken } from "../../Utils/common";
-import {useState} from 'react'
-import { Button } from '@material-ui/core'
+import {useState, useEffect} from 'react'
+import { useHistory } from "react-router-dom";
 import './Channel.css'
 import logo from '../resources/slack-logo.png'
+import Select from 'react-select';
 
 const CreateChannel = () => {
     const [name, setName] = useState();
+    const [userIds, setuserIds] = useState([]);
     const [userList, setUserList] = useState([]);
-
+    const history = useHistory();
     const nameChange = (e) => {
         setName(e.target.value)
     }
 
     const userListChange = (e) => {
-        console.log(e.target.value)
+        setuserIds(e.map(x => {return x.value}))
+        
     }
-
-    // const data = {
-    //     "name": name,
-    //     "user_ids": [53,54,142]
-    // }
 
     const data = {
         "name": name,
-        "user_ids": userList
+        "user_ids": userIds
     }
 
 
@@ -34,23 +32,49 @@ const CreateChannel = () => {
             headers: getToken()
         })
         .then((res) => {
-            console.log(res['data'])
+            alert('New channel has been successfully created');
         });
     }
 
+    const fetchUserList = () => {
+        axios.get("http://206.189.91.54//api/v1/users", {
+            headers: getToken()
+        }).then((res) => {
+            setUserList(res['data']['data']);
+        })
+    }
+
+    useEffect(() => {
+        fetchUserList();
+    }, []);
+    
+    const Options = [
+        userList.map(list => {
+            const {id, email} = list;
+            return { value: id, label: email };
+        })
+    ]
+
     return (
-        <div className='create-channel'>
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1> Add New Channel </h1>
-            <form onSubmit={create} id='add-channel-form'>
-                <input type='text' className='form-control' onChange={nameChange}/>
-                <select onChange={userListChange} className='form-control'>
-                    <option value="A">Apple</option>
-                    <option value="B">Banana</option>
-                    <option value="C">Cranberry</option>
-                </select>
-                <button onClick={create} className='form-btn'>Create Channel</button>
-            </form>
+        <div className="create-channel-container">
+            <div className='create-channel'>
+                <img src={logo} className="App-logo" alt="logo" />
+                <h1> Add New Channel </h1>
+                <form onSubmit={create} id='add-channel-form'>
+                    <input type='text' className='form-control' onChange={nameChange}/>
+                    <Select
+                        // defaultValue={[colourOptions[2], colourOptions[3]]}
+                        isMulti
+                        name="colors"
+                        options={Options[0]}
+                        className="basic-multi-select user-select"
+                        classNamePrefix="select"
+                        onChange={userListChange}
+                    />
+                    <button onClick={create} className='form-btn'>Create Channel</button>
+                </form>
+                
+            </div>
         </div>
      );
 }

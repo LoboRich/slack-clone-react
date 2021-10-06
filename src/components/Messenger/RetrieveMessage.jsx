@@ -1,20 +1,32 @@
 import axios from "axios";
 import { getToken } from "../../Utils/common";
+import { useState, useEffect } from 'react';
 
-const RetrieveMessage = () => {
+const RetrieveMessage = (props) => {
+    const [messages, setMessages] = useState([]); 
 
-    const recieveData = (e) => {
-        e.preventDefault()
-        axios.get('http://206.189.91.54//api/v1/messages?receiver_class=User&receiver_id=809',{
+    const recieveData = () => {
+        axios.get('http://206.189.91.54//api/v1/messages?receiver_class=User&receiver_id='+props.match.params.id,{
             headers: getToken()
         }).then((res) => {
-            console.log(res['data']['data'])
+            setMessages(res['data']['data'])
         })
     }
 
+    useEffect(() => {
+        recieveData()
+    },[])
     return ( 
         <div className="retrieve-wrapper">
             <button onClick={recieveData}>Retrieve</button>
+            {(
+                messages.map(message => {
+                    const {id, body} = message;
+                    return (
+                        <p key={id}>id: {id}, body: {body}</p>
+                    );
+                })
+            )}
         </div>
      );
 }

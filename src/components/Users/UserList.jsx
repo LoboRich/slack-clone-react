@@ -44,9 +44,7 @@ const UserList = () => {
 }
 function GetUserList(){
     return (
-        <div className="userList">
-            <UserList />
-        </div>
+        <UserList />
     )
 }
 export default GetUserList;

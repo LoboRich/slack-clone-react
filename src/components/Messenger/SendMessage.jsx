@@ -1,6 +1,5 @@
 import axios from "axios";
 import { getToken } from "../../Utils/common";
-import RetrieveMessage from "./RetrieveMessage";
 
 const SendMessage = () => {
 
