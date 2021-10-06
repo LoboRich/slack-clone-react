@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Slack-Font;
+  src: url('/src/components/resources/Larsseit\ Regular.ttf');
+}
+
 .details p {
 	color: black;
 }
@@ -9,14 +14,40 @@
 
 .details-container {
   padding: 1vh;
+  height: 6.5%;
+  width: 100%;
+  border-bottom: 1px solid grey;
 }
 
 .member-container {
   display: flex;
 }
 
+.channel-header {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .channelsMembers {
   margin-left: 1vh;
+}
+
+.channel-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 750;
+  font-size: 1.9vh;
+  padding: 0.3vh;
+  height: 100%;
+  border-radius: 0.5vh;
+}
+
+.channel-name:hover {
+  background: rgb(163, 163, 163);
+  cursor: pointer;
 }
 
 .channels {

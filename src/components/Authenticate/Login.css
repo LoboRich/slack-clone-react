@@ -18,12 +18,12 @@
 }
 
 .slack-gif {
-    height: 35%;
+    height: 20%;
     max-width: 100%;
 }
 
 .login-form {
-    height: 40%;
+    height: 50%;
     width: 35%;
 }
 
@@ -37,7 +37,7 @@
 
 .sign-in-header {
     font-family: Slack-Font;
-    font-size: 4vh;
+    font-size: 5vh;
     margin-top: 1vh;
     margin-bottom: 1.5vh;
 }
@@ -45,6 +45,21 @@
 .bottom-header {
     font-family: Slack-Font;
     color: #6D8299;
+    margin-bottom: 2vh;
+}
+
+.horizontal-rule {
+    height: 5%;
+    width: 57%;
+    margin-bottom:  2vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Slack-Font;
+}
+
+.hr-left, .hr-right {
+    width: 40%;
 }
 
 .login-email, .login-text {
@@ -52,6 +67,9 @@
     border-radius: 0.6vh;
     border: 1.5px solid black;
     font-family: Slack-Font;
+    width: 60%;
+    margin-bottom: 2vh;
+    border-color: grey;
 }
 
 .login-email:focus, .login-text:focus {
@@ -59,24 +77,70 @@
     box-shadow: 0 0 8px rgb(0, 152, 253);
 }
 
+.login-google, .login-facebook {
+    height: 8%;
+    cursor: pointer;
+    border-radius: 0.6vh;
+    width: 60%;
+    margin-bottom: 2vh;
+    font-weight: bolder;
+    font-size: 1.7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-google {
+    color: #5C7AEA;
+}
+
+.google-icon {
+    height: 60%;
+    max-width: 100%;
+    margin-right: 1vh;
+}
+
+.facebook-icon {
+    height: 70%;
+    max-width: 100%;
+    margin-right: 1vh;
+}
+
+.login-facebook {
+    color: white;
+}
+
+.login-google {
+    border: 1px solid #5C7AEA;
+    background: #FFFFFF;
+}
+
+.login-facebook {
+    border: none;
+    background: #45619D;
+}
+
 .login-button {
-    height: 10%;
-    border-radius: 1.5vh;
+    height: 8%;
+    border-radius: 0.5vh;
     border: none;
     background: #5C2C5D;
     color: #FFFFFF;
     font-weight: bolder;
     cursor: pointer;
     font-size: 1.7vh;
+    width: 60%;
 }
 
 .registration-header {
-    width: 55%;
+    width: 60%;
     margin-top: 1.5vh;
+    font-size: 1.3vh;
+    color: grey;
 }
 
 .register-button {
-    color:#5C7AEA;
+    color:#45619D;
     cursor: pointer;
 }
 
@@ -85,79 +149,3 @@
     bottom: 2.5vh;
     color: grey;
 }
-
-/* .login-wrapper {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    background: #FEFEFD;
-}
-
-.login-form {
-    height: 50%;
-    width: 30%;
-    background: #FFFF;
-    box-shadow: 1px 5px 5px grey;
-    border-radius: 1vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.input-wrapper {
-    padding: 1vh;
-    height: 90%;
-    width: 90%;
-    background-color: white;
-}
-
-h1 {
-    text-align: center;
-    font-family: Slack-Font
-}
-
-.login-email {
-    width: 100%;
-    height: 10%;
-    margin-top: 3vh;
-    border-radius: 0.6vh;
-    border-width: 1px;
-}
-
-.login-text {
-    width: 100%;
-    height: 10%;
-    margin-top: 3vh;
-    border-radius: 0.6vh;
-    border-width: 1px;
-}
-
-.login-email:focus {
-    outline: none !important;
-    border:1px solid rgb(0, 204, 255);
-    box-shadow: 0 0 5px #719ECE;
-}
-
-.login-text:focus {
-    outline: none !important;
-    border:1px solid rgb(0, 204, 255);
-    box-shadow: 0 0 5px #719ECE;
-}
-
-
-.login-button {
-    margin-top: 1vw;
-    width: 100%;
-    height: 10%;
-    background: #5C2C5D;
-    color: #FFFFFF;
-    font-size: 1vw;
-}
-
-.slack-gif {
-    max-width: 30vw;
-} */

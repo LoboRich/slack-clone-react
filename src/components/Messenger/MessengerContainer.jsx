@@ -51,8 +51,8 @@ const MessageContainer = () => {
         <div className="message-boxer">
             <input type="text" className='message-datas' placeholder='Type your message here' />
             <button className="send-button" onClick={SendMessage}>Send</button>
+            <button className="retreive-button" onClick={recieveData}>Receive</button>
         </div>
-        <button className="retreive-button" onClick={recieveData}>Receive</button>
     </div> 
     );
 }

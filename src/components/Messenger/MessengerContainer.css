@@ -5,27 +5,27 @@
 }
 
 .message-wrapper {
-    height: 80%;
+    height: 93.5%;
     width: 100%;
-    border: 1px solid black;
+    border: none;
 }
 
 .message-box {
-  height: 93%;
+  height: 80%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .message-boxer {
-    height: 7%;
+    height: 10%;
     width: 100%;
 }
 
 .message-datas {
-    border-radius: 0.5vh;
-    border-width: 1px;
-    margin: 1vh;
     height: 40%;
     width: 98.5%;
+    border-bottom: none;
 }
 
 
