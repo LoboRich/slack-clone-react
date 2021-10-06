@@ -50,26 +50,29 @@ import { Avatar } from '@material-ui/core';
 function Sidebar() {
   const [channels, setChannels] = useState([])
   const [user, setUser] = useState(null)
-  // const [dms, setDms] = useState([])
+  const [dms, setDms] = useState([])
 
   const [isLoading, setLoading] = useState(true);
   const [hasError, setErrors] = useState(false);
   const history = useHistory()
 
-  // const getDirectMessages = () => {
-  //   const limit = 10
-  //   const usersRequest = new CometChat.UsersRequestBuilder()
-  //     .setLimit(limit)
-  //     .friendsOnly(true)
-  //     .build()
+  const getDirectMessages = () => {
+    axios.get("http://206.189.91.54//api/v1/users/recent", {
+      headers: getToken()
+      }).then((res) => {
+          if(res['data']['data'] === undefined){
+              return
+          }else{
+            setDms(res['data']['data'])
+          }
+          setLoading(false);
+          
+      }).catch(error => {
+          setErrors(error)
+          setLoading(true)
+      })
+  }
 
-  //   usersRequest
-  //     .fetchNext()
-  //     .then((userList) => setDms(userList))
-  //     .catch((error) => {
-  //       console.log('User list fetching failed with error:', error)
-  //     })
-  // }
 
   const getChannels = () => {
     axios.get("http://206.189.91.54//api/v1/channels", {
@@ -100,8 +103,8 @@ function Sidebar() {
     const data = sessionStorage.getItem('user')
     setUser(JSON.parse(data))
 
-    getChannels()
-    // getDirectMessages()
+    getChannels();
+    getDirectMessages();
   }, [])
   return (
     <div className="sidebar">
@@ -146,17 +149,17 @@ function Sidebar() {
         <hr />
         <SidebarOption Icon={ArrowDropDownIcon} title="Direct Messages" />
         <hr />
-        {/* {dms.map((dm) => (
+        {dms.map((dm) => (
           <SidebarOption
             Icon={FiberManualRecordIcon}
-            title={dm.name}
-            id={dm.uid}
-            key={dm.uid}
+            title={dm.email.split('@')[0]}
+            id={dm.id}
+            key={dm.id}
             sub="sidebarOption__sub sidebarOption__color"
             user
-            online={dm.status === 'online' ? 'isOnline' : ''}
+            online='isOnline'
           />
-        ))} */}
+        ))}
         <li>
           <Link to="/user-channels">User Channels</Link>
         </li>
