@@ -40,8 +40,8 @@ const Login = () => {
                 <div className="input-wrapper">
                     <h1 className='sign-in-header'>Sign in to your account</h1>
                     <h3 className="bottom-header">Enter your workspace</h3>
-                    <input type="email" className='login-email' onChange={emailAuthenticate} placeholder='Your E-mail'/>
-                    <input type="text" className='login-text' onChange={passwordAuthenticate} placeholder='Your Password'/>
+                    <input type="email" className='login-email' onChange={emailAuthenticate} placeholder=' Your E-mail'/>
+                    <input type="text" className='login-text' onChange={passwordAuthenticate} placeholder=' Your Password'/>
                     <button className='login-button' onClick={authenticateLogin}>Login</button>
                     <h6 className='registration-header'>Don't have an account? <span onClick={()=>setModal(true)} className='register-button'>Register Here</span></h6>
                 </div>

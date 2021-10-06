@@ -42,10 +42,10 @@ const Registration = () => {
         <div className='registration-wrapper'>
             <div className="background-opacity"></div>
             <form className='registration-form' action="">
-                <input type="email" onChange={emailInput}/>
-                <input type="text" onChange={passwordInput}/>
-                <input type="text" onChange={confirmpassInput}/>
-                <button onClick={registrationHandle}>Register</button>
+                <input type="email" className='register-email' onChange={emailInput} placeholder=' Your Preferred Email'/>
+                <input type="text" className='register-password' onChange={passwordInput}  placeholder=' Your Preferred Password'/>
+                <input type="text" className='confirm-password' onChange={confirmpassInput}  placeholder=' Confirm Preferred Password'/>
+                <button className='register-confirmation' onClick={registrationHandle}>Register</button>
             </form>
         </div>
      );

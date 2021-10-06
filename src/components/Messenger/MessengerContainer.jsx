@@ -11,9 +11,9 @@ const MessageContainer = () => {
     
 
     const data = {
-        'receiver_id': 809,
+        'receiver_id': 408,
         'receiver_class': 'User',
-        'body': 'nicasd!' 
+        'body': 'Test!' 
     }
     const SendMessage = (e) => {
         e.preventDefault()
