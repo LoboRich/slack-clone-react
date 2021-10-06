@@ -2,10 +2,12 @@ import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { getToken } from '../../Utils/common';
+import { useHistory } from "react-router-dom";
 import './Channel.css'
 
 
 function ChannelDetails(props) {
+    const history = useHistory();
     const [details, setDetails] = useState([]);
     const [isLoading, setLoading] = useState(true);
     const [hasError, setErrors] = useState(false);
@@ -22,8 +24,12 @@ function ChannelDetails(props) {
         })
     },[details.length]);
 
+    const addMember = () => {
+        history.push('/add-members')
+    }
+
     return <div className='details'>
-        <button>Add Member</button>
+        <button onClick={addMember}>Add Member</button>
         {!isLoading ? (
             details['channel_members'].map(detail => {
                 const {channel_id, id, user_id} = detail;
