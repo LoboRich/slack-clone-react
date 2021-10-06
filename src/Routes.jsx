@@ -67,10 +67,10 @@ export default function Routes(){
     return (
         <Router>
             <Switch>
-                <GuardedRoute path ="/add-members" component={AddMembers}> </GuardedRoute>
                 <GuardedRoute path ="/users/:id" component={RetrieveMessage}></GuardedRoute>
                 <GuardedRoute path ="/channel-details/:id" component={ChannelDetails}></GuardedRoute>
                 <GuardedRoute path="/create-channel" component={CreateChannel}></GuardedRoute>
+                <GuardedRoute path ="/add-members" component={AddMembers}></GuardedRoute>
                 <GuardedRoute path ="/owned-channels" component={OwnedUserChannels}></GuardedRoute>
                 <GuardedRoute path="/user-channels" component={UserChannels}></GuardedRoute>
                 <GuardedRoute path="/registration" component={Registration}></GuardedRoute>
