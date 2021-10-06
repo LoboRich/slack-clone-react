@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { getToken } from '../../Utils/common';
 import { useHistory } from "react-router-dom";
 import './Channel.css'
+import Search from '../Search';
 
 
 function ChannelDetails(props) {
@@ -29,10 +30,6 @@ function ChannelDetails(props) {
         history.push('/add-members')
     }
 
-    const peopleRichelle = () => {
-        
-    }
-
     return <div className='details'>
         <div className="details-container">
             <div className="channel-header">
@@ -43,7 +40,7 @@ function ChannelDetails(props) {
                         details['channel_members'].map(detail => {
                             const {channel_id, id, user_id, } = detail;
                             return (
-                                <p key={id} className='channelsMembers'> {user_id}</p>  
+                                <Search user_id={user_id}/>  
                             );
                         })
                     ): (
