@@ -17,6 +17,7 @@ import ChannelDetails from './components/Channel/ChannelDetails'
 import Welcome from './components/Welcome/Welcome'
 import GetUserList from './components/Users/UserList'
 import RetrieveMessage from './components/Messenger/RetrieveMessage'
+import AddMembers from './components/Channel/AddMembers'
 
 
 export default function Routes(){
@@ -66,6 +67,7 @@ export default function Routes(){
     return (
         <Router>
             <Switch>
+                <GuardedRoute path ="/add-members" component={AddMembers}> </GuardedRoute>
                 <GuardedRoute path ="/users/:id" component={RetrieveMessage}></GuardedRoute>
                 <GuardedRoute path ="/channel-details/:id" component={ChannelDetails}></GuardedRoute>
                 <GuardedRoute path="/create-channel" component={CreateChannel}></GuardedRoute>
@@ -74,6 +76,7 @@ export default function Routes(){
                 <GuardedRoute path="/registration" component={Registration}></GuardedRoute>
                 <GuardedRoute path="/message-container" component={MessengerContainer}></GuardedRoute>
                 <GuardedRoute path="/user-list" component={GetUserList}></GuardedRoute>
+                
                 <Route path="/Login">
                 <Login />
                 </Route>

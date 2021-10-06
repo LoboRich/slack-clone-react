@@ -2,8 +2,9 @@ import axios from 'axios';
 import { getToken } from '../../Utils/common';
 import {useState, useEffect} from 'react';
 
+
 const OwnedList = () => {
-    const [ownedChannels, setOwnedChannels] = useState([]);
+    const [ownedChannels, setOwnedChannels] = useState(null);
     const [isLoading, setLoading] = useState(true);
     const [hasError, setErrors] = useState(false);
 
@@ -12,11 +13,7 @@ const OwnedList = () => {
         axios.get("http://206.189.91.54//api/v1/channel/owned", {
             headers: getToken()
         }).then((res) => {
-            if(res['data']['data'] === undefined){
-                return
-            }else{
-                setOwnedChannels(res['data']['data'])
-            }
+            setOwnedChannels(res['data']['data']);
             setLoading(false);
         }).catch(error => {
             setErrors(error)
@@ -26,10 +23,10 @@ const OwnedList = () => {
 
     useEffect(() => {
         fetchOwnedChannels();
-    }, []);
+    });
   
     return <div>
-        <h1>Channel List</h1>
+        <h1>Owned Channels</h1>
         {hasError ? <p>{hasError.message}</p> : null}
         {!isLoading ? (
             ownedChannels.map(ownedChannel => {

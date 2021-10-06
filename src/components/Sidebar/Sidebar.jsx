@@ -169,6 +169,9 @@ function Sidebar() {
         <li>
           <Link to="/user-list">User List</Link> 
         </li>
+        <li>
+          <Link to="/add-members">Add</Link>
+        </li>
       </div>
        
 
