@@ -38,10 +38,12 @@ const Login = () => {
             <img className='slack-gif' src={fina} alt=""/>
             <form className='login-form' action="">
                 <div className="input-wrapper">
-                    <h1>Sign in to your account</h1>
-                    <input type="email" className='login-email' onChange={emailAuthenticate}/>
-                    <input type="text" className='login-text' onChange={passwordAuthenticate}/>
+                    <h1 className='sign-in-header'>Sign in to your account</h1>
+                    <h3 className="bottom-header">Enter your workspace</h3>
+                    <input type="email" className='login-email' onChange={emailAuthenticate} placeholder='Your E-mail'/>
+                    <input type="text" className='login-text' onChange={passwordAuthenticate} placeholder='Your Password'/>
                     <button className='login-button' onClick={authenticateLogin}>Login</button>
+                    <h6 className='registration-header'>Don't have an account? <span>Register Here</span></h6>
                 </div>
             </form>
             {/* <button onClick={showUserList}>Show users</button> */}
