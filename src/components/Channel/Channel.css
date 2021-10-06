@@ -2,6 +2,23 @@
 	color: black;
 }
 
+.details {
+  height: 100%;
+  width: 100%;
+}
+
+.details-container {
+  padding: 1vh;
+}
+
+.member-container {
+  display: flex;
+}
+
+.channelsMembers {
+  margin-left: 1vh;
+}
+
 .channels {
   display: flex;
   flex-direction: column;
