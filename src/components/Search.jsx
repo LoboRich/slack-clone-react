@@ -20,11 +20,9 @@ function Search(props){
     }, []);
 
     return (
-        <div>
-           {userList.filter(person => person.id == userId).map(filteredPerson => (
-                <p key={filteredPerson.id} className='channelsMembers'> {filteredPerson.email}</p>
-            ))}
-        </div>
+        userList.filter(person => person.id == userId).map(filteredPerson => (
+            <p key={filteredPerson.id} className='channelsMembers' id={userId}> {filteredPerson.email}</p>
+        ))
     )
     
 }
