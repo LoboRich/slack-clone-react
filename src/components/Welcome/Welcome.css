@@ -1,9 +1,10 @@
 .Welcome {
     flex: 0.7;
     flex-grow: 1;
-    height: 100vh;
+    height: 100%;
     display: grid;
     place-items: center;
+    overflow: hidden;
   }
   
   .Welcome__container {

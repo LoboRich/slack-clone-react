@@ -43,9 +43,7 @@ const ChannelList = () => {
 
 function UserChannels(){
     return (
-        <div>
-            <ChannelList />
-        </div>
+        <ChannelList />
     )
 }
 export default UserChannels;
