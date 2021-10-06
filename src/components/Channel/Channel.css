@@ -70,3 +70,8 @@
 #add-channel-form > .form-btn:focus {
   outline: none;
 }
+
+.user-select {
+  border-radius: 15px;
+  width: 100%;
+}
