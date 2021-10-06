@@ -5,28 +5,53 @@
 }
 
 .message-wrapper {
-    height: 93.5%;
+    height: 85%;
     width: 100%;
     border: none;
 }
 
 .message-box {
-  height: 80%;
+  height: 85%;
   width: 100%;
   display: flex;
   flex-direction: column;
+  
 }
 
 .message-boxer {
-    height: 10%;
+    height: 15%;
+    width: 100%;
+    padding: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box {
+    border: 1px solid grey;
+    height: 100%;
     width: 100%;
 }
 
 .message-datas {
-    height: 40%;
-    width: 98.5%;
-    border-bottom: none;
+    height: 50%;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid grey;
+    outline: none !important;
+    padding: 0.5vh;
 }
 
+.message-button-container {
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.send-button {
+    margin-left: auto;
+    height: 100%;
+    width: 10%;
+}
 
 

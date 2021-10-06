@@ -8,12 +8,17 @@ import React from "react";
 const MessageContainer = () => {
 
     const [messageLength, setMessageLength] = useState([])
-    
+
+    const [messageInput, setMessageInput] = useState('')
+
+    const messageWrite = (e) => {
+        setMessageInput(e.target.value)
+    }
 
     const data = {
         'receiver_id': 408,
         'receiver_class': 'User',
-        'body': 'Test!' 
+        'body': messageInput 
     }
     const SendMessage = (e) => {
         e.preventDefault()
@@ -49,9 +54,14 @@ const MessageContainer = () => {
     <div className="message-wrapper">
         <div className="message-box">{messageIn}</div>
         <div className="message-boxer">
-            <input type="text" className='message-datas' placeholder='Type your message here' />
-            <button className="send-button" onClick={SendMessage}>Send</button>
-            <button className="retreive-button" onClick={recieveData}>Receive</button>
+            <div className="input-box">
+                <input type="text" className='message-datas' placeholder='Message' onChange={messageWrite}/>
+                <div className="message-button-container">
+                    <button className="send-button" onClick={SendMessage}>Send</button>
+                </div>
+                {/* <button className="send-button" onClick={SendMessage}>Send</button>
+                <button className="retreive-button" onClick={recieveData}>Receive</button> */}
+            </div>
         </div>
     </div> 
     );
