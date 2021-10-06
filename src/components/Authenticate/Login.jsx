@@ -43,11 +43,12 @@ const Login = () => {
                     <input type="email" className='login-email' onChange={emailAuthenticate} placeholder='Your E-mail'/>
                     <input type="text" className='login-text' onChange={passwordAuthenticate} placeholder='Your Password'/>
                     <button className='login-button' onClick={authenticateLogin}>Login</button>
-                    <h6 className='registration-header'>Don't have an account? <span>Register Here</span></h6>
+                    <h6 className='registration-header'>Don't have an account? <span onClick={()=>setModal(true)} className='register-button'>Register Here</span></h6>
                 </div>
             </form>
             {/* <button onClick={showUserList}>Show users</button> */}
             {postModal && <Registration />}
+            <h6 className="copy-write">Slack Clone - Avion Project</h6>
         </div>
      );
 }

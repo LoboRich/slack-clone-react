@@ -5,31 +5,22 @@
 }
 
 .registration-wrapper {
-    height: 100vh;
-    width: 100vw;
+    height: 40vh;
+    width: 25vw;
     position: absolute;
-}
-
-.background-opacity {
+    background: #FDFDFD;
     opacity: 0;
-    background: black;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    animation: opacityz 0.3 ease-in forwards;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 5px grey;
+    border-radius: 1vh;
+    padding: 1vh;
+    animation: appear 0.3s ease-out forwards;
 }
 
 .registration-form {
-    position: absolute;
-    opacity: 0;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 60%;
-    width: 30%;
-    background: black;
-    border-radius: 1vh;
-    animation: appear 0.3s ease-in-out forwards;
+    background: #FDFDFD;
 }
 
 @keyframes appear {

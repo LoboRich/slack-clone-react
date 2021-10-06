@@ -49,6 +49,13 @@
 
 .login-email, .login-text {
     height: 8%;
+    border-radius: 0.6vh;
+    border: 1.5px solid black;
+}
+
+.login-email:focus, .login-text:focus {
+    outline: none !important;
+    box-shadow: 0 0 8px rgb(0, 152, 253);
 }
 
 .login-button {
@@ -58,11 +65,23 @@
     background: #5C2C5D;
     color: #FFFFFF;
     font-weight: bolder;
+    cursor: pointer;
 }
 
 .registration-header {
     width: 55%;
     margin-top: 1.5vh;
+}
+
+.register-button {
+    color:#5C7AEA;
+    cursor: pointer;
+}
+
+.copy-write {
+    position: fixed;
+    bottom: 2.5vh;
+    color: grey;
 }
 
 /* .login-wrapper {
