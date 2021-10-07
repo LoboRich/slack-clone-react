@@ -2,10 +2,13 @@ import './Welcome.css'
 import { Button } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import fina from '../resources/fina.gif'
+import CreateChannel from '../Channel/CreateChannel'
 function Welcome() {
   const history = useHistory()
 
-
+  const Routing = () => {
+    history.push("/create-channel")
+  }
 
   return (
     <div className="Welcome">
@@ -22,7 +25,7 @@ function Welcome() {
           productive.
         </p>
 
-        {/* <Button onClick={addChannel}>Create Channel</Button> */}
+        <Button onClick={Routing}>Create Channel</Button>
       </div>
     </div>
   )
