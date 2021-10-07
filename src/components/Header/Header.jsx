@@ -5,8 +5,10 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import SearchIcon from '@material-ui/icons/Search';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
+
 function Header() {
-    const history = useHistory()
+    // const history = useHistory()
+    // const [user, setUser] = useState(null)
 
     return (
       <div className="header">
@@ -15,7 +17,7 @@ function Header() {
         </div>
         <div className="header__middle">
           <SearchIcon />
-          <input placeholder="Search tutorial-daltonic" />
+          <input placeholder="Search" />
         </div>
         <div className="header__right">
           <HelpOutlineIcon />
@@ -25,5 +27,6 @@ function Header() {
         </div> 
       </div>
     )
+
     }
 export default Header;

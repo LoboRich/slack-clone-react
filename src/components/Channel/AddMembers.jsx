@@ -4,18 +4,18 @@ import { getToken } from '../../Utils/common';
 import {useState, useEffect } from 'react';
 import Select from 'react-select';
 
-function AddMembers(){
+function AddMembers(props){
+  const [member, setMember] = useState(null);
   const [userList, setUserList] = useState([]);
-  const [member_id, setMember_id] = useState([]);
+  
   const data = {
-    "id": 3,
-    "member_id": 3
+    "id": props.channel_id,
+    "member_id": member
   }
-
   const memberChange = (e) => {
-    console.log(e)
+    setMember(e.value)
   }
-
+  
   const add = (e) => {
     e.preventDefault()
     axios.post('http://206.189.91.54//api/v1/channel/add_member', data, {
@@ -43,6 +43,7 @@ function AddMembers(){
           return { value: id, label: email };
       })
   ]
+
 
     return (
       <div className="create-channel-container">

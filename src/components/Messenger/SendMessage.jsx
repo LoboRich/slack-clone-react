@@ -4,8 +4,8 @@ import { getToken } from "../../Utils/common";
 const SendMessage = () => {
 
     const data = {
-        'receiver_id': 809,
-        'receiver_class': 'User',
+        'receiver_id': 471,
+        'receiver_class': 'Channel',
         'body': 'From Rich!' 
     }
     const SendMessage = (e) => {
@@ -14,7 +14,7 @@ const SendMessage = () => {
             headers: getToken()
         })
         .then((res) => {
-            console.log(res['data']['data'])
+            console.log(res)
         });
     }
 
