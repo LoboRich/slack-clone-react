@@ -15,7 +15,7 @@ const RetrieveMessage = (props) => {
 
     useEffect(() => {
         recieveData()
-    },[props])
+    },[props, messages])
     return ( 
         <div>
             <button onClick={recieveData}>Retrieve</button>

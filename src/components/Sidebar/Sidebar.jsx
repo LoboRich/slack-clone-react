@@ -105,7 +105,7 @@ function Sidebar() {
 
     getChannels();
     getDirectMessages();
-  }, [])
+  }, [channels, dms])
   return (
     <div className="sidebar">
       <div className="sidebar__header">
