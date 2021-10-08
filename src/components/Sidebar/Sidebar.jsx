@@ -69,7 +69,8 @@ function Sidebar() {
   useEffect(() => {
     getChannels();
     getDirectMessages();
-  }, [channels, dms])
+  }, [])
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
@@ -141,9 +142,9 @@ function Sidebar() {
 
         
 
-      <button className="sidebar__logout" onClick={logout}>
+      {/* <button className="sidebar__logout" onClick={logout}>
         Logout
-      </button>
+      </button> */}
     </div>
   )
 }

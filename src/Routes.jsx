@@ -27,7 +27,7 @@ export default function Routes(){
 
     const addStructure = (Component, props) => {
         return (
-        <>
+             <>
             <Header />
             <main className="app__body">
                 <Sidebar />
@@ -37,7 +37,10 @@ export default function Routes(){
             
             </main>
         </>
+        
+
         )
+       
     }
 
     const GuardedRoute = ({ component: Component, auth, ...rest }) => (
@@ -69,7 +72,7 @@ export default function Routes(){
         <div className="app">
             <Router>
                 <Switch>
-                    <GuardedRoute path ="/users/:class/:id" component={Chatbox}></GuardedRoute>
+                    <GuardedRoute path="/users/:class/:id" component={Chatbox}></GuardedRoute>
                     <GuardedRoute path ="/channel-details/:class/:id" component={Chatbox}></GuardedRoute>
                     <GuardedRoute path="/create-channel" component={CreateChannel}></GuardedRoute>
                     <GuardedRoute path ="/add-members" component={AddMembers}></GuardedRoute>
@@ -78,10 +81,6 @@ export default function Routes(){
                     <GuardedRoute path="/registration" component={Registration}></GuardedRoute>
                     <GuardedRoute path="/message-container" component={MessengerContainer}></GuardedRoute>
                     <GuardedRoute path="/user-list" component={GetUserList}></GuardedRoute>
-                    
-                    <Route path="/Login">
-                    <Login />
-                    </Route>
                     <GuardedRoute path="/" exact component={Welcome} />
                 </Switch>
             </Router>

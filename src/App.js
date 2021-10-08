@@ -1,10 +1,10 @@
-import Routes from './Routes'
 import layout from './App.module.css'
 import Sidebar from './components/Sidebar/Sidebar'
 import Header from './components/Header/Header'
 import MessageContainer from './components/Messenger/MessengerContainer'
 import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom'
 import Login from './components/Authenticate/Login'
+import Routes from './Routes';
 
 
 function App() {
@@ -14,14 +14,13 @@ function App() {
       <div className={layout.App}>
         <div className={layout.header}><Header /></div>
           <div className={layout.sidebar}>
-            <Router >
+            <Router>
               <Sidebar />
-            </Router >
+            </Router>
           </div>
         <div className={layout.content}><MessageContainer /></div>
         </div>
         {/* <Routes /> */}
-      
     </div>
 
     // <Router>
