@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 const RetrieveMessage = (props) => {
     const [messages, setMessages] = useState([]);
     const [messageInput, setMessageInput] = useState('')
+    const [newId, setNewId] = useState(0)
 
     const recieveData = () => {
         axios.get(`http://206.189.91.54//api/v1/messages?receiver_class=${props.class}&receiver_id=`+props.receiver_id,{
@@ -31,14 +32,14 @@ const RetrieveMessage = (props) => {
             headers: getToken()
         })
         .then((res) => {
-            recieveData()
+            setNewId(res['data']['data'].id)
             console.log(res['data']['data'])
         });
     }
 
     useEffect(() => {
         recieveData()
-    },[props])
+    },[newId])
 
     return ( 
         <div className='chat-box'>
