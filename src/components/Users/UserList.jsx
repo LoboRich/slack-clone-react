@@ -22,7 +22,7 @@ const UserList = () => {
 
     useEffect(() => {
         fetchUserList();
-    }, [userList.length]);
+    }, [userList]);
   
     return <div className="userList">
         <h1>User List</h1>

@@ -25,7 +25,7 @@ const Chatbox = (props) => {
 
     useEffect(() => {
         channelDetails(props.match.params.id);
-    },[])
+    },[props])
 
     return ( 
         <div className='chat-details'>

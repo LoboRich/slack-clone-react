@@ -1,40 +1,8 @@
-// import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
-// import UserChannels from "../Channel/UserChannels";
-// import './Sidebar.css'
 
-// export const Sidebar = () => {
-    
-//   return (
-//     <div id="mySidebar" className="sidebar">
-//       <ul>
-//         <li>
-//           <Link to="/">Home</Link>
-//         </li>
-//         <li>
-//           <Link to="/">Channels</Link>
-//           <UserChannels />
-//         </li>
-//         <li>
-//           <Link to="/create-channel">Create Channel</Link>
-//         </li>
-//         <li>
-//           <Link to="/user-channels">User Channels</Link>
-//         </li>
-//         <li>
-//           <Link to="/owned-channels">Owned Channels</Link>
-//         </li>
-//           <Link to="/user-list">User List</Link> 
-//       </ul>
-//     </div>
-//   )
-// }
-
-// export default Sidebar;
 import axios from 'axios';
 import { removeUserSession, getToken } from '../../Utils/common';
 import './Sidebar.css'
 import { useState, useEffect } from 'react'
-// import { auth } from '../../firebase'
 import SidebarOption from './SidebarOption'
 import CreateIcon from '@material-ui/icons/Create'
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord'
@@ -49,7 +17,6 @@ import { Avatar } from '@material-ui/core';
 
 function Sidebar() {
   const [channels, setChannels] = useState([])
-  const [user, setUser] = useState(null)
   const [dms, setDms] = useState([])
 
   const [isLoading, setLoading] = useState(true);
@@ -100,9 +67,6 @@ function Sidebar() {
   }
 
   useEffect(() => {
-    const data = sessionStorage.getItem('user')
-    setUser(JSON.parse(data))
-
     getChannels();
     getDirectMessages();
   }, [channels, dms])
