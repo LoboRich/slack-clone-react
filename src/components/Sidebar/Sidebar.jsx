@@ -69,7 +69,7 @@ function Sidebar() {
   useEffect(() => {
     getChannels();
     getDirectMessages();
-  }, [channels, dms])
+  }, [])
   return (
     <div className="sidebar">
       <div className="sidebar__header">
