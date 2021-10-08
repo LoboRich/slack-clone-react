@@ -25,7 +25,7 @@ function ChannelDetails(props) {
             setErrors(error)
             setLoading(true)
         })
-    },[]);
+    },[props]);
 
     const addMember = () => {
         history.push('/add-members')
