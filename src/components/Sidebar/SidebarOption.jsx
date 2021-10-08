@@ -14,9 +14,9 @@ function SidebarOption({
   const selectChannel = () => {
     if (id) {
       if (user) {
-        history.push(`/users/${id}`)
+        history.push(`/users/User/${id}`)
       } else {
-        history.push(`/channel-details/${id}`)
+        history.push(`/channel-details/Channel/${id}`)
       }
     } else {
       history.push(title)

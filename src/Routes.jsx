@@ -18,6 +18,7 @@ import Welcome from './components/Welcome/Welcome'
 import GetUserList from './components/Users/UserList'
 import RetrieveMessage from './components/Messenger/RetrieveMessage'
 import AddMembers from './components/Channel/AddMembers'
+import Chatbox from './components/Messenger/Chatbox'
 
 
 export default function Routes(){
@@ -29,10 +30,10 @@ export default function Routes(){
         <>
             <Header />
             <main className="app__body">
-            <Sidebar />
-            <div className="body">
-                <Component {...props} />
-            </div>
+                <Sidebar />
+                <div className="body">
+                    <Component {...props} />
+                </div>
             
             </main>
         </>
@@ -69,7 +70,7 @@ export default function Routes(){
             <Router>
                 <Switch>
                     <GuardedRoute path ="/users/:id" component={RetrieveMessage}></GuardedRoute>
-                    <GuardedRoute path ="/channel-details/:id" component={ChannelDetails}></GuardedRoute>
+                    <GuardedRoute path ="/channel-details/:class/:id" component={Chatbox}></GuardedRoute>
                     <GuardedRoute path="/create-channel" component={CreateChannel}></GuardedRoute>
                     <GuardedRoute path ="/add-members" component={AddMembers}></GuardedRoute>
                     <GuardedRoute path ="/owned-channels" component={OwnedUserChannels}></GuardedRoute>

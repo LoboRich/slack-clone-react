@@ -19,15 +19,24 @@
   border-bottom: 1px solid grey;
 }
 
+.channelsMembers {
+  margin-left: 1vh;
+}
+
 .member-container {
   display: flex;
 }
 
-.channel-header {
+.header-content {
   display: flex;
-  height: 100%;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+.chat-header{
+  padding: 1vh;
+  height: 8%;
+  border-bottom: 1px solid grey;
 }
 
 .channelsMembers {

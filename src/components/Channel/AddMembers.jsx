@@ -47,7 +47,6 @@ function AddMembers(props){
 
     return (
       <div className="create-channel-container">
-        <h1>Add Members</h1>
           <div className='create-channel'>
             <Select
                 name="colors"

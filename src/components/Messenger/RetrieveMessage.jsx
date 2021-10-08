@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 
 const RetrieveMessage = (props) => {
     const [messages, setMessages] = useState([]); 
-
+    console.log(props)
     const recieveData = () => {
-        axios.get('http://206.189.91.54//api/v1/messages?receiver_class=User&receiver_id='+props.match.params.id,{
+        axios.get(`http://206.189.91.54//api/v1/messages?receiver_class=${props.class}&receiver_id=`+props.receiver_id,{
             headers: getToken()
         }).then((res) => {
             setMessages(res['data']['data'])
@@ -17,7 +17,7 @@ const RetrieveMessage = (props) => {
         recieveData()
     },[])
     return ( 
-        <div className="retrieve-wrapper">
+        <div>
             <button onClick={recieveData}>Retrieve</button>
             {(
                 messages.map(message => {

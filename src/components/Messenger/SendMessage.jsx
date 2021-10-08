@@ -1,12 +1,19 @@
 import axios from "axios";
 import { getToken } from "../../Utils/common";
+import { useState } from "react";
 
-const SendMessage = () => {
+const SendMessage = (props) => {
+
+    const [messageInput, setMessageInput] = useState('')
+
+    const messageWrite = (e) => {   
+        setMessageInput(e.target.value)
+    }
 
     const data = {
-        'receiver_id': 471,
-        'receiver_class': 'Channel',
-        'body': 'From Rich!' 
+        'receiver_id': props.receiver_id,
+        'receiver_class': props.class,
+        'body': messageInput 
     }
     const SendMessage = (e) => {
         e.preventDefault()
@@ -14,13 +21,18 @@ const SendMessage = () => {
             headers: getToken()
         })
         .then((res) => {
-            console.log(res)
+            console.log(res['data']['data'])
         });
     }
 
     return ( 
-        <div className="retrieve-wrapper">
-            <button onClick={SendMessage}>Button</button>
+        <div className="input-box">
+            <form onSubmit={SendMessage}>
+                <input type="text" className='message-datas' placeholder='Message' onChange={messageWrite}/>
+                <div className="message-button-container">
+                    <button className="send-button" onSubmit={SendMessage}>Send</button>
+                </div>
+            </form>
         </div>
      );
 }
