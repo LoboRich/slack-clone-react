@@ -65,23 +65,25 @@ export default function Routes(){
     if (!isLoaded) return null
 
     return (
-        <Router>
-            <Switch>
-                <GuardedRoute path ="/users/:id" component={RetrieveMessage}></GuardedRoute>
-                <GuardedRoute path ="/channel-details/:id" component={ChannelDetails}></GuardedRoute>
-                <GuardedRoute path="/create-channel" component={CreateChannel}></GuardedRoute>
-                <GuardedRoute path ="/add-members" component={AddMembers}></GuardedRoute>
-                <GuardedRoute path ="/owned-channels" component={OwnedUserChannels}></GuardedRoute>
-                <GuardedRoute path="/user-channels" component={UserChannels}></GuardedRoute>
-                <GuardedRoute path="/registration" component={Registration}></GuardedRoute>
-                <GuardedRoute path="/message-container" component={MessengerContainer}></GuardedRoute>
-                <GuardedRoute path="/user-list" component={GetUserList}></GuardedRoute>
-                
-                <Route path="/Login">
-                <Login />
-                </Route>
-                <GuardedRoute path="/" exact component={Welcome} />
-            </Switch>
-        </Router>
+        <div className="app">
+            <Router>
+                <Switch>
+                    <GuardedRoute path ="/users/:id" component={RetrieveMessage}></GuardedRoute>
+                    <GuardedRoute path ="/channel-details/:id" component={ChannelDetails}></GuardedRoute>
+                    <GuardedRoute path="/create-channel" component={CreateChannel}></GuardedRoute>
+                    <GuardedRoute path ="/add-members" component={AddMembers}></GuardedRoute>
+                    <GuardedRoute path ="/owned-channels" component={OwnedUserChannels}></GuardedRoute>
+                    <GuardedRoute path="/user-channels" component={UserChannels}></GuardedRoute>
+                    <GuardedRoute path="/registration" component={Registration}></GuardedRoute>
+                    <GuardedRoute path="/message-container" component={MessengerContainer}></GuardedRoute>
+                    <GuardedRoute path="/user-list" component={GetUserList}></GuardedRoute>
+                    
+                    <Route path="/Login">
+                    <Login />
+                    </Route>
+                    <GuardedRoute path="/" exact component={Welcome} />
+                </Switch>
+            </Router>
+        </div>
     )
 }
