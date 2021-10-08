@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Slack-Font;
+    src: url('/src/components/resources/Larsseit\ Regular.ttf');
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -5,7 +10,7 @@
 }
 
 .registration-wrapper {
-    height: 43vh;
+    height: 44vh;
     width: 25vw;
     position: absolute;
     background: #FDFDFD;
@@ -82,13 +87,15 @@
 }
 
 .terms {
-    font-size: 1.2vh;
+    font-size: 1.1vh;
+    font-family: Slack-Font;
 }
 
 .slack-terms, .slack-policy {
     color: rgb(0, 152, 253);
     cursor: pointer;
     text-decoration: none;
+    font-family: Slack-Font;
 }
 
 @keyframes appear {

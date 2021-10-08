@@ -1,9 +1,9 @@
-import './MessengerContainer.css'
 import RetrieveMessage from "./RetrieveMessage";
 import axios from "axios";
 import { getToken } from "../../Utils/common";
 import { createElement, useState } from "react";
 import React from "react";
+import message from './MessengerContainer.module.css'
 
 const MessageContainer = () => {
 
@@ -51,7 +51,7 @@ const MessageContainer = () => {
     }
 
     return ( 
-    <div className="message-wrapper">
+    <div className={message.messageWrapper}>
         <div className="message-box">{messageIn}</div>
         <div className="message-boxer">
             <div className="input-box">

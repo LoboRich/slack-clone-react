@@ -13,11 +13,20 @@ const RetrieveMessage = (props) => {
         })
     }
 
+    const receiveTest = () => {
+        axios.get('http://206.189.91.54//api/v1/messages?receiver_class=Channel&receiver_id=471', {
+            headers: getToken()
+        }).then((res) => {
+            setMessages(res['data']['data'])
+        })
+    }  
+
     useEffect(() => {
         recieveData()
     },[])
     return ( 
-        <div>
+        <div className="retrieve-wrapper">
+            <button onClick={receiveTest}>Test</button>
             <button onClick={recieveData}>Retrieve</button>
             {(
                 messages.map(message => {

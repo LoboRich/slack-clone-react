@@ -4,10 +4,11 @@
     box-sizing: border-box;
 }
 
-.message-wrapper {
-    height: 85%;
+.messageWrapper {
+    height: 100%;
     width: 100%;
     border: none;
+    background: #F0F0F0;
 }
 
 .message-box {
