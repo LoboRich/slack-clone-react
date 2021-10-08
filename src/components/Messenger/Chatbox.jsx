@@ -30,7 +30,10 @@ const Chatbox = (props) => {
     return ( 
         <div className='chat-details'>
             <div className="chat-header">
-               <ChannelDetails channel_id={props.match.params.id}/>
+                {
+                    props.match.params.class === 'Channel' ? <ChannelDetails channel_id={props.match.params.id}/> : <div></div>
+                }
+               
             </div>
             <div className="chat-body">
                 <div className="chat-box">

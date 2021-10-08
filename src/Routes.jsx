@@ -69,7 +69,7 @@ export default function Routes(){
         <div className="app">
             <Router>
                 <Switch>
-                    <GuardedRoute path ="/users/:id" component={RetrieveMessage}></GuardedRoute>
+                    <GuardedRoute path ="/users/:class/:id" component={Chatbox}></GuardedRoute>
                     <GuardedRoute path ="/channel-details/:class/:id" component={Chatbox}></GuardedRoute>
                     <GuardedRoute path="/create-channel" component={CreateChannel}></GuardedRoute>
                     <GuardedRoute path ="/add-members" component={AddMembers}></GuardedRoute>
