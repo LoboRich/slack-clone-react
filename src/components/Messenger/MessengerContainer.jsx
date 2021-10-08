@@ -12,9 +12,10 @@ import gif from '../resources/gif.png'
 import plus from '../resources/plus.png'
 import avatar from '../resources/avatar.png'
 import Routes from "../../Routes";
+import ChannelDetails from "../Channel/ChannelDetails";
 
 
-const MessageContainer = () => {
+const MessageContainer = (props) => {
 
     const [messageLength, setMessageLength] = useState([])
     const [messageInput, setMessageInput] = useState('')
@@ -60,6 +61,7 @@ const MessageContainer = () => {
 
     return ( 
     <div className={message.messageWrapper}>
+         <ChannelDetails channel_id={props.match.params.id} />
         <div className={message.messageBox}>
             <div className={message.retrieveBox}>
                 <div className={message.retrieveMessage}>
