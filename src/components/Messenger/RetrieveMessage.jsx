@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 const RetrieveMessage = (props) => {
     const [messages, setMessages] = useState([]);
+    const [messageInput, setMessageInput] = useState('')
 
     const recieveData = () => {
         axios.get(`http://206.189.91.54//api/v1/messages?receiver_class=${props.class}&receiver_id=`+props.receiver_id,{
@@ -13,12 +14,34 @@ const RetrieveMessage = (props) => {
         })
     }
 
+
+    const messageWrite = (e) => {   
+        setMessageInput(e.target.value)
+    }
+
+    const data = {
+        'receiver_id': props.receiver_id,
+        'receiver_class': props.class,
+        'body': messageInput 
+    }
+
+    const SendMessage = (e) => {
+        e.preventDefault()
+        axios.post('http://206.189.91.54//api/v1/messages', data, {
+            headers: getToken()
+        })
+        .then((res) => {
+            recieveData()
+            console.log(res['data']['data'])
+        });
+    }
+
     useEffect(() => {
         recieveData()
-    },[messages, setMessages])
+    },[])
 
     return ( 
-        <div>
+        <div className='chat-box'>
             <button onClick={recieveData}>Retrieve</button>
             {(
                 messages.map(message => {
@@ -28,6 +51,14 @@ const RetrieveMessage = (props) => {
                     );
                 })
             )}
+            <div className="input-box">
+                <form onSubmit={SendMessage}>
+                    <input type="text" className='message-datas' placeholder='Message' onChange={messageWrite}/>
+                    <div className="message-button-container">
+                        <button className="send-button" onSubmit={SendMessage}>Send</button>
+                    </div>
+                </form>
+            </div>
         </div>
      );
 }

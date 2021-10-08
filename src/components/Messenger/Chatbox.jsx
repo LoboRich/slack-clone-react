@@ -40,12 +40,7 @@ const Chatbox = (props) => {
                
             </div>
             <div className="chat-body">
-                <div className="chat-box">
-                    <RetrieveMessage class={props.match.params.class} receiver_id={props.match.params.id} />
-                </div>
-                <div className="chat-input-box">
-                   <SendMessage class={props.match.params.class} receiver_id={props.match.params.id}/>
-                </div>
+                <RetrieveMessage class={props.match.params.class} receiver_id={props.match.params.id} />
             </div>
             
         </div>
