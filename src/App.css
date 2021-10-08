@@ -5,21 +5,19 @@
 }
 
 body {
-  overflow: hidden;
   --slack-color: #3f0e40;
 }
 
 .app__body {
   display: flex;
-  height: 100vh;
-  flex-direction: row;
-  overflow: auto;
+  flex-direction: column;
+  height: 95%;
   width: 100%;
+  flex-direction: row;
 }
 .body{
   height: 100%;
-  width: 100%;
-  overflow: none
+  width: 80%;
 }
 
 .openbtn {

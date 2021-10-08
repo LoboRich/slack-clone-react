@@ -19,6 +19,7 @@ import GetUserList from './components/Users/UserList'
 import RetrieveMessage from './components/Messenger/RetrieveMessage'
 import AddMembers from './components/Channel/AddMembers'
 import Chatbox from './components/Messenger/Chatbox'
+import routeDesign from './Routes.module.css'
 
 
 export default function Routes(){
@@ -27,9 +28,10 @@ export default function Routes(){
 
     const addStructure = (Component, props) => {
         return (
-        <>
-            <Header />
+        <>  
+            <Header /> 
             <main className="app__body">
+                 
                 <Sidebar />
                 <div className="body">
                     <Component {...props} />
@@ -66,7 +68,7 @@ export default function Routes(){
     if (!isLoaded) return null
 
     return (
-        <div className="app">
+        <div className={routeDesign.app}>
             <Router>
                 <Switch>
                     <GuardedRoute path ="/users/:class/:id" component={Chatbox}></GuardedRoute>

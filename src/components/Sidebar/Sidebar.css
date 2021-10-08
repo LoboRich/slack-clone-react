@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 /* .sidebar {
     color: white;
     background-color: var(--slack-color);
@@ -37,6 +41,7 @@
     background-color: var(--slack-color);
     border-top: 1px solid #49274b;
     width: 20%;
+    height: 100%;
     /* flex: 0.3; */
   }
   
