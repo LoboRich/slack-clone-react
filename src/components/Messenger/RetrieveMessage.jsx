@@ -38,7 +38,7 @@ const RetrieveMessage = (props) => {
 
     useEffect(() => {
         recieveData()
-    },[])
+    },[props])
 
     return ( 
         <div className='chat-box'>
