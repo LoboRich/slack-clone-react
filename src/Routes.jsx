@@ -57,9 +57,9 @@ export default function Routes(){
     useEffect(() => {
         const data = sessionStorage.getItem('token')
         if (data) {
-        setIsLoggedIn(true)
+            setIsLoggedIn(true)
         }
-        setIsLoaded(true)
+            setIsLoaded(true)
     }, [])
 
     if (!isLoaded) return null
