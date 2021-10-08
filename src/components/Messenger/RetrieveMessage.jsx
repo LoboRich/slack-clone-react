@@ -23,7 +23,7 @@ const RetrieveMessage = (props) => {
 
     useEffect(() => {
         recieveData()
-    },[])
+    },[props, messages])
     return ( 
         <div className="retrieve-wrapper">
             <button onClick={receiveTest}>Test</button>

@@ -17,7 +17,6 @@ const CreateChannel = () => {
 
     const userListChange = (e) => {
         setuserIds(e.map(x => {return x.value}))
-        
     }
 
     const data = {

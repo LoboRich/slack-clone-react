@@ -23,7 +23,7 @@ const ChannelList = () => {
             setErrors(error)
             setLoading(true)
         })
-    },[channels.length]);
+    },[channels]);
 
     return <div className='channels'>
         {hasError ? <p>{hasError.message}</p> : null}

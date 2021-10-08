@@ -27,7 +27,7 @@ const OwnedList = () => {
 
     useEffect(() => {
         fetchOwnedChannels();
-    }, []);
+    }, [ownedChannels]);
   
     return <div>
         <h1>Owned Channels</h1>
