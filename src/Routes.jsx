@@ -17,6 +17,7 @@ import Welcome from './components/Welcome/Welcome'
 import GetUserList from './components/Users/UserList'
 import AddMembers from './components/Channel/AddMembers'
 import routeDesign from './Routes.module.css'
+import Members from './components/Channel/Members'
 
 
 export default function Routes(){

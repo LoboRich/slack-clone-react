@@ -29,10 +29,8 @@
 
 .header-content {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  height: 10%;
+  height: 7%;
   width: 100%;
 }
 .chat-header{
@@ -134,3 +132,21 @@
   border-radius: 15px;
   width: 100%;
 }
+
+.membersContainer {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.membersForm {
+  height: 70%;
+  width: 30%;
+  box-shadow: 0 0 5px grey;
+  border-radius: 1vh;
+}
+

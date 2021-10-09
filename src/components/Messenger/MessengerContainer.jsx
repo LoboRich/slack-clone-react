@@ -6,6 +6,7 @@ import React from "react";
 import message from './MessengerContainer.module.css'
 import ChannelDetails from "../Channel/ChannelDetails";
 import SendMessage from './SendMessage'
+import Members from "../Channel/Members";
 
 
 const MessageContainer = (props) => {
@@ -45,6 +46,7 @@ const MessageContainer = (props) => {
 
     return ( 
     <div className={message.messageWrapper}>
+        <Members channel_id={props.match.params.id}/>
         <ChannelDetails channel_id={props.match.params.id} />
         <RetrieveMessage receiver_class={props.match.params.class} receiver_id={props.match.params.id} />
         <SendMessage receiver_class={props.match.params.class} receiver_id={props.match.params.id}/>

@@ -5,14 +5,15 @@
 }
 
 .messageWrapper {
-    height: 90%;
+    height: 100%;
     width: 100%;
     border: none;
     background: #F0F0F0;
+    position: relative;
 }
 
 .messageBox {
-  height: 92%;
+  height: 85%;
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
