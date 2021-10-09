@@ -23,6 +23,7 @@ import Members from './components/Channel/Members'
 export default function Routes(){
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [isLoaded, setIsLoaded] = useState(false)
+    const [session, setSession] = useState([])
 
     const addStructure = (Component, props) => {
         return (
@@ -40,12 +41,20 @@ export default function Routes(){
         )
     }
 
-    const GuardedRoute = ({ component: Component, auth, ...rest }) => (
+    useEffect(() => {
+        const data = sessionStorage
+        if (data) {
+            setSession(sessionStorage)
+        }
+            setIsLoaded(true)
+    }, [])
+
+    const GuardedRoute = ({ component: Component, ...rest }) => (
         <Route
         {...rest}
         render={(props) =>
-            isLoggedIn ? (
-            addStructure(Component, props)
+            session.length != 0 ? (
+                addStructure(Component, props)
             ) : (
             <Redirect
                 to={{ pathname: '/Login', state: { from: props.location } }}
@@ -54,14 +63,6 @@ export default function Routes(){
         }
         />
     )
-
-    useEffect(() => {
-        const data = sessionStorage.getItem('token')
-        if (data) {
-            setIsLoggedIn(true)
-        }
-            setIsLoaded(true)
-    }, [])
 
     if (!isLoaded) return null
 
@@ -78,7 +79,7 @@ export default function Routes(){
                     <GuardedRoute path="/registration" component={Registration}></GuardedRoute>
                     <GuardedRoute path="/message-container" component={MessengerContainer}></GuardedRoute>
                     <GuardedRoute path="/user-list" component={GetUserList}></GuardedRoute>
-                    
+                    <GuardedRoute path="/home" exact component={Welcome} />
                     <Route path="/Login">
                     <Login />
                     </Route>
