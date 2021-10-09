@@ -9,7 +9,6 @@ import messaged from './MessengerContainer.module.css'
 const RetrieveMessage = (props) => {
     const [messages, setMessages] = useState([]);
     const [messageInput, setMessageInput] = useState('')
-    const [newId, setNewId] = useState(0)
 
     const recieveData = () => {
         axios.get(`http://206.189.91.54//api/v1/messages?receiver_class=${props.receiver_class}&receiver_id=`+props.receiver_id,{
@@ -32,7 +31,7 @@ const RetrieveMessage = (props) => {
 
     useEffect(() => {
         recieveData()
-    },[newId, props])
+    },[messages.length, props])
 
     return (
         <div className={messaged.messageBox}>
