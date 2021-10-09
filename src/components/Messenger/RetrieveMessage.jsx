@@ -3,6 +3,7 @@ import { getToken } from "../../Utils/common";
 import { useState, useEffect } from 'react';
 import message from './MessengerContainer.module.css'
 import avatar from '../resources/avatar.png'
+import moment from 'moment'
 
 
 const RetrieveMessage = (props) => {
@@ -53,7 +54,7 @@ const RetrieveMessage = (props) => {
                         <div className={message.retrieveMessage}>
                             <img src={avatar} alt="" className={message.avatar}/>
                             <div className={message.userData}>
-                                <h3 className={message.userName}>{sender.uid.split('@')[0]}</h3>
+                                <h3 className={message.userName}>{sender.uid.split('@')[0]} {moment(sender.created_at).format('MMMM D, YYYY h:mm:ss a')}</h3>
                                 <span className={message.userMessage}>{body}</span>
                             </div>
                         </div>
