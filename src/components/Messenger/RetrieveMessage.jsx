@@ -1,6 +1,9 @@
 import axios from "axios";
 import { getToken } from "../../Utils/common";
 import { useState, useEffect } from 'react';
+import message from './MessengerContainer.module.css'
+import avatar from '../resources/avatar.png'
+
 
 const RetrieveMessage = (props) => {
     const [messages, setMessages] = useState([]);
@@ -41,25 +44,22 @@ const RetrieveMessage = (props) => {
         recieveData()
     },[newId])
 
-    return ( 
-        <div className='chat-box'>
-            <button onClick={recieveData}>Retrieve</button>
-            {(
-                messages.map(message => {
-                    const {id, body} = message;
-                    return (
-                        <p key={id}>id: {id}, body: {body}</p>
-                    );
-                })
-            )}
-            <div className="input-box">
-                <form onSubmit={SendMessage}>
-                    <input type="text" className='message-datas' placeholder='Message' onChange={messageWrite}/>
-                    <div className="message-button-container">
-                        <button className="send-button" onSubmit={SendMessage}>Send</button>
+    return (
+        <div className={message.messageBox}>
+           { messages.map(message => {
+                const {id, body} = message;
+                return (
+                    <div className={message.retrieveBox}>
+                        <div className={message.retrieveMessage}>
+                            <img src={avatar} alt="" className={message.avatar}/>
+                            <div className={message.userData}>
+                                <h3 className={message.userName}>User Name</h3>
+                                <span className={message.userMessage}>Test Message! 123 Slack clone otw!</span>
+                            </div>
+                        </div>
                     </div>
-                </form>
-            </div>
+                );
+            })}
         </div>
      );
 }

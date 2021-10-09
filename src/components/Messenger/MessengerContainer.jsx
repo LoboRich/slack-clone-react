@@ -61,27 +61,8 @@ const MessageContainer = (props) => {
 
     return ( 
     <div className={message.messageWrapper}>
-         <ChannelDetails channel_id={props.match.params.id} />
-        <div className={message.messageBox}>
-            <div className={message.retrieveBox}>
-                <div className={message.retrieveMessage}>
-                    <img src={avatar} alt="" className={message.avatar}/>
-                    <div className={message.userData}>
-                        <h3 className={message.userName}>User Name</h3>
-                        <span className={message.userMessage}>Test Message! 123 Slack clone otw!</span>
-                    </div>
-                </div>
-            </div>
-            <div className={message.retrieveBox}>
-                <div className={message.retrieveMessage}>
-                    <img src={avatar} alt="" className={message.avatar}/>
-                    <div className={message.userData}>
-                        <h3 className={message.userName}>User Name</h3>
-                        <span className={message.userMessage}>Test Message! 123 Slack clone otw!</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ChannelDetails channel_id={props.match.params.id} />
+        <RetrieveMessage class={props.match.params.class} receiver_id={props.match.params.id} />
         <div className={message.messageBoxer}>
             <div className={message.inputBox}>
                 <div className={message.mediaButtons}>
