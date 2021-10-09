@@ -1,9 +1,9 @@
 import axios from "axios";
 import { getToken } from "../../Utils/common";
 import { useState, useEffect } from 'react';
-import message from './MessengerContainer.module.css'
 import avatar from '../resources/avatar.png'
 import moment from 'moment'
+import messaged from './MessengerContainer.module.css'
 
 
 const RetrieveMessage = (props) => {
@@ -35,16 +35,16 @@ const RetrieveMessage = (props) => {
     },[newId, props])
 
     return (
-        <div className={message.messageBox}>
+        <div className={messaged.messageBox}>
            { messages.map(message => {
                 const {id, body, sender} = message;
                 return (
-                    <div className={message.retrieveBox} key={id}>
-                        <div className={message.retrieveMessage}>
-                            <img src={avatar} alt="" className={message.avatar}/>
-                            <div className={message.userData}>
-                                <h3 className={message.userName}>{sender.uid.split('@')[0]} {moment(sender.created_at).format('MMMM D, YYYY h:mm:ss a')}</h3>
-                                <span className={message.userMessage}>{body}</span>
+                    <div className={messaged.retrieveBox} key={id}>
+                        <div className={messaged.retrieveMessage}>
+                            <img src={avatar} alt="" className={messaged.avatar}/>
+                            <div className={messaged.userData}>
+                                <h3 className={messaged.userName}>{sender.uid.split('@')[0]} <span className={messaged.receivedTime}>{moment(sender.created_at).format('h:mm:ss a')}</span></h3>
+                                <span className={messaged.userMessage}>{body}</span>
                             </div>
                         </div>
                     </div>

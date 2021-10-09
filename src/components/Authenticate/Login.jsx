@@ -38,7 +38,7 @@ const Login = () => {
     return ( 
         <div className="login-wrapper">
             <img className='slack-gif' src={fina} alt=""/>
-            <form className='login-form' onSubmit={authenticateLogin}>
+            <form className='login-form'>
                 <div className="input-wrapper">
                     <h1 className='sign-in-header'>Sign in to your account</h1>
                     <h3 className="bottom-header">Enter to your workspace</h3>
@@ -51,7 +51,7 @@ const Login = () => {
                     </div>
                     <input type="email" className='login-email' onChange={emailAuthenticate} placeholder=' Your E-mail'/>
                     <input type="text" className='login-text' onChange={passwordAuthenticate} placeholder=' Your Password'/>
-                    <button className='login-button' onSubmit={authenticateLogin}>Sign in with Email</button>
+                    <button className='login-button' onClick={authenticateLogin}>Sign in with Email</button>
                     <h6 className='registration-header'>Don't have an account? <span onClick={()=>setModal(true)} className='register-button'>Register Here</span></h6>
                 </div>
             </form>
