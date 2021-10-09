@@ -1,18 +1,11 @@
 import RetrieveMessage from "./RetrieveMessage";
 import axios from "axios";
 import { getToken } from "../../Utils/common";
-import { createElement, useState } from "react";
+import { useState } from "react";
 import React from "react";
 import message from './MessengerContainer.module.css'
-import Chatbox from "./Chatbox";
-import sendButton from '../resources/sendButton.png'
-import camera from '../resources/camera.png'
-import link from '../resources/link.png'
-import gif from '../resources/gif.png'
-import plus from '../resources/plus.png'
-import avatar from '../resources/avatar.png'
-import Routes from "../../Routes";
 import ChannelDetails from "../Channel/ChannelDetails";
+import SendMessage from './SendMessage'
 
 
 const MessageContainer = (props) => {
@@ -29,16 +22,7 @@ const MessageContainer = (props) => {
         'receiver_class': 'User',
         'body': messageInput 
     }
-    const SendMessage = (e) => {
-        e.preventDefault()
-        axios.post('http://206.189.91.54//api/v1/messages', data, {
-            headers: getToken()
-        })
-        .then((res) => {
-            console.log(res['data']['data'])
-        });
-    }
-
+    
     const [receiveBox, setReceiveData] = useState('')
     const messageIn = React.createElement('div',{}, receiveBox)
 
@@ -62,25 +46,8 @@ const MessageContainer = (props) => {
     return ( 
     <div className={message.messageWrapper}>
         <ChannelDetails channel_id={props.match.params.id} />
-        <RetrieveMessage class={props.match.params.class} receiver_id={props.match.params.id} />
-        <div className={message.messageBoxer}>
-            <div className={message.inputBox}>
-                <div className={message.mediaButtons}>
-                    <img src={plus} alt="" className={message.plus}/>
-                    <img src={gif} alt="" className={message.gif} />
-                    <img src={link} alt="" className={message.link}/>
-                    <img src={camera} alt="" className={message.camera} />
-                </div>
-                <input type="text" className={message.messageInputData} placeholder='Message Here'/>
-                <button className={message.sendButton}><img src={sendButton} alt="" className={message.sendIcon} /></button>
-                {/* <input type="text" className={message.messageDatas} placeholder='Message' onChange={messageWrite}/>
-                <div className={message.messageButtonContainer}>
-                    <button className={message.sendButton} onClick={SendMessage}>Send</button>
-                </div> */}
-                {/* <button className="send-button" onClick={SendMessage}>Send</button>
-                <button className="retreive-button" onClick={recieveData}>Receive</button> */}
-            </div>
-        </div>
+        <RetrieveMessage receiver_class={props.match.params.class} receiver_id={props.match.params.id} />
+        <SendMessage receiver_class={props.match.params.class} receiver_id={props.match.params.id}/>
     </div> 
     );
 }

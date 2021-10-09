@@ -20,7 +20,7 @@ function Search(props){
     }, []);
 
     return (
-        userList.filter(person => person.id == userId).map(filteredPerson => (
+        userList.filter(person => person.id === userId).map(filteredPerson => (
             <p key={filteredPerson.id} className='channelsMembers' id={userId}> {filteredPerson.email.split("@")[0]}</p>
         ))
     )

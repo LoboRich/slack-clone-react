@@ -13,12 +13,9 @@ import UserChannels from "./components/Channel/UserChannels";
 import Registration from "./components/Authenticate/Registration";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
 import CreateChannel from './components/Channel/CreateChannel'
-import ChannelDetails from './components/Channel/ChannelDetails'
 import Welcome from './components/Welcome/Welcome'
 import GetUserList from './components/Users/UserList'
-import RetrieveMessage from './components/Messenger/RetrieveMessage'
 import AddMembers from './components/Channel/AddMembers'
-import Chatbox from './components/Messenger/Chatbox'
 import routeDesign from './Routes.module.css'
 
 
@@ -71,7 +68,7 @@ export default function Routes(){
         <div className={routeDesign.app}>
             <Router>
                 <Switch>
-                    <GuardedRoute path ="/users/:class/:id" component={Chatbox}></GuardedRoute>
+                    <GuardedRoute path ="/users/:class/:id" component={MessengerContainer}></GuardedRoute>
                     <GuardedRoute path ="/channel-details/:class/:id" component={MessengerContainer}></GuardedRoute>
                     <GuardedRoute path="/create-channel" component={CreateChannel}></GuardedRoute>
                     <GuardedRoute path ="/add-members" component={AddMembers}></GuardedRoute>

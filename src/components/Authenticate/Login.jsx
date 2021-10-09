@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { setUserSession, getToken } from '../../Utils/common';
+import { setUserSession } from '../../Utils/common';
 import './Login.css';
 import Registration from './Registration';
 import { useHistory } from "react-router-dom";

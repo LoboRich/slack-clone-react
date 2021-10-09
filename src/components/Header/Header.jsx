@@ -1,5 +1,4 @@
 import './Header.css'
-import { useHistory } from 'react-router-dom'
 import { Avatar } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import SearchIcon from '@material-ui/icons/Search';

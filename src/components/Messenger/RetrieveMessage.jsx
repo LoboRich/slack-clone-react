@@ -12,7 +12,7 @@ const RetrieveMessage = (props) => {
     const [newId, setNewId] = useState(0)
 
     const recieveData = () => {
-        axios.get(`http://206.189.91.54//api/v1/messages?receiver_class=${props.class}&receiver_id=`+props.receiver_id,{
+        axios.get(`http://206.189.91.54//api/v1/messages?receiver_class=${props.receiver_class}&receiver_id=`+props.receiver_id,{
             headers: getToken()
         }).then((res) => {
             setMessages(res['data']['data'])
@@ -26,19 +26,8 @@ const RetrieveMessage = (props) => {
 
     const data = {
         'receiver_id': props.receiver_id,
-        'receiver_class': props.class,
+        'receiver_class': props.receiver_class,
         'body': messageInput 
-    }
-
-    const SendMessage = (e) => {
-        e.preventDefault()
-        axios.post('http://206.189.91.54//api/v1/messages', data, {
-            headers: getToken()
-        })
-        .then((res) => {
-            setNewId(res['data']['data'].id)
-            console.log(res['data']['data'])
-        });
     }
 
     useEffect(() => {

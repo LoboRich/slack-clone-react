@@ -2,7 +2,6 @@ import './Welcome.css'
 import { Button } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import fina from '../resources/fina.gif'
-import CreateChannel from '../Channel/CreateChannel'
 function Welcome() {
   const history = useHistory()
 
