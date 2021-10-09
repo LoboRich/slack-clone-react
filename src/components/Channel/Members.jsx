@@ -40,20 +40,20 @@ const Members = (props) => {
             {/* Add Members to Channel */}
             {/* List of Members */}
             <div className="membersForm">
-             {if(props.receiver_class){
-                 !isLoading ? (
-                    details['channel_members'].map(detail => {
-                        const {user_id} = detail;
-                        return (
-                            <span onClick={() => newDM(user_id)} user_id={user_id} className='memberLink'><Search user_id={user_id}/></span>
-                        );
-                    })
-                ): (
-                <p>{isLoading}</p>
-                )
-             }}   
-                    <AddMembers channel_id={props.channel_id} />
-                </div>
+                {
+                    !isLoading ? (
+                        details['channel_members'].map(detail => {
+                            const {user_id} = detail;
+                            return (
+                                <span onClick={() => newDM(user_id)} user_id={user_id} className='memberLink'><Search user_id={user_id}/></span>
+                            );
+                        })
+                    ): (
+                    <p>{isLoading}</p>
+                    )
+                }
+                <AddMembers channel_id={props.channel_id} />
+            </div>
         </div>
      );
 }
