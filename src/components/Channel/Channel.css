@@ -150,3 +150,7 @@
   border-radius: 1vh;
 }
 
+.memberLink {
+  cursor: pointer;
+}
+
