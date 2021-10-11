@@ -7,6 +7,7 @@ import camera from '../resources/camera.png'
 import link from '../resources/link.png'
 import gif from '../resources/gif.png'
 import plus from '../resources/plus.png'
+import { firebase } from "../../Utils/firebase";
 
 const SendMessage = (props) => {
 

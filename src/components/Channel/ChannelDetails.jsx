@@ -7,7 +7,7 @@ import './Channel.css'
 import Search from '../Search';
 import Members from './Members';
 import AddMembers from './AddMembers';
-
+// import { firebase } from "../../Utils/firebase";
 
 function ChannelDetails(props) {
     // const history = useHistory();
