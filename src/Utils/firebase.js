@@ -1,5 +1,8 @@
-import firebase from 'firebase';
+import { initializeApp } from 'firebase/app';
+import { getDatabase } from "firebase/database";
 
+// Set the configuration for your app
+// TODO: Replace with your project's config object
 const firebaseConfig = {
   apiKey: "AIzaSyBMX8IvIsF-T1lvS6pkXoJ1sBKqypICGGs",
   authDomain: "slack-clone-8d558.firebaseapp.com",
@@ -11,8 +14,7 @@ const firebaseConfig = {
   measurementId: "G-4H4ZGFH2CG"
 };
 
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
+const app = initializeApp(firebaseConfig);
 
-export { firebase };
+// Get a reference to the database service
+const database = getDatabase(app);
