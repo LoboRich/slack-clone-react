@@ -56,7 +56,7 @@ const Login = () => {
                 </div>
             </form>
             {/* <button onClick={showUserList}>Show users</button> */}
-            {postModal && <Registration />}
+            {postModal && <Registration closeRegistration={setModal} />}
             <h6 className="copy-write">Slack Clone - Avion Project</h6>
         </div>
      );

@@ -125,16 +125,7 @@ function Sidebar() {
           />
         ))}
         <li>
-          <Link to="/user-channels">User Channels</Link>
-        </li>
-        <li>
           <Link to="/owned-channels">Owned Channels</Link>
-        </li>
-        <li>
-          <Link to="/user-list">User List</Link> 
-        </li>
-        <li>
-          <Link to="/add-members">Add</Link>
         </li>
       </div>
        

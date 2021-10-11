@@ -18,7 +18,7 @@ const MessageContainer = (props) => {
     <div className={message.messageWrapper}>
         { receiver_class === 'Channel' ? (
             <>
-                <Members channel_id={receiver_id}/>
+                {/* <Members channel_id={receiver_id}/> */}
                 <ChannelDetails channel_id={receiver_id} />
             </>
         ):(

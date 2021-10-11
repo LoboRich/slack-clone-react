@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './Registration.css'
 
 
-const Registration = () => {
+const Registration = ({closeRegistration}) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -40,7 +40,7 @@ const Registration = () => {
 
     return ( 
         <div className='registration-wrapper'>
-            <button className='cancel-modal'>X</button>
+            <button onClick={()=>closeRegistration(false)}className='cancel-modal'>X</button>
             <form className='registration-form' action="">
                 <input type="email" className='register-email' onChange={emailInput} placeholder=' Your Preferred Email'/>
                 <input type="text" className='register-password' onChange={passwordInput}  placeholder=' Your Preferred Password'/>
