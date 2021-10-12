@@ -35,10 +35,6 @@ const SendMessage = (props) => {
         
         push(ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id),data);
         setMessageInput('')
-
-        // const chatRef = db.ref('/chats/'+props.receiver_class+'/'+props.receiver_id)
-        // chatRef.push(data);
-        // setMessageInput('')
     }
 
     return ( 

@@ -33,21 +33,29 @@ const RetrieveMessage = (props) => {
     // });
 
     // const [todoList, setTodoList] = useState();
-
     useEffect(() => {
-        recieveData();
+        // recieveData();
         const chats = ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id);
         onValue(chats, (snapshot) => {
             const data = snapshot.val();
-            console.log(data)
+            
+            setMessages(Object.values(data));
+            
+            // setMessages(postElement, data);
         });
+        
     }, [props]);
-
-    
     
     return (
         <div className={messaged.messageBox}>
-           { messages.map(message => {
+           {
+               messages.map(message => {
+                   return (
+                       <p>{message['body']}</p>
+                   )
+               })
+           }
+           {/* { messages.map(message => {
                 const {id, body, sender} = message;
                 return (
                     <div className={messaged.retrieveBox} key={id}>
@@ -60,7 +68,7 @@ const RetrieveMessage = (props) => {
                         </div>
                     </div>
                 );
-            })}
+            })} */}
         </div>
      );
 }
