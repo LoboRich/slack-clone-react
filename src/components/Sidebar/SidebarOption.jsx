@@ -19,7 +19,7 @@ function SidebarOption({
         history.push(`/channel-details/Channel/${id}`)
       }
     } else {
-      history.push(title)
+      // history.push(title)
     }
   }
 

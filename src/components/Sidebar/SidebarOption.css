@@ -38,3 +38,8 @@
   .isOnline > .MuiSvgIcon-root {
     color: green;
   }
+
+  .dropdownIcon {
+    height: 50%;
+    max-width: 100%;
+  }
