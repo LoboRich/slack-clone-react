@@ -3,6 +3,7 @@ import axios from 'axios';
 import { getToken } from '../../Utils/common';
 import {useState, useEffect } from 'react';
 import Select from 'react-select';
+import './Channel.css'
 
 function AddMembers(props){
   const [member, setMember] = useState(null);
@@ -48,13 +49,7 @@ function AddMembers(props){
     return (
       <div className="create-channel-container">
           <div className='create-channel'>
-            <Select
-                name="colors"
-                options={Options[0]}
-                className="basic-multi-select user-select"
-                classNamePrefix="select"
-                onChange={memberChange}
-            />
+            <Select name="colors" options={Options[0]} className="basic-multi-select user-select" classNamePrefix="select" onChange={memberChange}/>
             <button onClick={add} className='form-btn'>add members </button>
           </div>
       </div>

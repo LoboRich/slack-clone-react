@@ -34,7 +34,7 @@ const SendMessage = (props) => {
 
     return ( 
         <div className={message.messageBoxer}>
-            <form className={message.inputBox} onSubmit={SendMessage}>
+            <form className={message.inputBox}>
                     <div className={message.mediaButtons}>
                         <img src={plus} alt="" className={message.plus}/>
                         <img src={gif} alt="" className={message.gif} />

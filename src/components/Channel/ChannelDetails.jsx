@@ -7,6 +7,7 @@ import './Channel.css'
 import Search from '../Search';
 import Members from './Members';
 import AddMembers from './AddMembers';
+import lock from '../resources/lock.png'
 
 
 function ChannelDetails(props) {
@@ -34,9 +35,8 @@ function ChannelDetails(props) {
 
     return  (
         <div className='header-content'>
-            <span className='channel-name'den="true">{details['name']}</span>
-            <div className="member-container"></div>
-            <button onClick={()=>setmemberModal(true)}>Members</button>
+            <span className='channel-name'den="true"><img src={lock} alt="" srcset="" className='lockIcon' />{details['name']}</span>
+            <button className='memberBtn' onClick={()=>setmemberModal(true)}>Members</button>
             {memberModal && <div className="membersModal"><Members details={details} exitModal={setmemberModal}/></div>}
         </div>
     )

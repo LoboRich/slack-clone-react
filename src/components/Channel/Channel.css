@@ -23,8 +23,15 @@
   margin-left: 1vh;
 }
 
-.member-container {
+.memberBtn {
   display: flex;
+  height: 60%;
+  width: 5%;
+  margin-left: auto;
+  margin-right: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-content {
@@ -32,6 +39,8 @@
   align-items: center;
   height: 7%;
   width: 100%;
+  box-shadow: 0px 0px 5px 0px grey;
+  padding: 0.5vh;
 }
 .chat-header{
   padding: 1vh;
@@ -45,18 +54,27 @@
 
 .channel-name {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   font-weight: 750;
-  font-size: 1.9vh;
-  padding: 0.3vh;
-  height: 100%;
+  font-size: 1.7vh;
+  height: 80%;
   border-radius: 0.5vh;
+  margin-left: 1vh;
+  white-space: nowrap;
+  width: auto;
+  padding: 1vh;
 }
 
 .channel-name:hover {
-  background: rgb(163, 163, 163);
+  background: rgb(214, 214, 214);
   cursor: pointer;
+}
+
+.lockIcon {
+  height: 80%;
+  max-width: 100%;
+  margin-right: 5%;
 }
 
 .channels {
@@ -141,7 +159,7 @@
   border-radius: 0.5vh;
   box-shadow: 0px 0px 3px 0px grey;
   transform: scale(0.1);
-  animation: appear 0.1s ease-in forwards;
+  animation: move 0.1s ease-in-out forwards;
 }
 
 .membersContainer {
@@ -174,12 +192,12 @@
   cursor: pointer;
 }
 
-@keyframes appear {
+@keyframes move {
   0%{}
   100%{ 
     transform: scale(1);
-    top: 3vh;
-  right: 3vh;
+    top: 1vh;
+  right: 2vh;
   }
 }
 
