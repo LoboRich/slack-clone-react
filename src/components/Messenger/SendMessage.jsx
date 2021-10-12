@@ -29,19 +29,20 @@ const SendMessage = (props) => {
         })
         .then((res) => {
             console.log(res['data']['data'])
+            setMessageInput('')
         });
     }
 
     return ( 
         <div className={message.messageBoxer}>
-            <form className={message.inputBox}>
+            <form className={message.inputBox} onSubmit={SendMessage}>
                     <div className={message.mediaButtons}>
                         <img src={plus} alt="" className={message.plus}/>
                         <img src={gif} alt="" className={message.gif} />
                         <img src={link} alt="" className={message.link}/>
                         <img src={camera} alt="" className={message.camera} />
                     </div>
-                    <input type="text" className={message.messageInputData} placeholder='Message Here' onChange={messageWrite}/>
+                    <input value={messageInput} type="text" className={message.messageInputData} placeholder='Message Here' onChange={messageWrite}/>
                     <button className={message.sendButton}><img src={sendButton} alt="" className={message.sendIcon} onSubmit={SendMessage}/></button>  
             </form>
         </div>
