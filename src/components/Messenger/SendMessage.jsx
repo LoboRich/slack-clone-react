@@ -7,7 +7,8 @@ import camera from '../resources/camera.png'
 import link from '../resources/link.png'
 import gif from '../resources/gif.png'
 import plus from '../resources/plus.png'
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, push } from "firebase/database";
+import firebase from "../../Utils/firebase";
 
 const SendMessage = (props) => {
     const db = getDatabase();
@@ -32,8 +33,12 @@ const SendMessage = (props) => {
         //     console.log(res['data']['data'])
         // });
         
-        set(ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id),data);
+        push(ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id),data);
         setMessageInput('')
+
+        // const chatRef = db.ref('/chats/'+props.receiver_class+'/'+props.receiver_id)
+        // chatRef.push(data);
+        // setMessageInput('')
     }
 
     return ( 
