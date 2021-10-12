@@ -40,7 +40,7 @@
     color: white;
     background-color: var(--slack-color);
     border-top: 1px solid #49274b;
-    width: 15%;
+    width: 13%;
     height: 100%;
     /* flex: 0.3; */
   }
@@ -124,8 +124,6 @@
     color: white;
     cursor: pointer;
   }
-  
-
   #dm{
     display: flex;
     padding: 6px 6px 6px 2px;
@@ -145,5 +143,3 @@
     color: white;
     opacity: 0.6;
   }
- 
- 
