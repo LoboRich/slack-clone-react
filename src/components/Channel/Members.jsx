@@ -55,7 +55,7 @@ const Members = (props) => {
                     )
                 }
                 </div>
-                <AddMembers channel_id={props.channel_id} />
+                <AddMembers channel_id={props.details.id} />
             </div>
         </div>
      );

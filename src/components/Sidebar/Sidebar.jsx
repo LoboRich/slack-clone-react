@@ -20,6 +20,7 @@ function Sidebar() {
   const [channels, setChannels] = useState([])
   const [dms, setDms] = useState([])
   const [dropdown, setDropDown] = useState(false)
+  const [dropdownCH, setDropDownCH] = useState(false)
   const [isLoading, setLoading] = useState(true);
   const [hasError, setErrors] = useState(false);
   const history = useHistory()
@@ -72,6 +73,10 @@ function Sidebar() {
     // alert(dropDown)
   }
 
+  const chDropDown = () => {
+    setDropDownCH(!dropdownCH)
+  }
+
   useEffect(() => {
     getChannels();
     getDirectMessages();
@@ -96,9 +101,10 @@ function Sidebar() {
         <SidebarOption Icon={MoreVertIcon} title="More" />
        
         <hr />
-        <SidebarOption Icon={ArrowDropDownIcon} title="Channels" />
+        <Button onClick={chDropDown} id = "ch"> <ArrowDropDownIcon /> Channels </Button>
         <hr />
-        {channels.map((channel) =>
+
+        {dropdownCH ? channels.map((channel) =>
           (
             <SidebarOption
               Icon={LockOutlinedIcon}
@@ -108,7 +114,7 @@ function Sidebar() {
               sub="sidebarOption__sub"
             />
           )
-        )}
+        ): <></>}
 
         <SidebarOption
           Icon={AddIcon}
@@ -118,7 +124,7 @@ function Sidebar() {
         />
         <hr />
         
-        <Button onClick={dmDropDown}  id = "dm"> <img src={ArrowDropDownIcon} alt="" className="dropdownIcon" /> Direct Messages</Button>
+        <Button onClick={dmDropDown}  id = "dm"> <ArrowDropDownIcon />Direct Messages</Button>
         <hr />
         {dropdown ? dms.map((dm) => (
           <SidebarOption
