@@ -17,7 +17,7 @@ const Members = (props) => {
     const [hasError, setErrors] = useState(false);
 
     useEffect(() => {
-        axios.get("http://206.189.91.54//api/v1/channels/"+props.channel_id, {
+        axios.get("http://206.189.91.54//api/v1/channels/"+props.details.id, {
             headers: getToken()
         }).then((res) => {
             setDetails(res['data']['data']);
@@ -39,19 +39,22 @@ const Members = (props) => {
         <div className="membersContainer">
             {/* Add Members to Channel */}
             {/* List of Members */}
+            <button onClick={()=>props.exitModal(false)}>Close</button>
             <div className="membersForm">
+                <div className="memberNow">
                 {
                     !isLoading ? (
                         details['channel_members'].map(detail => {
                             const {user_id} = detail;
                             return (
-                                <span onClick={() => newDM(user_id)} user_id={user_id} className='memberLink'><Search user_id={user_id}/></span>
+                                    <span onClick={() => newDM(user_id)} user_id={user_id} className='memberLink'><Search user_id={user_id}/></span>
                             );
                         })
                     ): (
                     <p>{isLoading}</p>
                     )
                 }
+                </div>
                 <AddMembers channel_id={props.channel_id} />
             </div>
         </div>
