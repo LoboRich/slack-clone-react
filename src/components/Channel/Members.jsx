@@ -12,7 +12,7 @@ import Search from '../Search';
 const Members = (props) => {
 
     const history = useHistory();
-    const [details, setDetails] = useState([]);
+    const [details, setDetails] = useState(props.details);
     const [isLoading, setLoading] = useState(true);
     const [hasError, setErrors] = useState(false);
 
@@ -32,9 +32,6 @@ const Members = (props) => {
         history.push('/users/User/'+user_id)
     }
 
-    console.log(props.class)
-
-
     return ( 
         <div className="membersContainer">
             {/* Add Members to Channel */}
@@ -43,16 +40,17 @@ const Members = (props) => {
             <div className="membersForm">
                 <div className="memberNow">
                 {
-                    !isLoading ? (
-                        details['channel_members'].map(detail => {
-                            const {user_id} = detail;
-                            return (
-                                    <h4 className='membersLink' onClick={() => newDM(user_id)} user_id={user_id} ><Search user_id={user_id}/></h4>
-                            );
-                        })
-                    ): (
-                    <p>{isLoading}</p>
-                    )
+                //     !isLoading ? (
+                //         details['channel_members'].map(detail => {
+                //             const {user_id} = detail;
+                //             return (
+                //                     <h4 className='membersLink' onClick={() => newDM(user_id)} user_id={user_id} ><Search user_id={user_id}/></h4>
+                //             );
+                //         })
+                //     ): (
+                //     <p>{isLoading}</p>
+                //     ) 
+                    <Search user_id={details['channel_members'].map(detail => detail.user_id)}/>
                 }
                 </div>
                 <AddMembers channel_id={props.details.id} />

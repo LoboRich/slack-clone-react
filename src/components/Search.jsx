@@ -1,11 +1,12 @@
 import axios from "axios";
 import { getToken } from "../Utils/common";
 import {useState, useEffect} from 'react'
+import { useHistory } from "react-router-dom";
 
 function Search(props){
-    
+    const history = useHistory();
     const [userList, setUserList] = useState([]);
-    const [userId, setUserId] = useState(props['user_id'])
+    const [userIds, setUserIds] = useState(props['user_id'])
     
     const fetchUserList = () => {
         axios.get("http://206.189.91.54//api/v1/users", {
@@ -14,15 +15,18 @@ function Search(props){
             setUserList(res['data']['data']);
         })
     }
-
+    
     useEffect(() => {
         fetchUserList();
     }, []);
 
+    const newDM = (user_id) => {
+        history.push('/users/User/'+user_id)
+    }
 
     return (
-        userList.filter(person => person.id === userId).map(filteredPerson => (
-            <span key={filteredPerson.id} className='channelsMembers' id={userId}> {filteredPerson.email}</span>
+        userList.filter(person => userIds.includes(person.id)).map(filteredPerson => (
+            <h4 key={filteredPerson.id} onClick={() => newDM(filteredPerson.id)} user_id={filteredPerson.id} className='channelsMembers'> {filteredPerson.email}</h4>
         ))
     )
     
