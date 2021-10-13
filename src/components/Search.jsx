@@ -24,6 +24,7 @@ function Search(props){
         history.push('/users/User/'+user_id)
     }
 
+
     return (
         userList.filter(person => userIds.includes(person.id)).map(filteredPerson => (
             <h4 key={filteredPerson.id} onClick={() => newDM(filteredPerson.id)} user_id={filteredPerson.id} className='channelsMembers'> {filteredPerson.email}</h4>

@@ -17,12 +17,14 @@ function ChannelDetails(props) {
     const [isLoading, setLoading] = useState(true);
     const [hasError, setErrors] = useState(false);
     const [memberModal, setmemberModal] = useState(false)
+    const [memCount, setMemCount] = useState(0)
 
     useEffect(() => {
         axios.get("http://206.189.91.54//api/v1/channels/"+props.channel_id, {
             headers: getToken()
         }).then((res) => {
             setDetails(res['data']['data']);
+            setMemCount(res['data']['data']['channel_members'].length)
             setLoading(false);
         }).catch(error => {
             setErrors(error)
@@ -41,6 +43,7 @@ function ChannelDetails(props) {
                 <img src={avatar} alt="" srcset="" className='memberAvatar ma1' />
                 <img src={avatar} alt="" srcset="" className='memberAvatar ma2' />
                 <img src={avatar} alt="" srcset="" className='memberAvatar ma3' />
+                <h5 className='MemberCount'>{memCount}</h5>
             </button>
             {memberModal && <div className="membersModal"><Members details={details} exitModal={setmemberModal}/></div>}
         </div>

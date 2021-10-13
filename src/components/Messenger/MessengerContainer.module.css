@@ -39,7 +39,6 @@
     width: 100%;
     padding: 0.5vh;
     background: #FFFFFF;
-
 }
 
 .retrieveMessage {
@@ -160,5 +159,7 @@
     display: flex;
     align-items: center;
 }
+
+
 
 
