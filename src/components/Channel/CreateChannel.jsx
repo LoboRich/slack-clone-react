@@ -1,12 +1,14 @@
 import axios from "axios";
-import { getToken } from "../../Utils/common";
+import { getToken, getUser } from "../../Utils/common";
 import {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import './Channel.css'
 import logo from '../resources/slack-logo.png'
 import Select from 'react-select';
+import { getDatabase, ref, push } from "firebase/database";
 
 const CreateChannel = () => {
+    const db = getDatabase();
     const [name, setName] = useState();
     const [userIds, setuserIds] = useState([]);
     const [userList, setUserList] = useState([]);
@@ -24,14 +26,14 @@ const CreateChannel = () => {
         "user_ids": userIds
     }
 
-
     const create = (e) => {
         e.preventDefault()
         axios.post('http://206.189.91.54//api/v1/channels', data, {
             headers: getToken()
         })
         .then((res) => {
-            alert('New channel has been successfully created');
+            push(ref(db, `/channel/${getUser().id}`), res['data']['data']);
+            setName('')
         });
     }
 
@@ -60,7 +62,7 @@ const CreateChannel = () => {
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1> Add New Channel </h1>
                 <form onSubmit={create} id='add-channel-form'>
-                    <input type='text' className='form-control' onChange={nameChange}/>
+                    <input value={name} type='text' className='form-control' onChange={nameChange}/>
                     <Select
                         // defaultValue={[colourOptions[2], colourOptions[3]]}
                         isMulti
