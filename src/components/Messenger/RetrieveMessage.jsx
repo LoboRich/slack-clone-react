@@ -35,7 +35,7 @@ const RetrieveMessage = (props) => {
     
     return (
         <div className={messaged.messageBox}>
-           { messages.map(message => {
+            { messages.map(message => {
                 const {id, body, sender} = message;
                 return (
                     <div className={messaged.retrieveBox} key={id}>
