@@ -12,6 +12,7 @@ const CreateChannel = () => {
     const [name, setName] = useState();
     const [userIds, setuserIds] = useState([]);
     const [userList, setUserList] = useState([]);
+    const [errors, setErrors] = useState(false);
     const history = useHistory();
     const nameChange = (e) => {
         setName(e.target.value)
@@ -32,8 +33,14 @@ const CreateChannel = () => {
             headers: getToken()
         })
         .then((res) => {
-            push(ref(db, `/channel/${getUser().id}`), res['data']['data']);
-            setName('')
+            if(res['data']['errors'] != undefined){
+                setErrors(res['data']['errors'])
+            }else{
+                setErrors(false)
+                push(ref(db, `/channel/${getUser().id}`), res['data']['data']);
+                setName('')
+            }
+            
         });
     }
 
@@ -61,6 +68,7 @@ const CreateChannel = () => {
             <div className='create-channel'>
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1> Add New Channel </h1>
+                <span className="emCreateChannel">{ errors ? errors : null}</span>
                 <form onSubmit={create} id='add-channel-form'>
                     <input value={name} type='text' className='form-control' onChange={nameChange}/>
                     <Select
