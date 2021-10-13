@@ -36,7 +36,7 @@ const Members = (props) => {
         <div className="membersContainer">
             {/* Add Members to Channel */}
             {/* List of Members */}
-            <button onClick={()=>props.exitModal(false)}>X</button>
+            <button onClick={()=>props.exitModal(false)} className='exitModalMember'>X</button>
             <div className="membersForm">
                 <div className="memberNow">
                 {

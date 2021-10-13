@@ -47,11 +47,9 @@ function AddMembers(props){
 
 
     return (
-      <div className="create-channel-container">
-          <div className='create-channel'>
+      <div className="addMemberContainer">
             <Select name="colors" options={Options[0]} className="basic-multi-select user-select" classNamePrefix="select" onChange={memberChange}/>
-            <button onClick={add} className='form-btn'>add members </button>
-          </div>
+            <button onClick={add} className='addUserBtn'>Add User</button>
       </div>
    );
 }
