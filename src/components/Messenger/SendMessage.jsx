@@ -26,15 +26,16 @@ const SendMessage = (props) => {
 
     const SendMessage = (e) => {
         e.preventDefault();
-        // axios.post('http://206.189.91.54//api/v1/messages', data, {
-        //     headers: getToken()
-        // })
-        // .then((res) => {
-        //     console.log(res['data']['data'])
-        // });
+        axios.post('http://206.189.91.54//api/v1/messages', data, {
+            headers: getToken()
+        })
+        .then((res) => {
+            console.log(res['data']['data'])
+            push(ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id),res['data']['data']);
+            setMessageInput('')
+        });
         
-        push(ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id),data);
-        setMessageInput('')
+        
     }
 
     return ( 
