@@ -18,7 +18,7 @@ function Search(props){
     
     useEffect(() => {
         fetchUserList();
-    }, []);
+    }, [props]);
 
     const newDM = (user_id) => {
         history.push('/users/User/'+user_id)
