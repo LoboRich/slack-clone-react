@@ -7,8 +7,8 @@ import './Channel.css'
 import Search from '../Search';
 import Members from './Members';
 import AddMembers from './AddMembers';
+// import { firebase } from "../../Utils/firebase";
 import lock from '../resources/lock.png'
-
 
 function ChannelDetails(props) {
     // const history = useHistory();

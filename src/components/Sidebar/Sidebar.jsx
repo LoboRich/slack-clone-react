@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import { removeUserSession, getToken } from '../../Utils/common';
+import { removeUserSession, getToken, getUser } from '../../Utils/common';
 import './Sidebar.css'
 import { useState, useEffect } from 'react'
 import SidebarOption from './SidebarOption'
@@ -15,8 +15,10 @@ import AddIcon from '@material-ui/icons/Add'
 import { Link, useHistory } from 'react-router-dom'
 import { Avatar, Button } from '@material-ui/core';
 import dropdwonicon from '../resources/dropdown.png'
+import { getDatabase, ref, onValue } from "firebase/database";
 
 function Sidebar() {
+  const db = getDatabase();
   const [channels, setChannels] = useState([])
   const [dms, setDms] = useState([])
   const [dropdown, setDropDown] = useState(false)
@@ -80,7 +82,14 @@ function Sidebar() {
   useEffect(() => {
     getChannels();
     getDirectMessages();
+    const channel = ref(db, `/channel/${getUser().id}`);
+    onValue(channel, (snapshot) => {
+        const channel = snapshot.val();
+        getChannels();
+        // setMessages(postElement, data);
+    });
   }, [])
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
@@ -90,7 +99,7 @@ function Sidebar() {
           </h2>
           <h3>
             <FiberManualRecordIcon />
-            {/* {(user != null) ? user['data'].email.split('@')[0] : null} */}
+            {getUser().email.split('@')[0]}
           </h3>
         </div>
         <CreateIcon />

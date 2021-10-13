@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react';
 import avatar from '../resources/avatar.png'
 import moment from 'moment'
 import messaged from './MessengerContainer.module.css'
-
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const RetrieveMessage = (props) => {
+    const db = getDatabase();
+
     const [messages, setMessages] = useState([]);
     const [messageInput, setMessageInput] = useState('')
 
@@ -18,21 +20,19 @@ const RetrieveMessage = (props) => {
         })
     }
 
-
-    const messageWrite = (e) => {   
-        setMessageInput(e.target.value)
-    }
-
-    const data = {
-        'receiver_id': props.receiver_id,
-        'receiver_class': props.receiver_class,
-        'body': messageInput 
-    }
-
     useEffect(() => {
-        recieveData()
-    },[messages.length, props])
-
+        recieveData();
+        const chats = ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id);
+        onValue(chats, (snapshot) => {
+            const data = snapshot.val();
+            
+            recieveData();
+            
+            // setMessages(postElement, data);
+        });
+        
+    }, [props]);
+    
     return (
         <div className={messaged.messageBox}>
            { messages.map(message => {
