@@ -99,7 +99,7 @@ function Sidebar() {
           </h2>
           <h3>
             <FiberManualRecordIcon />
-            {/* {(user != null) ? user['data'].email.split('@')[0] : null} */}
+            {getUser().email.split('@')[0]}
           </h3>
         </div>
         <CreateIcon />
