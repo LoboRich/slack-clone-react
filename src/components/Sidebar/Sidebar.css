@@ -124,3 +124,26 @@
     color: white;
     cursor: pointer;
   }
+  
+
+  #dm{
+    display: flex;
+    padding: 6px 6px 6px 2px;
+    align-items: center;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+    opacity: 0.6;
+  }
+  
+  #ch{
+    display: flex;
+    padding: 6px 6px 6px 2px;
+    align-items: center;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+    opacity: 0.6;
+  }
+ 
+ 

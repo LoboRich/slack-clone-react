@@ -13,12 +13,14 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import AddIcon from '@material-ui/icons/Add'
 import { Link, useHistory } from 'react-router-dom'
-import { Avatar } from '@material-ui/core';
+import { Avatar, Button } from '@material-ui/core';
+import dropdwonicon from '../resources/dropdown.png'
 
 function Sidebar() {
   const [channels, setChannels] = useState([])
   const [dms, setDms] = useState([])
-
+  const [dropdown, setDropDown] = useState(false)
+  const [dropdownCH, setDropDownCH] = useState(false)
   const [isLoading, setLoading] = useState(true);
   const [hasError, setErrors] = useState(false);
   const history = useHistory()
@@ -65,6 +67,15 @@ function Sidebar() {
       history.push('/Login')
     }
   }
+  
+  const dmDropDown = () => {
+    setDropDown(!dropdown)
+    // alert(dropDown)
+  }
+
+  const chDropDown = () => {
+    setDropDownCH(!dropdownCH)
+  }
 
   useEffect(() => {
     getChannels();
@@ -90,9 +101,10 @@ function Sidebar() {
         <SidebarOption Icon={MoreVertIcon} title="More" />
        
         <hr />
-        <SidebarOption Icon={ArrowDropDownIcon} title="Channels" />
+        <Button onClick={chDropDown} id = "ch"> <ArrowDropDownIcon /> Channels </Button>
         <hr />
-        {channels.map((channel) =>
+
+        {dropdownCH ? channels.map((channel) =>
           (
             <SidebarOption
               Icon={LockOutlinedIcon}
@@ -102,7 +114,7 @@ function Sidebar() {
               sub="sidebarOption__sub"
             />
           )
-        )}
+        ): <></>}
 
         <SidebarOption
           Icon={AddIcon}
@@ -111,9 +123,10 @@ function Sidebar() {
           addChannelOption
         />
         <hr />
-        <SidebarOption Icon={ArrowDropDownIcon} title="Direct Messages" />
+        
+        <Button onClick={dmDropDown}  id = "dm"> <ArrowDropDownIcon />Direct Messages</Button>
         <hr />
-        {dms.map((dm) => (
+        {dropdown ? dms.map((dm) => (
           <SidebarOption
             Icon={FiberManualRecordIcon}
             title={dm.email.split('@')[0]}
@@ -123,7 +136,8 @@ function Sidebar() {
             user
             online='isOnline'
           />
-        ))}
+        )): <></>}
+      
         <li>
           <Link to="/owned-channels">Owned Channels</Link>
         </li>
