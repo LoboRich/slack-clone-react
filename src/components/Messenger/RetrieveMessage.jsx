@@ -20,19 +20,6 @@ const RetrieveMessage = (props) => {
         })
     }
 
-
-
-    // get(child(dbRef, `chats/${props.receiver_class}/${props.receiver_id}`)).then((snapshot) => {
-    //     if (snapshot.exists()) {
-    //         console.log(snapshot.val());
-    //     } else {
-    //         console.log("No data available");
-    //     }
-    //     }).catch((error) => {
-    //     console.error(error);
-    // });
-
-    // const [todoList, setTodoList] = useState();
     useEffect(() => {
         recieveData();
         const chats = ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id);

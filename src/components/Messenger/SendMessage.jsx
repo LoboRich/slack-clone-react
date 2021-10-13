@@ -30,7 +30,6 @@ const SendMessage = (props) => {
             headers: getToken()
         })
         .then((res) => {
-            console.log(res['data']['data'])
             push(ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id),res['data']['data']);
             setMessageInput('')
         });
