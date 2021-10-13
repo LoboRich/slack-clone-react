@@ -13,6 +13,7 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [postModal, setModal] = useState(false)
+    const [errors, setErrors] = useState(false);
 
     const history = useHistory();
 
@@ -30,9 +31,16 @@ const Login = () => {
            email: email,
            password: password
           }).then((res) => {
-            setUserSession(res['headers'], res['data']['data']);
-            history.push('/home')
-          });
+            // if (res['data']['success'] === false){
+                // setErrors(res['data']['errors'])
+                console.log(JSON.stringify(res))
+            // } else {
+            //     setErrors(false)
+                setUserSession(res['headers'], res['data']['data']);
+                history.push('/home')
+            // }
+          }).catch(errors => {
+            setErrors(errors.message)});
     }
  
     return ( 
@@ -49,6 +57,7 @@ const Login = () => {
                         <h3 className="or-word">OR</h3>
                         <hr className='hr-right' />
                     </div>
+                    <span className="logCreateChannel">{ errors ? errors : null}</span>
                     <input type="email" className='login-email' onChange={emailAuthenticate} placeholder=' Your E-mail'/>
                     <input type="text" className='login-text' onChange={passwordAuthenticate} placeholder=' Your Password'/>
                     <button className='login-button' onSubmit={authenticateLogin}>Sign in with Email</button>
