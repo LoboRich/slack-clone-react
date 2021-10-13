@@ -1,7 +1,13 @@
+@font-face {
+    font-family: Slack-Font;
+    src: url('/src/components/resources/Larsseit\ Regular.ttf');
+  }
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Slack-Font;
 }
 
 .messageWrapper {
@@ -19,9 +25,19 @@
   height: 87%;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;   
   overflow: auto;
   margin-top: 0.2%;
+  position: relative;
+}
+
+.messageBox::-webkit-scrollbar {
+    width: 1vh;
+}
+ 
+.messageBox::-webkit-scrollbar-thumb {
+    background: rgb(175, 174, 174);
+    border-radius: 1vh;
 }
 
 .messageBoxer {
@@ -34,11 +50,13 @@
 }
 
 .retrieveBox {
-    height: 8%;
+    height: 6.5vh;
     /* border-top: 1px solid rgb(177, 177, 177); */
     width: 100%;
     padding: 0.5vh;
     background: #FFFFFF;
+    position: relative;
+    bottom: 0;
 }
 
 .retrieveMessage {
@@ -158,6 +176,16 @@
     height: 50%;
     display: flex;
     align-items: center;
+}
+
+.testMBox {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;   
+    overflow: y;
+    position: absolute;
+    bottom: 0;
 }
 
 

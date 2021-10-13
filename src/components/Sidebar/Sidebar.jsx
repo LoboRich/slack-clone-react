@@ -132,7 +132,7 @@ function Sidebar() {
           addChannelOption
         />
         <hr />
-        <Button onClick={dmDropDown}  id = "dm"> <ArrowDropDownIcon />Direct Messages</Button>
+        <Button onClick={dmDropDown} id="dm"> <ArrowDropDownIcon />Direct Messages</Button>
         <hr />
         {dropdown ? dms.map((dm) => (
           <SidebarOption

@@ -2,6 +2,7 @@ import axios from "axios";
 import { getToken } from "../Utils/common";
 import {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
+import '../App.css'
 
 function Search(props){
     const history = useHistory();
@@ -27,7 +28,7 @@ function Search(props){
 
     return (
         userList.filter(person => userIds.includes(person.id)).map(filteredPerson => (
-            <h4 key={filteredPerson.id} onClick={() => newDM(filteredPerson.id)} user_id={filteredPerson.id} className='channelsMembers'> {filteredPerson.email}</h4>
+            <h4 key={filteredPerson.id} onClick={() => newDM(filteredPerson.id)} user_id={filteredPerson.id} className='channelsMembers'> {filteredPerson.email}</h4> 
         ))
     )
     

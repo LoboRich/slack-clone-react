@@ -31,10 +31,6 @@
     opacity: 0.6;
   }
   
-  .sidebarOption__sub {
-    margin-left: 10px;
-  }
-  
   .isOnline > .MuiSvgIcon-root {
     color: green;
   }

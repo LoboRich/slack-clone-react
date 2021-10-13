@@ -35,20 +35,22 @@ const RetrieveMessage = (props) => {
     
     return (
         <div className={messaged.messageBox}>
-            { messages.map(message => {
-                const {id, body, sender} = message;
-                return (
-                    <div className={messaged.retrieveBox} key={id}>
-                        <div className={messaged.retrieveMessage}>
-                            <img src={avatar} alt="" className={messaged.avatar}/>
-                            <div className={messaged.userData}>
-                                <h3 className={messaged.userName}>{sender.uid.split('@')[0]} <span className={messaged.receivedTime}>{moment(sender.created_at).format('h:mm:ss a')}</span></h3>
-                                <span className={messaged.userMessage}>{body}</span>
+            <div className={messaged.testMBox}>
+                { messages.map(message => {
+                    const {id, body, sender} = message;
+                    return (
+                        <div className={messaged.retrieveBox} key={id}>
+                            <div className={messaged.retrieveMessage}>
+                                <img src={avatar} alt="" className={messaged.avatar}/>
+                                <div className={messaged.userData}>
+                                    <h3 className={messaged.userName}>{sender.uid.split('@')[0]} <span className={messaged.receivedTime}>{moment(sender.created_at).format('h:mm:ss a')}</span></h3>
+                                    <span className={messaged.userMessage}>{body}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </div>
      );
 }

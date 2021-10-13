@@ -35,6 +35,8 @@ const Registration = ({closeRegistration}) => {
             data: inputData,
           }).then((res) => {
             console.log(res);
+            alert('Account Registered')
+            closeRegistration(false)
           });
         };
 
