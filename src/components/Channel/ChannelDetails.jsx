@@ -43,7 +43,7 @@ function ChannelDetails(props) {
                 <img src={avatar} alt="" srcset="" className='memberAvatar ma1' />
                 <img src={avatar} alt="" srcset="" className='memberAvatar ma2' />
                 <img src={avatar} alt="" srcset="" className='memberAvatar ma3' />
-                <h5 className='MemberCount'>{memCount}</h5>
+                <h5 className='MemberCount'>+{memCount}</h5>
             </button>
             {memberModal && <div className="membersModal"><Members details={details} exitModal={setmemberModal}/></div>}
         </div>

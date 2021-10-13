@@ -180,10 +180,13 @@
   height: 50%;
   width: 25%;
   background: #F0F0F0;
-  top: 45%;
+  top: 50%;
+  opacity: 0;
   right: 25%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 0px 3px 0px grey;
+  border-radius: 0.7vh;
+  animation: upAppear 0.3s ease-out forwards;
 }
 
 .membersContainer {
@@ -258,4 +261,13 @@
   background: #3F0E40;
   color: white;
   border: none;
+}
+
+
+@keyframes upAppear {
+  0%{}
+  100%{ 
+      top: 45%;
+      opacity: 1;
+  }
 }
