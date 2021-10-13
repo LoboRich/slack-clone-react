@@ -14,14 +14,15 @@ function Search(props){
             setUserList(res['data']['data']);
         })
     }
-   
+
     useEffect(() => {
         fetchUserList();
     }, []);
 
+
     return (
         userList.filter(person => person.id === userId).map(filteredPerson => (
-            <span key={filteredPerson.id} className='channelsMembers' id={userId}> {filteredPerson.email.split("@")[0]}</span>
+            <span key={filteredPerson.id} className='channelsMembers' id={userId}> {filteredPerson.email}</span>
         ))
     )
     

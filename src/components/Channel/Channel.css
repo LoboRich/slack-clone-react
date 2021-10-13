@@ -32,6 +32,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 1vh;
+  border-width: 1px;
+  position: relative;
+  border: 1px solid rgb(214, 214, 214);
+}
+
+.memberBtn:hover {
+  background:rgb(214, 214, 214);
 }
 
 .header-content {
@@ -77,6 +85,24 @@
   margin-right: 5%;
 }
 
+.memberAvatar {
+  height: 80%;
+  max-width: 100%;
+  position: absolute;
+}
+
+.ma1 {
+  left: 0.5vw;
+}
+
+.ma2 {
+  left: 1.2vw;
+}
+
+.ma3 {
+  left: 1.9vw;
+}
+
 .channels {
   display: flex;
   flex-direction: column;
@@ -97,7 +123,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
 }
 .create-channel {
   display: flex;
@@ -157,7 +182,6 @@
   background: #F0F0F0;
   top: 0;
   right: 0;
-  border-radius: 0.5vh;
   box-shadow: 0px 0px 3px 0px grey;
   transform: scale(0.1);
   animation: move 0.1s ease-in-out forwards;
@@ -169,9 +193,7 @@
   background: transparent;
   position: absolute;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  display: flex;
   flex-direction: column;
   padding: 1vh;
 }
@@ -186,11 +208,17 @@
   width: 100%;
   overflow: auto;
   background: white;
-  border-radius: 1vh;
 }
 
-.memberLink {
-  cursor: pointer;
+.membersLink {
+  height: 20%;
+  font-family: Slack-Font;
+  display: flex;
+  align-items: center;
+}
+
+.membersLink:hover {
+  background:rgb(214, 214, 214)
 }
 
 @keyframes move {

@@ -9,6 +9,7 @@ import Members from './Members';
 import AddMembers from './AddMembers';
 // import { firebase } from "../../Utils/firebase";
 import lock from '../resources/lock.png'
+import avatar from '../resources/avatar.png'
 
 function ChannelDetails(props) {
     // const history = useHistory();
@@ -36,7 +37,11 @@ function ChannelDetails(props) {
     return  (
         <div className='header-content'>
             <span className='channel-name'den="true"><img src={lock} alt="" srcset="" className='lockIcon' />{details['name']}</span>
-            <button className='memberBtn' onClick={()=>setmemberModal(true)}>Members</button>
+            <button className='memberBtn' onClick={()=>setmemberModal(true)}>
+                <img src={avatar} alt="" srcset="" className='memberAvatar ma1' />
+                <img src={avatar} alt="" srcset="" className='memberAvatar ma2' />
+                <img src={avatar} alt="" srcset="" className='memberAvatar ma3' />
+            </button>
             {memberModal && <div className="membersModal"><Members details={details} exitModal={setmemberModal}/></div>}
         </div>
     )

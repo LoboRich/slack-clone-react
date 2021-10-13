@@ -39,7 +39,7 @@ const Members = (props) => {
         <div className="membersContainer">
             {/* Add Members to Channel */}
             {/* List of Members */}
-            <button onClick={()=>props.exitModal(false)}>Close</button>
+            <button onClick={()=>props.exitModal(false)}>X</button>
             <div className="membersForm">
                 <div className="memberNow">
                 {
@@ -47,7 +47,7 @@ const Members = (props) => {
                         details['channel_members'].map(detail => {
                             const {user_id} = detail;
                             return (
-                                    <span onClick={() => newDM(user_id)} user_id={user_id} className='memberLink'><Search user_id={user_id}/></span>
+                                    <h4 className='membersLink' onClick={() => newDM(user_id)} user_id={user_id} ><Search user_id={user_id}/></h4>
                             );
                         })
                     ): (
