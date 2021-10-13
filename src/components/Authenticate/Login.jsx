@@ -50,7 +50,7 @@ const Login = () => {
                         <hr className='hr-right' />
                     </div>
                     <input type="email" className='login-email' onChange={emailAuthenticate} placeholder=' Your E-mail'/>
-                    <input type="text" className='login-text' onChange={passwordAuthenticate} placeholder=' Your Password'/>
+                    <input type="password" className='login-text' onChange={passwordAuthenticate} placeholder=' Your Password'/>
                     <button className='login-button' onSubmit={authenticateLogin}>Sign in with Email</button>
                     <h6 className='registration-header'>Don't have an account? <span onClick={()=>setModal(true)} className='register-button'>Register Here</span></h6>
                 </div>
