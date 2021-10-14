@@ -31,16 +31,11 @@ const Login = () => {
            email: email,
            password: password
           }).then((res) => {
-            // if (res['data']['success'] === false){
-                // setErrors(res['data']['errors'])
-                console.log(JSON.stringify(res))
-            // } else {
-            //     setErrors(false)
-                setUserSession(res['headers'], res['data']['data']);
+            setUserSession(res['headers'], res['data']['data']);
                 history.push('/home')
-            // }
           }).catch(errors => {
-            setErrors(errors.message)});
+            setErrors(errors['response']['data']['errors'][0])
+          })
     }
  
     return ( 
@@ -58,8 +53,8 @@ const Login = () => {
                         <hr className='hr-right' />
                     </div>
                     <span className="logCreateChannel">{ errors ? errors : null}</span>
-                    <input type="email" className='login-email' onChange={emailAuthenticate} placeholder=' Your E-mail'/>
-                    <input type="password" className='login-text' onChange={passwordAuthenticate} placeholder=' Your Password'/>
+                    <input type="email" role='input' name='email' className='login-email' onChange={emailAuthenticate} placeholder='Your E-mail'/>
+                    <input type="password" className='login-text' onChange={passwordAuthenticate} placeholder='Your Password'/>
                     <button className='login-button' onSubmit={authenticateLogin}>Sign in with Email</button>
                     <h6 className='registration-header'>Don't have an account? <span onClick={()=>setModal(true)} className='register-button'>Register Here</span></h6>
                 </div>
