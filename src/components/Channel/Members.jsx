@@ -39,6 +39,11 @@ const Members = (props) => {
             <button onClick={()=>props.exitModal(false)} className='exitModalMember'>X</button>
             <h4>Current members of this Channel</h4>
             <div className="membersForm">
+                <div className="otherButtons">
+                    <button>STAR</button>
+                    <button>GET Notification</button>
+                    <button></button>
+                </div>
                 <div className="memberNow">
                 {
                 //     !isLoading ? (

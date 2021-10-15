@@ -5,7 +5,6 @@ import Login from './components/Authenticate/Login';
 
 
 describe('Login page', () => {
-  
   test('renders button with text Sign with Email if not login', () => {
     render(<Login />);
     const linkElement = screen.getByText(/Sign In with Email/i);

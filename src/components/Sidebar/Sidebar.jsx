@@ -17,6 +17,7 @@ import { Avatar, Button } from '@material-ui/core';
 import dropdwonicon from '../resources/dropdown.png'
 import { getDatabase, ref, onValue } from "firebase/database";
 import {FetchUserChannels, FetchUserDms} from '../../Utils/Api'
+import messageCreate from '../resources/createMessage.png'
 
 function Sidebar() {
   const db = getDatabase();
@@ -93,8 +94,10 @@ function Sidebar() {
             <FiberManualRecordIcon />
             {getUser().email.split('@')[0]}
           </h3> */}
+          <div className="headerImgMessenger">
+            <img className='headerCreate' src={messageCreate} alt="" />
+          </div>
         </div>
-        <CreateIcon />
       </div>
       <div className="sidebar__options">
         <SidebarOption Icon={InsertCommentIcon} title="Thread" />

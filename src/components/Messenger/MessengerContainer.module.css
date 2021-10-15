@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: none;
 }
 
 .messageBox {
@@ -58,6 +59,8 @@
     position: relative;
     bottom: 0;
     margin-bottom: 3vh;
+    display: flex;
+    flex-direction: row
 }
 
 .retrieveMessage {
@@ -81,11 +84,11 @@
     justify-content: center;
     border-radius: 10px;
     align-items: center;
-    padding: 10px 20px 10px 20px;
+    padding: 0.5vw;
 }
 
 .userName{
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 1.8vh;
     height: 40%;
     flex-direction: column;
@@ -102,7 +105,7 @@
 }
 
 .avatar {
-    height: 75%;
+    height: 100%;
     max-width: 100%;
     /* width: 30px;
     height: 30px;    */
