@@ -20,7 +20,7 @@ const RetrieveMessage = (props) => {
       };
     const senderStyle = {
         color: '#3f0e40',
-        backgroundColor: 'white',
+        backgroundColor: '#F0F0F0',
       };
 
     const recieveData = () => {
