@@ -17,10 +17,8 @@ import { Avatar, Button } from '@material-ui/core';
 import dropdwonicon from '../resources/dropdown.png'
 import { getDatabase, ref, onValue } from "firebase/database";
 import {FetchUserChannels, FetchUserDms} from '../../Utils/Api'
-import messageCreate from '../resources/createMessage.png'
-import man from '../resources/man.png'
-import nice from '../resources/nice.png'
-import gamer from '../resources/gamer.png'
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 function Sidebar() {
   const db = getDatabase();
@@ -97,10 +95,8 @@ function Sidebar() {
             <FiberManualRecordIcon />
             {getUser().email.split('@')[0]}
           </h3> */}
-          <div className="headerImgMessenger">
-            <img className='headerCreate' src={messageCreate} alt="" />
-          </div>
         </div>
+        <CreateIcon />
       </div>
       <div className="sidebar__options">
         <SidebarOption Icon={InsertCommentIcon} title="Thread" />
@@ -108,7 +104,7 @@ function Sidebar() {
         <SidebarOption Icon={MoreVertIcon} title="More" />
        
         <hr />
-        <Button onClick={chDropDown} id = "ch"> <ArrowDropDownIcon /> Channels </Button>
+        <Button onClick={chDropDown} id = "ch"> {dropdownCH ? <ArrowDropDownIcon /> : <ArrowRightIcon /> } Channels </Button>
         <hr />
 
         {dropdownCH ? channels.map((channel) =>
@@ -130,7 +126,7 @@ function Sidebar() {
           addChannelOption
         />
         <hr />
-        <Button onClick={dmDropDown} id="dm"> <ArrowDropDownIcon />Direct Messages</Button>
+        <Button onClick={dmDropDown} id="dm"> {dropdown ? <ArrowDropDownIcon /> : <ArrowRightIcon /> } Direct Messages</Button>
         <hr />
         {dropdown ? dms.map((dm) => (
           <SidebarOption
