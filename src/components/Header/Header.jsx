@@ -1,15 +1,12 @@
 import './Header.css'
 import { Avatar } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import SearchIcon from '@material-ui/icons/Search';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-import axios from 'axios';
 import { getToken } from '../../Utils/common';
 import {useState, useEffect } from 'react';
 import Select from 'react-select';
 import { useHistory } from "react-router-dom";
 import {FetchUsers} from '../../Utils/Api'
-
 
 function Header() {
     const history = useHistory();
@@ -22,11 +19,11 @@ function Header() {
         }).catch(err => err)
     }, []);
 
-    const Options = [
-      userList.map(list => {
-          const {id, email} = list;
-          return { value: id, label: email };
-      })
+  const Options = [
+    userList.map(list => {
+        const {id, email} = list;
+        return { value: id, label: email };
+    })
   ]
 
   const select_user = (e) => {

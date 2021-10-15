@@ -57,3 +57,14 @@ export const FetchUsers = async (token) => {
         return error;
     }
 }
+
+export const FetchOwnedChannels = async (token) => {
+    try {
+        const response = await axios.get("http://206.189.91.54//api/v1/channel/owned", {
+            headers: token
+        });
+        return response;
+    } catch (error) {
+        return error;
+    }
+}

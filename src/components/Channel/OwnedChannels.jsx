@@ -1,57 +1,31 @@
-import axios from 'axios';
 import { getToken } from '../../Utils/common';
 import {useState, useEffect} from 'react';
+import {FetchOwnedChannels} from '../../Utils/Api'
 
-
-const OwnedList = () => {
+const OwnedChannels = () => {
     const [ownedChannels, setOwnedChannels] = useState([]);
-    const [isLoading, setLoading] = useState(true);
     const [hasError, setErrors] = useState(false);
 
-
-    const fetchOwnedChannels = () => {
-        axios.get("http://206.189.91.54//api/v1/channel/owned", {
-            headers: getToken()
-        }).then((res) => {
-            if(res['data']['data'] === undefined){
-                return
-            }else{
-                setOwnedChannels(res['data']['data'])
-            }
-            setLoading(false);
-        }).catch(error => {
-            setErrors(error)
-            setLoading(true)
-        })
-    }
-
     useEffect(() => {
-        fetchOwnedChannels();
-    }, [ownedChannels]);
+        FetchOwnedChannels(getToken())
+            .then(res => {
+                setOwnedChannels(res['data']['data'])
+            }).catch(error => {
+                setErrors(error)
+            })
+    }, []);
   
     return <div>
         <h1>Owned Channels</h1>
         {hasError ? <p>{hasError.message}</p> : null}
-        {!isLoading ? (
-            ownedChannels.map(ownedChannel => {
-                const {id, name} = ownedChannel;
-                return (
-                    <div key={id}>
-                        <p>Name: {name}</p>
-                    </div>
-                );
-            })
-        ): (
-        <p>{isLoading}</p>
-        )}
+        {ownedChannels.map(ownedChannel => {
+            const {id, name} = ownedChannel;
+            return (
+                <a href={'/channel-details/Channel/'+id} key={id}>{name}</a>
+            );
+        })}
+        
     </div>
 
 }
-function OwnedUserChannels(){
-    return (
-        <div>
-            <OwnedList />
-        </div>
-    )
-}
-export default OwnedUserChannels;
+export default OwnedChannels;

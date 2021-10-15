@@ -9,7 +9,6 @@ import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Login from './components/Authenticate/Login'
 import OwnedUserChannels from "./components/Channel/OwnedChannels";
-import UserChannels from "./components/Channel/UserChannels";
 import Registration from "./components/Authenticate/Registration";
 import MessengerContainer from "./components/Messenger/MessengerContainer";
 import CreateChannel from './components/Channel/CreateChannel'
@@ -17,7 +16,6 @@ import Welcome from './components/Welcome/Welcome'
 import GetUserList from './components/Users/UserList'
 import AddMembers from './components/Channel/AddMembers'
 import routeDesign from './Routes.module.css'
-import Members from './components/Channel/Members'
 
 
 export default function Routes(){
@@ -75,7 +73,6 @@ export default function Routes(){
                     <GuardedRoute path="/create-channel" component={CreateChannel}></GuardedRoute>
                     <GuardedRoute path ="/add-members" component={AddMembers}></GuardedRoute>
                     <GuardedRoute path ="/owned-channels" component={OwnedUserChannels}></GuardedRoute>
-                    <GuardedRoute path="/user-channels" component={UserChannels}></GuardedRoute>
                     <GuardedRoute path="/registration" component={Registration}></GuardedRoute>
                     <GuardedRoute path="/message-container" component={MessengerContainer}></GuardedRoute>
                     <GuardedRoute path="/user-list" component={GetUserList}></GuardedRoute>
