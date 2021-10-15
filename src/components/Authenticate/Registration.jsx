@@ -10,18 +10,6 @@ const Registration = ({closeRegistration}) => {
     const [confirm_password, setConfirmPassword] = useState('')
     const [errors, setErrors] = useState(false);
 
-    const emailInput = (e) => {
-        setEmail(e.target.value)
-    }
-
-    const passwordInput = (e) => {
-        setPassword(e.target.value)
-    }
-
-    const confirmpassInput = (e) => {
-        setConfirmPassword(e.target.value)
-    }
-
     const inputData = {
         "email": email,
         'password': password,
@@ -46,9 +34,9 @@ const Registration = ({closeRegistration}) => {
             
             <form className='registration-form' onSubmit={registrationHandle}>
                 <p style={{color: "red", marginBottom: '2vh'}}>{errors ? errors : null}</p>
-                <input type="email" className='register-email' onChange={emailInput} placeholder=' Your Preferred Email'/>
-                <input type="password" className='register-password' onChange={passwordInput}  placeholder=' Your Preferred Password'/>
-                <input type="password" className='confirm-password' onChange={confirmpassInput}  placeholder=' Confirm Preferred Password'/>
+                <input type="email" className='register-email' onChange={(e)=>setEmail(e.target.value)} placeholder=' Your Preferred Email'/>
+                <input type="password" className='register-password' onChange={(e)=>setPassword(e.target.value)}  placeholder=' Your Preferred Password'/>
+                <input type="password" className='confirm-password' onChange={(e)=>setConfirmPassword(e.target.value)}  placeholder=' Confirm Preferred Password'/>
                 <button className='register-confirmation' onSubmit={registrationHandle}>Register</button>
                 <div className="policy-wrapper">
                     <input className='term-check' type="checkbox" name="term-check" id="" /> 

@@ -16,15 +16,6 @@ const Login = () => {
     const [errors, setErrors] = useState(false);
 
     const history = useHistory();
-
-    const emailAuthenticate = (e) => {
-        setEmail(e.target.value)
-    }
-
-    const passwordAuthenticate = (e) => {
-        setPassword(e.target.value)
-    }
-
     const data = {
         'email': email,
         'password': password
@@ -54,9 +45,9 @@ const Login = () => {
                         <hr className='hr-right' />
                     </div>
                     <span className="logCreateChannel">{ errors ? errors : null}</span>
-                    <input type="email" role='input' name='email' className='login-email' onChange={emailAuthenticate} placeholder='Your E-mail'/>
+                    <input type="email" role='input' name='email' className='login-email' onChange={(e)=>setEmail(e.target.value)} placeholder='Your E-mail'/>
                     <input type="password" className='login-text' onChange={passwordAuthenticate} placeholder='Your Password'/>
-                    <button className='login-button' onSubmit={authenticateLogin}>Sign in with Email</button>
+                    <button className='login-button' onSubmit={(e)=>setPassword(e.target.value)}>Sign in with Email</button>
                     <h6 className='registration-header'>Don't have an account? <span onClick={()=>setModal(true)} className='register-button'>Register Here</span></h6>
                 </div>
             </form>
