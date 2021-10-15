@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState } from 'react';
 import { setUserSession } from '../../Utils/common';
 import './Login.css';
@@ -7,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import fina from '../resources/fina.gif';
 import google from '../resources/google.png';
 import facebook from '../resources/facebook.png'
+import {SignIn} from '../../Utils/Api'
 
 const Login = () => {
 
@@ -25,19 +25,20 @@ const Login = () => {
         setPassword(e.target.value)
     }
 
+    const data = {
+        'email': email,
+        'password': password
+    }
+
     const authenticateLogin = (e) => {
         e.preventDefault();
-        axios.post("http://206.189.91.54//api/v1/auth/sign_in", {
-           email: email,
-           password: password
-          }).then((res) => {
-            setUserSession(res['headers'], res['data']['data']);
+        SignIn(data)
+            .then(res => {
+                setUserSession(res['headers'], res['data']['data']);
                 history.push('/home')
-          }).catch(errors => {
-            setErrors(errors['response']['data']['errors'][0])
-          })
+            }).catch(err => setErrors('Invalid Credentials. Please try again'))
     }
- 
+
     return ( 
         <div className="login-wrapper">
             <img className='slack-gif' src={fina} alt=""/>

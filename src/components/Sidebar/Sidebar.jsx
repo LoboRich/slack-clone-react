@@ -16,48 +16,42 @@ import { Link, useHistory } from 'react-router-dom'
 import { Avatar, Button } from '@material-ui/core';
 import dropdwonicon from '../resources/dropdown.png'
 import { getDatabase, ref, onValue } from "firebase/database";
+import {FetchUserChannels, FetchUserDms} from '../../Utils/Api'
 
 function Sidebar() {
   const db = getDatabase();
   const [channels, setChannels] = useState([])
   const [dms, setDms] = useState([])
-  const [dropdown, setDropDown] = useState(false)
-  const [dropdownCH, setDropDownCH] = useState(false)
+  const [dropdown, setDropDown] = useState(true)
+  const [dropdownCH, setDropDownCH] = useState(true)
   const [isLoading, setLoading] = useState(true);
   const [hasError, setErrors] = useState(false);
   const history = useHistory()
 
   const getDirectMessages = () => {
-    axios.get("http://206.189.91.54//api/v1/users/recent", {
-      headers: getToken()
-      }).then((res) => {
-          if(res['data']['data'] === undefined){
-              return
-          }else{
-            setDms(res['data']['data'])
-          }
-          setLoading(false);
-          
+    FetchUserDms(getToken())
+      .then(res => {
+        if(res['data']['data'] === undefined){
+            return
+        }else{
+          setDms(res['data']['data'])
+        }
       }).catch(error => {
           setErrors(error)
           setLoading(true)
       })
   }
 
-
   const getChannels = () => {
-    axios.get("http://206.189.91.54//api/v1/channels", {
-      headers: getToken()
-      }).then((res) => {
+    FetchUserChannels(getToken())
+      .then(res => {
           if(res['data']['data'] === undefined){
               return
           }else{
               setChannels(res['data']['data'])
           }
-          setLoading(false);
-          
       }).catch(error => {
-          setErrors(error)
+          setErrors(error)  
           setLoading(true)
       })
   }
@@ -94,13 +88,11 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebar__header">
         <div className="sidebar__info">
-          <h2>
-            <Link to="/">Slack Clone</Link>
-          </h2>
-          <h3>
+          <h2>Slack Clone</h2>
+          {/* <h3>
             <FiberManualRecordIcon />
             {getUser().email.split('@')[0]}
-          </h3>
+          </h3> */}
         </div>
         <CreateIcon />
       </div>

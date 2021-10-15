@@ -1,6 +1,6 @@
 @font-face {
     font-family: Slack-Font;
-    src: url('/src/components/resources/Larsseit\ Regular.ttf');
+    src: url('/src/components/resources/NotoSans-Regular.ttf');
   }
 
 * {
@@ -54,9 +54,10 @@
     /* border-top: 1px solid rgb(177, 177, 177); */
     width: 100%;
     padding: 0.5vh;
-    background: #FFFFFF;
+    /* background: #FFFFFF; */
     position: relative;
     bottom: 0;
+    margin-bottom: 3vh;
 }
 
 .retrieveMessage {
@@ -65,24 +66,27 @@
     margin-left: 1.5vh;
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .receivedTime {
-    font-size: 1vh;
+    font-size: 1.3vh;
+    font-weight: 500;
 }
 
 .userData {
-    padding-left: 1vh;
-    height: 80%;
     width: auto;
+    background-color: ghostwhite;
     flex-direction: column;
     justify-content: center;
+    border-radius: 10px;
     align-items: center;
+    padding: 10px 20px 10px 20px;
 }
 
 .userName{
     text-transform: uppercase;
-    font-size: 1.5vh;
+    font-size: 1.8vh;
     height: 40%;
     flex-direction: column;
     justify-content: center;
@@ -90,7 +94,7 @@
 }
 
 .userMessage {
-    font-size: 1.5vh;
+    font-size: 2vh;
     height: 40%;
     flex-direction: column;
     justify-content: center;

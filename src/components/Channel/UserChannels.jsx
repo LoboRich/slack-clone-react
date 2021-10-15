@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { getToken } from '../../Utils/common';
 import './Channel.css'
+import {FetchUserChannels} from '../../Utils/Api'
 
 const ChannelList = () => {
     const [channels, setChannels] = useState([]);
@@ -9,21 +10,18 @@ const ChannelList = () => {
     const [hasError, setErrors] = useState(false);
 
     useEffect(() => {
-        axios.get("http://206.189.91.54//api/v1/channels", {
-            headers: getToken()
-        }).then((res) => {
-            if(res['data']['data'] === undefined){
-                return
-            }else{
-                setChannels(res['data']['data'])
-            }
-            setLoading(false);
-            
-        }).catch(error => {
-            setErrors(error)
-            setLoading(true)
-        })
-    },[channels, setChannels]);
+        FetchUserChannels(getToken())
+            .then(res => {
+                if(res['data']['data'] === undefined){
+                    return
+                }else{
+                    setChannels(res['data']['data'])
+                }
+            }).catch(error => {
+                setErrors(error)
+                setLoading(true)
+            })
+    },[]);
 
     return <div className='channels'>
         {hasError ? <p>{hasError.message}</p> : null}
