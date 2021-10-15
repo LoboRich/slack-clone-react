@@ -32,16 +32,15 @@
     display: flex;
     padding: 0 50px;
     color: gray;
-    border: 1px solid gray;
     border-radius: 6px;
   }
   
   .header__middle > input {
     background-color: transparent;
     border: none;
-    color: white;
+    color: white; 
     text-align: center;
-    min-width: 35vw;
+    min-width: 35vw !important;
   }
   
   .header__middle > input:focus {
@@ -61,4 +60,8 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
+  }
+  .css-1s2u09g-control {
+    background: none !important;
+    color: white !important;
   }
