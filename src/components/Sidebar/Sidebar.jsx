@@ -18,6 +18,9 @@ import dropdwonicon from '../resources/dropdown.png'
 import { getDatabase, ref, onValue } from "firebase/database";
 import {FetchUserChannels, FetchUserDms} from '../../Utils/Api'
 import messageCreate from '../resources/createMessage.png'
+import man from '../resources/man.png'
+import nice from '../resources/nice.png'
+import gamer from '../resources/gamer.png'
 
 function Sidebar() {
   const db = getDatabase();
