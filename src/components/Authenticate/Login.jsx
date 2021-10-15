@@ -46,7 +46,7 @@ const Login = () => {
                     </div>
                     <span className="logCreateChannel">{ errors ? errors : null}</span>
                     <input type="email" role='input' name='email' className='login-email' onChange={(e)=>setEmail(e.target.value)} placeholder='Your E-mail'/>
-                    <input type="password" className='login-text' onChange={passwordAuthenticate} placeholder='Your Password'/>
+                    <input type="password" className='login-text' onChange={(e)=>setPassword(e.target.value)} placeholder='Your Password'/>
                     <button className='login-button' onSubmit={(e)=>setPassword(e.target.value)}>Sign in with Email</button>
                     <h6 className='registration-header'>Don't have an account? <span onClick={()=>setModal(true)} className='register-button'>Register Here</span></h6>
                 </div>
