@@ -40,11 +40,11 @@ function ChannelDetails(props) {
 
     return  (
         <div className='header-content'>
-            <span className='channel-name'den="true"><img src={lock} alt="" srcset="" className='lockIcon' /><span className="chName">{details['name']}</span></span>
+            <span className='channel-name'den="true"><img src={lock} alt="" className='lockIcon' /><span className="chName">{details['name']}</span></span>
             <button className='memberBtn' onClick={()=>setmemberModal(true)}>
-                <img src={man} alt="" srcset="" className='memberAvatar ma1' />
-                <img src={nice} alt="" srcset="" className='memberAvatar ma2' />
-                <img src={gamer} alt="" srcset="" className='memberAvatar ma3' />
+                <img src={man} alt="" className='memberAvatar ma1' />
+                <img src={nice} alt="" className='memberAvatar ma2' />
+                <img src={gamer} alt="" className='memberAvatar ma3' />
                 <h5 className='MemberCount'>+{memCount}</h5>
             </button>
             {memberModal && <div className="membersModal"><Members details={details} exitModal={setmemberModal}/></div>}
