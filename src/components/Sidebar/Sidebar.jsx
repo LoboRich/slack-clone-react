@@ -20,6 +20,7 @@ import {FetchUserChannels, FetchUserDms} from '../../Utils/Api'
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
+
 function Sidebar() {
   const db = getDatabase();
   const [channels, setChannels] = useState([])
@@ -150,7 +151,9 @@ function Sidebar() {
 
       <button className="sidebar__logout" onClick={logout}>
         Logout
+  
       </button>
+      
     </div>
   )
 }

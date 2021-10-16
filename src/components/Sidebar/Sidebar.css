@@ -38,7 +38,7 @@
 .sidebar__info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
 }
 
@@ -55,7 +55,7 @@
 
 .sidebar__info > h3 {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   font-size: 13px;
   font-weight: 400;
   text-transform: capitalize;
@@ -112,11 +112,12 @@
     cursor: pointer;
     color: white;
     opacity: 0.6;
+    width: 70%;
   }
   
   #ch{
     display: flex;
-    padding: 6px 6px 6px 2px;
+    width: 50%;
     align-items: center;
     font-size: 15px;
     cursor: pointer;
