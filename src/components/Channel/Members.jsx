@@ -30,7 +30,6 @@ const Members = (props) => {
                 <div className="otherButtons">
                     <button>STAR</button>
                     <button>GET Notification</button>
-                    <button></button>
                 </div>
                 <div className="memberNow">
                 {

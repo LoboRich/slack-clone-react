@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { getToken } from '../../Utils/common';
 import './Channel.css'
@@ -8,22 +7,32 @@ import lock from '../resources/lock.png'
 import man from '../resources/man.png'
 import nice from '../resources/nice.png'
 import gamer from '../resources/gamer.png'
+import { getDatabase, ref, onValue } from "firebase/database";
+import { Channel } from '../../Utils/Api';
 
 function ChannelDetails(props) {
+    const db = getDatabase();
     const [details, setDetails] = useState([]);
-    const [isLoading, setLoading] = useState(true);
-    const [hasError, setErrors] = useState(false);
     const [memberModal, setmemberModal] = useState(false)
     const [memCount, setMemCount] = useState(0)
 
+    const channel_details = () => {
+        Channel(props.channel_id, getToken())
+            .then((res) => {
+                setDetails(res['data']['data']);
+                setMemCount(res['data']['data']['channel_members'].length)
+            }).catch(error => {})
+    }
+
     useEffect(() => {
-        axios.get("http://206.189.91.54//api/v1/channels/"+props.channel_id, {
-            headers: getToken()
-        }).then((res) => {
-            setDetails(res['data']['data']);
-            setMemCount(res['data']['data']['channel_members'].length)
-        }).catch(error => {
-        })
+        channel_details();
+        const members = ref(db, '/members/'+props.channel_id);
+        onValue(members, (snapshot) => {
+            const data = snapshot.val();
+            console.log(data)
+            channel_details();
+            
+        });
     },[props]);
 
     return  (
