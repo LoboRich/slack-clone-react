@@ -11,7 +11,6 @@ import gamer from '../resources/gamer.png'
 
 const RetrieveMessage = (props) => {
     const current_user = getUser().id;
-    console.log(current_user)
     const db = getDatabase();
 
     const iconArray = [man,nice,gamer,man,nice,gamer,man,nice,gamer,man,nice,gamer,man,nice,gamer]
