@@ -19,7 +19,6 @@ import routeDesign from './Routes.module.css'
 
 
 export default function Routes(){
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [isLoaded, setIsLoaded] = useState(false)
     const [session, setSession] = useState([])
 
@@ -51,7 +50,7 @@ export default function Routes(){
         <Route
         {...rest}
         render={(props) =>
-            session.length != 0 ? (
+            session.length !== 0 ? (
                 addStructure(Component, props)
             ) : (
             <Redirect

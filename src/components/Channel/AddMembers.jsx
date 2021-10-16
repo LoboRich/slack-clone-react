@@ -27,7 +27,7 @@ function AddMembers(props){
         headers: getToken()
     })
     .then((res) => {
-        if(res['data']['data'] == undefined){
+        if(res['data']['data'] === undefined){
           setNotice(JSON.stringify(res['data']['errors'][0]))
           setNoticeColor({color: 'red'})
         }else{

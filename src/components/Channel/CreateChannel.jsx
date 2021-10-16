@@ -1,7 +1,6 @@
 import axios from "axios";
 import { getToken, getUser } from "../../Utils/common";
 import {useState, useEffect} from 'react'
-import { useHistory } from "react-router-dom";
 import './Channel.css'
 import logo from '../resources/slack-logo.png'
 import Select from 'react-select';
@@ -13,7 +12,6 @@ const CreateChannel = () => {
     const [userIds, setuserIds] = useState([]);
     const [userList, setUserList] = useState([]);
     const [errors, setErrors] = useState(false);
-    const history = useHistory();
     const nameChange = (e) => {
         setName(e.target.value)
     }
@@ -72,7 +70,6 @@ const CreateChannel = () => {
                 <form onSubmit={create} id='add-channel-form'>
                     <input value={name} type='text' className='form-control' onChange={nameChange}/>
                     <Select
-                        // defaultValue={[colourOptions[2], colourOptions[3]]}
                         isMulti
                         name="colors"
                         options={Options[0]}
