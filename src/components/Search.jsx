@@ -10,7 +10,7 @@ import {FetchUsers} from '../Utils/Api'
 function Search(props){
     const history = useHistory();
     const [userList, setUserList] = useState([]);
-    const [userIds, setUserIds] = useState(props['user_id'])
+    
     const iconArray = [man,nice,gamer]
     const [avatarIcon, setavatarIcon] = useState('man')
     const randomizeAvatar = () => {
@@ -34,7 +34,7 @@ function Search(props){
     }
 
     return (
-        userList.filter(person => userIds.includes(person.id)).map(filteredPerson => (
+        userList.filter(person => props.user_id.includes(person.id)).map(filteredPerson => (
             <div className="contactWrapper">
                 <img className='thisIcon' src={avatarIcon} alt="" />
                 <h4 key={filteredPerson.id} onClick={() => newDM(filteredPerson.id)} user_id={filteredPerson.id} className='channelsMembers'> {filteredPerson.email}</h4> 
