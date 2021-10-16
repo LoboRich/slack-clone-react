@@ -4,8 +4,10 @@ import { getToken } from '../../Utils/common';
 import {useState, useEffect } from 'react';
 import Select from 'react-select';
 import './Channel.css'
+import { getDatabase, ref, push } from "firebase/database";
 
 function AddMembers(props){
+  const db = getDatabase();
   const [member, setMember] = useState(null);
   const [userList, setUserList] = useState([]);
   
@@ -23,7 +25,7 @@ function AddMembers(props){
         headers: getToken()
     })
     .then((res) => {
-        alert('Member Added Successfully');
+        push(ref(db, '/member/'+props.channel_id),res['data']['data']);
     });
   }
   const fetchUserList = () => {
