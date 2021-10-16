@@ -9,14 +9,11 @@ import gif from '../resources/gif.png'
 import plus from '../resources/plus.png'
 import { getDatabase, ref, push } from "firebase/database";
 import firebase from "../../Utils/firebase";
+import { NewMessage } from "../../Utils/Api";
 
 const SendMessage = (props) => {
     const db = getDatabase();
     const [messageInput, setMessageInput] = useState('')
-
-    const messageWrite = (e) => {   
-        setMessageInput(e.target.value)
-    }
 
     const data = {
         'receiver_id': props.receiver_id,
@@ -26,15 +23,11 @@ const SendMessage = (props) => {
 
     const SendMessage = (e) => {
         e.preventDefault();
-        axios.post('http://206.189.91.54//api/v1/messages', data, {
-            headers: getToken()
-        })
-        .then((res) => {
-            push(ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id),res['data']['data']);
-            setMessageInput('')
-        });
-        
-        
+        NewMessage(data, getToken())
+            .then((res) => {
+                push(ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id),res['data']['data']);
+                setMessageInput('')
+            });
     }
 
     return ( 
@@ -46,7 +39,7 @@ const SendMessage = (props) => {
                         <img src={link} alt="" className={message.link}/>
                         <img src={camera} alt="" className={message.camera} />
                     </div>
-                    <input type="text" value={messageInput} className={message.messageInputData} placeholder='Message Here' onChange={messageWrite}/>
+                    <input type="text" value={messageInput} className={message.messageInputData} placeholder='Message Here' onChange={(e)=>setMessageInput(e.target.value)} />
                     <button className={message.sendButton}><img src={sendButton} alt="" className={message.sendIcon} onSubmit={SendMessage}/></button>  
             </form>
         </div>

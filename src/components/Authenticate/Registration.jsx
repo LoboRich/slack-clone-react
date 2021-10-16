@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState } from 'react';
 import './Registration.css'
 import {SignUp} from '../../Utils/Api'
@@ -20,7 +19,7 @@ const Registration = ({closeRegistration}) => {
         e.preventDefault();
         SignUp(inputData)
             .then(res => {
-                if(res.message == undefined){
+                if(res.message === undefined){
                     closeRegistration(false)
                 }else{
                    setErrors(res['response'].data.errors.full_messages[0])

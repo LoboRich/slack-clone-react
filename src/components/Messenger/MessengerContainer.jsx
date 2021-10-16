@@ -1,12 +1,8 @@
 import RetrieveMessage from "./RetrieveMessage";
-import axios from "axios";
-import { getToken } from "../../Utils/common";
-import { useState } from "react";
 import React from "react";
 import message from './MessengerContainer.module.css'
 import ChannelDetails from "../Channel/ChannelDetails";
 import SendMessage from './SendMessage'
-import Members from "../Channel/Members";
 import UserDetails from "../Users/UserDetails";
 
 

@@ -1,11 +1,10 @@
-import axios from "axios";
 import { getToken, getUser } from "../../Utils/common";
 import {useState, useEffect} from 'react'
-import { useHistory } from "react-router-dom";
 import './Channel.css'
 import logo from '../resources/slack-logo.png'
 import Select from 'react-select';
 import { getDatabase, ref, push } from "firebase/database";
+import { NewChannel, FetchUsers } from "../../Utils/Api";
 
 const CreateChannel = () => {
     const db = getDatabase();
@@ -13,7 +12,6 @@ const CreateChannel = () => {
     const [userIds, setuserIds] = useState([]);
     const [userList, setUserList] = useState([]);
     const [errors, setErrors] = useState(false);
-    const history = useHistory();
     const nameChange = (e) => {
         setName(e.target.value)
     }
@@ -29,38 +27,27 @@ const CreateChannel = () => {
 
     const create = (e) => {
         e.preventDefault()
-        axios.post('http://206.189.91.54//api/v1/channels', data, {
-            headers: getToken()
-        })
-        .then((res) => {
-            if(res['data']['errors'] != undefined){
-                setErrors(res['data']['errors'])
-            }else{
-                setErrors(false)
-                push(ref(db, `/channel/${getUser().id}`), res['data']['data']);
-                setName('')
-            }
-            
-        });
-    }
-
-    const fetchUserList = () => {
-        axios.get("http://206.189.91.54//api/v1/users", {
-            headers: getToken()
-        }).then((res) => {
-            setUserList(res['data']['data']);
-        })
+        NewChannel(data, getToken())
+            .then(res => {
+                if(res['data']['errors'] !== undefined){
+                    setErrors(res['data']['errors'])
+                }else{
+                    setErrors(false)
+                    push(ref(db, `/channel/${getUser().id}`), res['data']['data']);
+                    setName('')
+                }
+            });
     }
 
     useEffect(() => {
-        fetchUserList();
+        FetchUsers(getToken())
+            .then(res => {
+                setUserList(res['data']['data']);
+            })
     }, []);
     
     const Options = [
-        userList.map(list => {
-            const {id, email} = list;
-            return { value: id, label: email };
-        })
+        userList.map(({id, email}) => { return { value: id, label: email }})
     ]
 
     return (
@@ -72,7 +59,6 @@ const CreateChannel = () => {
                 <form onSubmit={create} id='add-channel-form'>
                     <input value={name} type='text' className='form-control' onChange={nameChange}/>
                     <Select
-                        // defaultValue={[colourOptions[2], colourOptions[3]]}
                         isMulti
                         name="colors"
                         options={Options[0]}

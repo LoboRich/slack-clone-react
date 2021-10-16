@@ -1,15 +1,17 @@
 import React from 'react';
-import axios from 'axios';
 import { getToken } from '../../Utils/common';
 import {useState, useEffect } from 'react';
 import Select from 'react-select';
 import './Channel.css'
 import { getDatabase, ref, push } from "firebase/database";
+import { FetchUsers, AddMemberToChannel } from '../../Utils/Api';
 
 function AddMembers(props){
   const db = getDatabase();
   const [member, setMember] = useState(null);
   const [userList, setUserList] = useState([]);
+  const [notice, setNotice] = useState(null);
+  const [noticeColor, setNoticeColor] = useState(null);
   
   const data = {
     "id": props.channel_id,
@@ -21,19 +23,24 @@ function AddMembers(props){
   
   const add = (e) => {
     e.preventDefault()
-    axios.post('http://206.189.91.54//api/v1/channel/add_member', data, {
-        headers: getToken()
-    })
-    .then((res) => {
-        push(ref(db, '/member/'+props.channel_id),res['data']['data']);
-    });
+    AddMemberToChannel(data, getToken())
+      .then(res => {
+        if(res['data']['data'] === undefined){
+          setNotice(JSON.stringify(res['data']['errors'][0]))
+          setNoticeColor({color: 'red'})
+        }else{
+          setNotice('Member was added successfully!')
+          setNoticeColor({color: 'green'})
+        }
+        push(ref(db, '/member/'+props.channel_id),data);
+      });
   }
+
   const fetchUserList = () => {
-    axios.get("http://206.189.91.54//api/v1/users", {
-        headers: getToken()
-    }).then((res) => {
+    FetchUsers(getToken())
+      .then((res) => {
         setUserList(res['data']['data']);
-    })
+      })
   }
 
   useEffect(() => {
@@ -41,17 +48,14 @@ function AddMembers(props){
   }, []);
     
   const Options = [
-      userList.map(list => {
-          const {id, email} = list;
-          return { value: id, label: email };
-      })
+      userList.map(({id, email}) => { return { value: id, label: email }})
   ]
-
 
     return (
       <div className="addMemberContainer">
-            <Select name="colors" options={Options[0]} className="basic-multi-select user-select" classNamePrefix="select" onChange={memberChange}/>
-            <button onClick={add} className='addUserBtn'>Add User</button>
+          <span style={noticeColor}>{notice ? notice : null}</span>
+          <Select name="colors" options={Options[0]} className="basic-multi-select user-select" classNamePrefix="select" onChange={memberChange}/>
+          <button onClick={add} className='addUserBtn'>Add User</button>
       </div>
    );
 }

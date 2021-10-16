@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { getToken } from '../../Utils/common';
 import './Channel.css'

@@ -1,5 +1,4 @@
 
-import axios from 'axios';
 import { removeUserSession, getToken, getUser } from '../../Utils/common';
 import './Sidebar.css'
 import { useState, useEffect } from 'react'
@@ -13,12 +12,10 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import AddIcon from '@material-ui/icons/Add'
 import { Link, useHistory } from 'react-router-dom'
-import { Avatar, Button } from '@material-ui/core';
-import dropdwonicon from '../resources/dropdown.png'
+import { Button } from '@material-ui/core';
 import { getDatabase, ref, onValue } from "firebase/database";
 import {FetchUserChannels, FetchUserDms} from '../../Utils/Api'
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 
 function Sidebar() {
@@ -69,7 +66,6 @@ function Sidebar() {
   
   const dmDropDown = () => {
     setDropDown(!dropdown)
-    // alert(dropDown)
   }
 
   const chDropDown = () => {
@@ -83,7 +79,6 @@ function Sidebar() {
     onValue(channel, (snapshot) => {
         const channel = snapshot.val();
         getChannels();
-        // setMessages(postElement, data);
     });
   }, [])
 
@@ -92,10 +87,6 @@ function Sidebar() {
       <div className="sidebar__header">
         <div className="sidebar__info">
           <h2>Slack Clone</h2>
-          {/* <h3>
-            <FiberManualRecordIcon />
-            {getUser().email.split('@')[0]}
-          </h3> */}
         </div>
         <CreateIcon />
       </div>
@@ -145,10 +136,7 @@ function Sidebar() {
           <Link to="/owned-channels">Owned Channels</Link>
         </li>
       </div>
-       
-
-        
-
+      
       <button className="sidebar__logout" onClick={logout}>
         Logout
   

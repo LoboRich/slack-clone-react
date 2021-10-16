@@ -68,3 +68,67 @@ export const FetchOwnedChannels = async (token) => {
         return error;
     }
 }
+
+export const Channel = async (id, token) => {
+    try {
+        const response = await axios.get("http://206.189.91.54//api/v1/channels/"+id, {
+            headers: token
+        });
+        return response;
+    } catch (error) {
+        return error;
+    }
+}
+
+export const NewChannel = async (data, headers) => {
+    try {
+        const response = await axios({
+            method: "post",
+            url: 'http://206.189.91.54//api/v1/channels',
+            data: data,
+            headers: headers
+        });
+        return response;
+    } catch (error) {
+        return error;
+    }
+}
+
+export const AddMemberToChannel = async (data, headers) => {
+    try {
+        const response = await axios({
+            method: "post",
+            url: 'http://206.189.91.54//api/v1/channel/add_member',
+            data: data,
+            headers: headers
+        });
+        return response;
+    } catch (error) {
+        return error;
+    }
+}
+
+export const NewMessage = async (data, headers) => {
+    try {
+        const response = await axios({
+            method: "post",
+            url: 'http://206.189.91.54//api/v1/messages',
+            data: data,
+            headers: headers
+        });
+        return response;
+    } catch (error) {
+        return error;
+    }
+}
+
+export const FetchMessages = async (receiver_class, receiver_id, token) => {
+    try {
+        const response = await axios.get(`http://206.189.91.54//api/v1/messages?receiver_class=${receiver_class}&receiver_id=`+receiver_id, {
+            headers: token
+        });
+        return response;
+    } catch (error) {
+        return error;
+    }
+}
