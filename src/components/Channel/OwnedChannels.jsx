@@ -15,17 +15,19 @@ const OwnedChannels = () => {
             })
     }, []);
   
-    return <div>
-        <h1>Owned Channels</h1>
-        {hasError ? <p>{hasError.message}</p> : null}
-        {ownedChannels.map(ownedChannel => {
-            const {id, name} = ownedChannel;
+    return (
+        <div className="ownedContainer">
+                {hasError ? <p>{hasError.message}</p> : null}
+                {ownedChannels.map(ownedChannel => {
+                    const {id, name} = ownedChannel;
             return (
-                <a href={'/channel-details/Channel/'+id} key={id}>{name}</a>
+                <div className="ownedSlides">
+                    <a href={'/channel-details/Channel/'+id} key={id}>{name}</a>
+                </div>
+                
             );
         })}
-        
-    </div>
-
+        </div>
+    )
 }
 export default OwnedChannels;

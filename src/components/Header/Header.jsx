@@ -7,10 +7,12 @@ import {useState, useEffect } from 'react';
 import Select from 'react-select';
 import { useHistory } from "react-router-dom";
 import {FetchUsers} from '../../Utils/Api'
+import User from './User';
 
 function Header() {
     const history = useHistory();
     const [userList, setUserList] = useState([]);
+    const [userModal, setuserModal] = useState(false)
 
     useEffect(() => {
       FetchUsers(getToken())
@@ -42,8 +44,10 @@ function Header() {
         <HelpOutlineIcon />
         <Avatar
           className="header__avatar"
+          onClick={()=>setuserModal(true)}
         />
       </div> 
+      {userModal && <User modalInt={setuserModal}/>}
     </div>
   )
 

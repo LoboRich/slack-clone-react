@@ -131,17 +131,7 @@ function Sidebar() {
             online='isOnline'
           />
         )): <></>}
-      
-        <li>
-          <Link to="/owned-channels">Owned Channels</Link>
-        </li>
-      </div>
-      
-      <button className="sidebar__logout" onClick={logout}>
-        Logout
-  
-      </button>
-      
+      </div>    
     </div>
   )
 }

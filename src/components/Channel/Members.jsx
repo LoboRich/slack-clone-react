@@ -7,6 +7,9 @@ import { getToken } from '../../Utils/common';
 import { useHistory } from "react-router-dom";
 import './Channel.css'
 import Search from '../Search';
+import star from '../resources/star.png'
+import bell from '../resources/alarm.png'
+import call from '../resources/call.png'
 
 
 const Members = (props) => {
@@ -25,11 +28,12 @@ const Members = (props) => {
     return ( 
         <div className="membersContainer">
             <button onClick={()=>props.exitModal(false)} className='exitModalMember'>X</button>
-            <h4>Current members of this Channel</h4>
+            <h4 className='modalTitle'>Current members of this Channel</h4>
             <div className="membersForm">
                 <div className="otherButtons">
-                    <button>STAR</button>
-                    <button>GET Notification</button>
+                    <button className='starBtn'><img src={star} alt="" srcset="" className='starIcon'/>Favorite</button>
+                    <button className='getBtn'><img src={bell} alt="" srcset="" className='bellIcon' />Notification</button>
+                    <button className='callBtn'><img src={call} alt="" srcset="" className='callIcon'/>Start a Call</button>
                 </div>
                 <div className="memberNow">
                 {
