@@ -8,6 +8,7 @@ import Select from 'react-select';
 import { useHistory } from "react-router-dom";
 import {FetchUsers} from '../../Utils/Api'
 import User from './User';
+import man from '../resources/man.png'
 
 function Header() {
     const history = useHistory();
@@ -42,10 +43,7 @@ function Header() {
       </div>
       <div className="header__right">
         <HelpOutlineIcon />
-        <Avatar
-          className="header__avatar"
-          onClick={()=>setuserModal(true)}
-        />
+        <img src={man} alt="" className="header__avatar" onClick={()=>setuserModal(true)}/>
       </div> 
       {userModal && <User modalInt={setuserModal}/>}
     </div>
