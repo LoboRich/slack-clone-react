@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getToken } from '../../Utils/common';
 import './Channel.css'
 import Members from './Members';
@@ -10,11 +10,35 @@ import gamer from '../resources/gamer.png'
 import { getDatabase, ref, onValue } from "firebase/database";
 import { Channel } from '../../Utils/Api';
 
+function useOutsideAlerter(ref, setmemberModal) {
+    useEffect(() => {
+        /**
+         * Alert if clicked on outside of element
+         */
+        console.log(setmemberModal);
+        function handleClickOutside(event) {
+            if (ref.current && !ref.current.contains(event.target)) {
+                setmemberModal(false)
+            }
+        }
+
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [ref]);
+}
+
 function ChannelDetails(props) {
+    
     const db = getDatabase();
     const [details, setDetails] = useState([]);
     const [memberModal, setmemberModal] = useState(false)
     const [memCount, setMemCount] = useState(0)
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef, setmemberModal);
 
     const channel_details = () => {
         Channel(props.channel_id, getToken())
@@ -46,7 +70,9 @@ function ChannelDetails(props) {
                 <h5 className='MemberCount'>+{memCount}</h5>
             </button>
             {memberModal && <div className="membersModal">
-                <Members details={details} exitModal={setmemberModal}/>
+                <div className="membersContainer" ref={wrapperRef}>
+                    <Members details={details} exitModal={setmemberModal}/>
+                </div>
             </div>}
         </div>
     )

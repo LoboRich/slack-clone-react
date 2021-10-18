@@ -15,7 +15,7 @@ const Members = (props) => {
     },[props])
 
     return ( 
-        <div className="membersContainer">
+        <>
             <button onClick={()=>props.exitModal(false)} className='exitModalMember'>X</button>
             <h4 className='modalTitle'>Current members of this Channel</h4>
             <div className="membersForm">
@@ -29,7 +29,7 @@ const Members = (props) => {
                 </div>
                 <AddMembers channel_id={props.details.id} />
             </div>
-        </div>
+        </>
      );
 }
  
