@@ -98,3 +98,20 @@
         opacity: 1;
     }
 }
+
+@media all and (max-width: 980px) {
+    
+    .registration-wrapper {
+        height: 44%;
+        width: 50%;
+    }
+
+    .registration-form {
+        height: 80%;
+        width: 80%;
+        position: relative;
+    }
+
+    .terms {
+    }
+}
