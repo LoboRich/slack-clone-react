@@ -15,7 +15,6 @@ function useOutsideAlerter(ref, setmemberModal) {
         /**
          * Alert if clicked on outside of element
          */
-        console.log(setmemberModal);
         function handleClickOutside(event) {
             if (ref.current && !ref.current.contains(event.target)) {
                 setmemberModal(false)

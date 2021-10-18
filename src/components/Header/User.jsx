@@ -15,12 +15,12 @@ const User = (props) => {
       }
 
     return ( 
-        <div className="userInfoModal">
+        <>
             <button className='canceModal' onClick={()=>props.modalInt(false)}>X</button>
             <h1 className='channelTitle'>Channels Created:</h1>
             <OwnedChannels />
             <button className="modalLogout" onClick={logout}>Logout</button>
-        </div>
+        </>
      );
 }
  

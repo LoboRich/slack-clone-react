@@ -2,17 +2,39 @@ import './Header.css'
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import { getToken } from '../../Utils/common';
-import {useState, useEffect } from 'react';
+import {useState, useEffect, useRef } from 'react';
 import Select from 'react-select';
 import { useHistory } from "react-router-dom";
 import {FetchUsers} from '../../Utils/Api'
 import User from './User';
 import man from '../resources/man.png'
 
+function useOutsideAlerter(ref, setuserModal) {
+  useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event) {
+          if (ref.current && !ref.current.contains(event.target)) {
+            setuserModal(false)
+          }
+      }
+
+      // Bind the event listener
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+          // Unbind the event listener on clean up
+          document.removeEventListener("mousedown", handleClickOutside);
+      };
+  }, [ref]);
+}
+
 function Header() {
     const history = useHistory();
     const [userList, setUserList] = useState([]);
     const [userModal, setuserModal] = useState(false)
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef, setuserModal);
 
     useEffect(() => {
       FetchUsers(getToken())
@@ -44,7 +66,7 @@ function Header() {
         <HelpOutlineIcon />
         <img src={man} alt="" className="header__avatar" onClick={()=>setuserModal(true)}/>
       </div> 
-      {userModal && <User modalInt={setuserModal}/>}
+      {userModal && <div className="userInfoModal" ref={wrapperRef}><User modalInt={setuserModal}/></div>}
     </div>
   )
 
