@@ -2,7 +2,6 @@ import AddMembers from './AddMembers';
 import './Channel.css'
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useHistory } from "react-router-dom";
 import './Channel.css'
 import Search from '../Search';
 import star from '../resources/star.png'
@@ -10,7 +9,6 @@ import bell from '../resources/alarm.png'
 import call from '../resources/call.png'
 
 const Members = (props) => {
-    const history = useHistory();
     const [details, setDetails] = useState(props.details);
     useEffect(()=>{
         setDetails(props.details)
