@@ -11,12 +11,9 @@ import { FetchMessages } from "../../Utils/Api";
 const RetrieveMessage = (props) => {
     const current_user = getUser().id;
     const db = getDatabase();
-
     const iconArray = [man,nice,gamer,man,nice,gamer]
-
     const [avatarIcon, setavatarIcon] = useState('man')
     const [messages, setMessages] = useState([]);
-
     const randomizeAvatar = () => {
         setavatarIcon(iconArray[Math.floor(Math.random() * iconArray.length)])
     }
@@ -40,10 +37,10 @@ const RetrieveMessage = (props) => {
     }
 
     useEffect(() => {
-        randomizeAvatar();
         recieveData();
-        const chats = ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id);
+        const chats = ref(db, '/chats/'+props.receiver_class);
         onValue(chats, (snapshot) => {
+            const chats = snapshot.val(); 
             recieveData();
         });
         
