@@ -64,7 +64,7 @@
 
 .retrieveMessage {
     height: 100%;
-    width: auto;
+    max-width: 50%;
     margin-left: 1.5vh;
     display: flex;
     align-items: center;
@@ -74,10 +74,11 @@
 .receivedTime {
     font-size: 1.3vh;
     font-weight: 500;
+    margin-left: 0.5vw;
 }
 
 .userData {
-    width: 70%;
+    max-width: 100%;
     /* background-color: ghostwhite; */
     flex-direction: column;
     justify-content: center;
@@ -102,6 +103,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-wrap: break-word;
 }
 
 .avatar {
