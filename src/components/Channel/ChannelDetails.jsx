@@ -26,10 +26,9 @@ function ChannelDetails(props) {
 
     useEffect(() => {
         channel_details();
-        const members = ref(db, '/members/'+props.channel_id);
-        onValue(members, (snapshot) => {
+        const member = ref(db, '/member/'+props.channel_id);
+        onValue(member, (snapshot) => {
             const data = snapshot.val();
-            console.log(data)
             channel_details();
             
         });
