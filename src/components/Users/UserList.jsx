@@ -2,11 +2,10 @@ import axios from 'axios';
 import { getToken } from '../../Utils/common';
 import {useState, useEffect} from 'react';
 
-const UserList = () => {
+const GetUserList = () => {
     const [userList, setUserList] = useState([]);
     const [isLoading, setLoading] = useState(true);
     const [hasError, setErrors] = useState(false);
-
 
     const fetchUserList = () => {
         axios.get("http://206.189.91.54//api/v1/users", {
@@ -22,7 +21,7 @@ const UserList = () => {
 
     useEffect(() => {
         fetchUserList();
-    }, [userList, setUserList]);
+    }, []);
   
     return <div className="userList">
         <h1>User List</h1>
@@ -41,10 +40,5 @@ const UserList = () => {
         )}
     </div>
 
-}
-function GetUserList(){
-    return (
-        <UserList />
-    )
 }
 export default GetUserList;

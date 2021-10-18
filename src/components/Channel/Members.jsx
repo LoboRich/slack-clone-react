@@ -1,9 +1,7 @@
 import AddMembers from './AddMembers';
 import './Channel.css'
 import React from 'react'
-import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { getToken } from '../../Utils/common';
 import { useHistory } from "react-router-dom";
 import './Channel.css'
 import Search from '../Search';
@@ -11,16 +9,9 @@ import star from '../resources/star.png'
 import bell from '../resources/alarm.png'
 import call from '../resources/call.png'
 
-
 const Members = (props) => {
-
     const history = useHistory();
     const [details, setDetails] = useState(props.details);
-
-    const newDM = (user_id) => {
-        history.push('/users/User/'+user_id)
-    }
-
     useEffect(()=>{
         setDetails(props.details)
     },[props])
@@ -36,9 +27,7 @@ const Members = (props) => {
                     <button className='callBtn'><img src={call} alt="" srcset="" className='callIcon'/>Start a Call</button>
                 </div>
                 <div className="memberNow">
-                {
                     <Search user_id={details['channel_members'].map(detail => detail.user_id)}/>
-                }
                 </div>
                 <AddMembers channel_id={props.details.id} />
             </div>

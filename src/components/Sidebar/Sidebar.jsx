@@ -11,12 +11,11 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import AddIcon from '@material-ui/icons/Add'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import { getDatabase, ref, onValue } from "firebase/database";
 import {FetchUserChannels, FetchUserDms} from '../../Utils/Api'
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-
 
 function Sidebar() {
   const db = getDatabase();
@@ -54,14 +53,6 @@ function Sidebar() {
           setErrors(error)  
           setLoading(true)
       })
-  }
-
-  const logout = () => {
-    removeUserSession();
-    const data = sessionStorage.getItem('user')
-    if (!data) {
-      history.push('/Login')
-    }
   }
   
   const dmDropDown = () => {

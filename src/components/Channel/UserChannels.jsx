@@ -3,7 +3,7 @@ import { getToken } from '../../Utils/common';
 import './Channel.css'
 import {FetchUserChannels} from '../../Utils/Api'
 
-const ChannelList = () => {
+const UserChannels = () => {
     const [channels, setChannels] = useState([]);
     const [isLoading, setLoading] = useState(true);
     const [hasError, setErrors] = useState(false);
@@ -38,9 +38,4 @@ const ChannelList = () => {
 
 }
 
-function UserChannels(){
-    return (
-        <ChannelList />
-    )
-}
 export default UserChannels;

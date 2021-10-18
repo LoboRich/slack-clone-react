@@ -44,7 +44,6 @@ const RetrieveMessage = (props) => {
         recieveData();
         const chats = ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id);
         onValue(chats, (snapshot) => {
-            const data = snapshot.val();
             recieveData();
         });
         

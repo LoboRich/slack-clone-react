@@ -1,6 +1,6 @@
 import OwnedChannels from "../Channel/OwnedChannels";
-import { removeUserSession, getToken, getUser } from '../../Utils/common';
-import { Link, useHistory } from 'react-router-dom'
+import { removeUserSession } from '../../Utils/common';
+import { useHistory } from 'react-router-dom'
 import './Header.css'
 
 const User = (props) => {

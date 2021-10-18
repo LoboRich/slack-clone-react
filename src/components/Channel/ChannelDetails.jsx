@@ -28,7 +28,6 @@ function ChannelDetails(props) {
         channel_details();
         const member = ref(db, '/member/'+props.channel_id);
         onValue(member, (snapshot) => {
-            const data = snapshot.val();
             channel_details();
             
         });

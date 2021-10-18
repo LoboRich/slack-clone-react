@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import lock from '../resources/lock.png'
 import { getToken } from "../../Utils/common";
-import { useHistory } from "react-router-dom";
 import {FetchUsers} from '../../Utils/Api'
 
 function UserDetails(props) {
     const uid = JSON.parse(props.user_id)
     const [userList, setUserList] = useState([]);
-    const history = useHistory();
     
     useEffect(() => {
         FetchUsers(getToken())
