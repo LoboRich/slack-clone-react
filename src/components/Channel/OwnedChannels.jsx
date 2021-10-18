@@ -17,16 +17,22 @@ const OwnedChannels = () => {
   
     return (
         <div className="ownedContainer">
-                {hasError ? <p>{hasError.message}</p> : null}
-                {ownedChannels.map(ownedChannel => {
+            {hasError ? <p>{hasError.message}</p> : null}
+            
+            {ownedChannels ? 
+                ownedChannels.map(ownedChannel => {
                     const {id, name} = ownedChannel;
-            return (
+                    return (
+                        <div className="ownedSlides">
+                            <a href={'/channel-details/Channel/'+id} key={id}>{name}</a>
+                        </div>
+                    );
+                })
+                :
                 <div className="ownedSlides">
-                    <a href={'/channel-details/Channel/'+id} key={id}>{name}</a>
-                </div>
-                
-            );
-        })}
+                    <a href="">No channel created yet.</a>
+                </div> 
+            }
         </div>
     )
 }
