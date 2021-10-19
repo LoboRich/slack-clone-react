@@ -26,6 +26,8 @@ function Sidebar() {
   const [isLoading, setLoading] = useState(true);
   const [hasError, setErrors] = useState(false);
   const history = useHistory()
+  const key = 'id';
+  const dmUnique = [... new Map(dms.map(item => [item[key], item])).values()]
 
   const getDirectMessages = () => {
     FetchUserDms(getToken())
@@ -117,7 +119,7 @@ function Sidebar() {
         <hr />
         <Button onClick={dmDropDown} id="dm"> {dropdown ? <ArrowDropDownIcon /> : <ArrowRightIcon /> } Direct Messages</Button>
         <hr />
-        {dropdown ? dms.map((dm) => (
+        {dropdown ? dmUnique.map((dm) => (
           <SidebarOption
             Icon={FiberManualRecordIcon}
             title={dm.email.split('@')[0]}

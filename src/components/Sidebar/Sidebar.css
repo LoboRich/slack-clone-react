@@ -153,3 +153,22 @@
     text-decoration: none;
     color: white;
   }
+
+  @media all and (max-width: 980px) {
+    
+    .sidebar {
+        height: 44%;
+        width: 50%;
+    }
+
+    .sidebar__header{
+        height: 80%;
+        width: 80%;
+        position: relative;
+    }
+    .sidebar_info {
+      height: 80%;
+      width: 80%;
+      position: relative;
+    }
+}
