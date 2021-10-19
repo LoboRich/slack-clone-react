@@ -3,6 +3,7 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import { getToken } from '../../Utils/common';
 import {useState, useEffect, useRef } from 'react';
+import { getDatabase, ref, onValue } from "firebase/database";
 import Select from 'react-select';
 import { useHistory } from "react-router-dom";
 import {FetchUsers} from '../../Utils/Api'
@@ -30,17 +31,27 @@ function useOutsideAlerter(ref, setuserModal) {
 }
 
 function Header() {
+    const db = getDatabase();
     const history = useHistory();
     const [userList, setUserList] = useState([]);
     const [userModal, setuserModal] = useState(false)
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef, setuserModal);
 
-    useEffect(() => {
+    const list = () => {
       FetchUsers(getToken())
         .then(res => {
           setUserList(res['data']['data']);
         }).catch(err => err)
+    }
+
+    useEffect(() => {
+      list();
+      const new_user = ref(db, '/new_user');
+        onValue(new_user, (snapshot) => {
+          const new_user = snapshot.val(); 
+          list();
+      });
     }, []);
 
   const Options = [

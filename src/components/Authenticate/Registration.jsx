@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './Registration.css'
 import {SignUp} from '../../Utils/Api'
+import { getDatabase, ref, push } from "firebase/database";
 
 const Registration = ({closeRegistration}) => {
-
+    const db = getDatabase();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirm_password, setConfirmPassword] = useState('')
@@ -21,6 +22,7 @@ const Registration = ({closeRegistration}) => {
             .then(res => {
                 if(res.message === undefined){
                     closeRegistration(false)
+                    push(ref(db, '/new_user'),inputData);
                 }else{
                    setErrors(res['response'].data.errors.full_messages[0])
                 } 

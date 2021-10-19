@@ -66,10 +66,16 @@ function Sidebar() {
   useEffect(() => {
     getChannels();
     getDirectMessages();
-    const channel = ref(db, `/channel/${getUser().id}`);
+    const channel = ref(db, `/member`);
     onValue(channel, (snapshot) => {
         const channel = snapshot.val();
         getChannels();
+    });
+
+    const dm = ref(db, `/chats/User`);
+    onValue(dm, (snapshot) => {
+        const dm = snapshot.val();
+        getDirectMessages();
     });
   }, [])
 
