@@ -172,3 +172,12 @@
       position: relative;
     }
 }
+
+@media all and (max-width: 980px) {
+  .sidebar {
+    position: absolute;
+    height: 100%;
+    left: -30%;
+    width: 30%;
+  }
+}

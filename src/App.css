@@ -45,7 +45,7 @@ body {
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+/* @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
 }
@@ -54,7 +54,7 @@ body {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .channelsMembers {
   max-width: 100%;
@@ -80,4 +80,20 @@ body {
 .thisIcon {
   height: 100%;
   max-width: 100%;
+}
+
+
+@media all and (max-width: 980px){
+
+  .app__body {
+    min-width: 900px;
+    height: 93%;
+  }
+
+  .body {
+    height: 85%;
+    min-width: 960px;
+  }
+
+  
 }

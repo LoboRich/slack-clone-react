@@ -46,3 +46,10 @@
   .slack-gif {
     max-width: 100vw;
 }
+
+@media all and (max-width: 980px) { 
+  .Welcome {
+    height: 93%;
+    min-width: 900px;
+  }
+}

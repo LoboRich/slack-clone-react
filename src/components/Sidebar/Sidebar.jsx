@@ -28,6 +28,7 @@ function Sidebar() {
   const history = useHistory()
   const key = 'id';
   const dmUnique = [... new Map(dms.map(item => [item[key], item])).values()]
+  const [navBar, setnavBar] = useState('')
 
   const getDirectMessages = () => {
     FetchUserDms(getToken())
@@ -82,7 +83,7 @@ function Sidebar() {
   }, [])
 
   return (
-    <div className="sidebar">
+    <div className={'sidebar' + navBar}>
       <div className="sidebar__header">
         <div className="sidebar__info">
           <h2>Slack Clone</h2>

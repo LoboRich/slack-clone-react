@@ -67,6 +67,7 @@ function Header() {
 
   return (
     <div className="header">
+      <button className='navBtn'>Hey</button>
       <div className="header__left">
         <AccessTimeIcon />
       </div>
@@ -75,8 +76,8 @@ function Header() {
       </div>
       <div className="header__right">
         <HelpOutlineIcon />
-        <img src={man} alt="" className="header__avatar" onClick={()=>setuserModal(true)}/>
       </div> 
+      <img src={man} alt="" className="header__avatar" onClick={()=>setuserModal(true)}/>
       {userModal && <div className="userInfoModal" ref={wrapperRef}><User modalInt={setuserModal}/></div>}
     </div>
   )
