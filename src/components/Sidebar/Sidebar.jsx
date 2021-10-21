@@ -69,7 +69,7 @@ function Sidebar() {
   useEffect(() => {
     getChannels();
     getDirectMessages();
-    const channel = ref(db, `/member`);
+    const channel = ref(db, `/channel`);
     onValue(channel, (snapshot) => {
         const channel = snapshot.val();
         getChannels();
@@ -86,7 +86,7 @@ function Sidebar() {
     <div className={'sidebar' + navBar}>
       <div className="sidebar__header">
         <div className="sidebar__info">
-          <div><h2>Slack Clone</h2><span>{getUser().uid}</span></div>
+          <div><h2>Slack Clone</h2><span className='user_name'>{getUser().uid}</span></div>
           <CreateIcon onClick={(e) => history.push('/new_message')}/>
         </div>
       </div>
