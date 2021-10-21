@@ -51,7 +51,7 @@ const RetrieveMessage = (props) => {
     return (
         <div className={messaged.messageBox}>
             <div className={messaged.testMBox}>
-              {messages.map(message => {
+              {messages ? messages.map(message => {
                 const {id, body, sender} = message;
                 return (
                     <div className={messaged.retrieveBox} key={id} style={
@@ -77,7 +77,7 @@ const RetrieveMessage = (props) => {
                         </div>
                     </div>
                     );
-                })}
+                }) : <p className={messaged.intro}>This is the very beginning of your direct message history.</p>}
             </div>
         </div>
      );
