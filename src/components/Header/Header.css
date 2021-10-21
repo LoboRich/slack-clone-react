@@ -50,6 +50,10 @@
     gap: 10px;
   }
 
+  .header__middle .Search__single-value {
+    color: grey !important;
+  }
+
   .search_img {
     max-width: 100%;
     height: 30px;
