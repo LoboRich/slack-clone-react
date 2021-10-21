@@ -6,6 +6,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import man from '../resources/man.png'
 import nice from '../resources/nice.png'
 import gamer from '../resources/gamer.png'
+import lock from '../resources/lock.png'
 import { FetchMessages } from "../../Utils/Api";
 
 const RetrieveMessage = (props) => {
@@ -30,10 +31,12 @@ const RetrieveMessage = (props) => {
     };
 
     const recieveData = () => {
-      FetchMessages(props.receiver_class, props.receiver_id, getToken())
+      if (props.receiver_id) {
+        FetchMessages(props.receiver_class, props.receiver_id, getToken())
           .then((res) => {
               setMessages(res['data']['data'])
           })
+      }
     }
 
     useEffect(() => {
@@ -47,11 +50,11 @@ const RetrieveMessage = (props) => {
     }, [props]);
 
     const isCurrentUser = (sender_id) => {return sender_id === current_user}
-    
+
     return (
         <div className={messaged.messageBox}>
             <div className={messaged.testMBox}>
-              {messages ? messages.map(message => {
+              {messages.length !== 0 ? messages.map(message => {
                 const {id, body, sender} = message;
                 return (
                     <div className={messaged.retrieveBox} key={id} style={
@@ -77,7 +80,10 @@ const RetrieveMessage = (props) => {
                         </div>
                     </div>
                     );
-                }) : <p className={messaged.intro}>This is the very beginning of your direct message history.</p>}
+                }) : <div className={messaged.intro}>
+                    <img src={props.receiver_class === 'User' ? nice : lock} alt="" className={messaged.avatar}/>
+                    <p>This is the very beginning of your message history.</p>
+                </div> }
             </div>
         </div>
      );

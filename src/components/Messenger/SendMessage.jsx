@@ -23,11 +23,13 @@ const SendMessage = (props) => {
 
     const SendMessage = (e) => {
         e.preventDefault();
-        NewMessage(data, getToken())
-            .then((res) => {
-                push(ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id),res['data']['data']);
-                setMessageInput('')
-            });
+        if(props.receiver_id){
+            NewMessage(data, getToken())
+                .then((res) => {
+                    push(ref(db, '/chats/'+props.receiver_class+'/'+props.receiver_id),res['data']['data']);
+                    setMessageInput('')
+                });
+        }
     }
 
     return ( 
