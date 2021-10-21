@@ -86,10 +86,11 @@ function Sidebar() {
     <div className={'sidebar' + navBar}>
       <div className="sidebar__header">
         <div className="sidebar__info">
-          <h2>Slack Clone</h2>
+          <div><h2>Slack Clone</h2><span>{getUser().uid}</span></div>
+          <CreateIcon onClick={(e) => history.push('/new_message')}/>
         </div>
-        <CreateIcon />
       </div>
+
       <div className="sidebar__options">
         <SidebarOption Icon={InsertCommentIcon} title="Thread" />
         <SidebarOption Icon={AlternateEmailIcon} title="Mentions & Reactions" />
